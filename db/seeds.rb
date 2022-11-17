@@ -63,8 +63,8 @@ course_1 = Course.create(
   holes: 18,
   par: 72
 )
-course_1.photos.attached[io: course_1_file, filename: "#{course_1_filenames[0]}", content_type: 'image/jpg']
-course_1.photos.attached[io: course_1a_file, filename: "#{course_1_filenames[1]}", content_type: 'image/jpg']
+course_1.photos.attach[io: course_1_file, filename: "#{course_1_filenames[0]}", content_type: 'image/jpg']
+course_1.photos.attach[io: course_1a_file, filename: "#{course_1_filenames[1]}", content_type: 'image/jpg']
 course_1.save
 puts "created #{course_1}"
 
@@ -80,8 +80,8 @@ course_2 = Course.create(
   holes: 9,
   par: 70
 )
-course_2.photos.attached[io: course_2_file, filename: "#{course_2_filenames[0]}", content_type: 'image/jpg']
-course_2.photos.attached[io: course_2a_file, filename: "#{course_2_filenames[1]}", content_type: 'image/jpg']
+course_2.photos.attach[io: course_2_file, filename: "#{course_2_filenames[0]}", content_type: 'image/jpg']
+course_2.photos.attach[io: course_2a_file, filename: "#{course_2_filenames[1]}", content_type: 'image/jpg']
 course_2.save
 puts "created #{course_2}"
 
@@ -97,8 +97,8 @@ course_3 = Course.create(
   holes: 18,
   par: 71
 )
-course_3.photos.attached[io: course_3_file, filename: "#{course_3_filenames[0]}", content_type: 'image/jpg']
-course_3.photos.attached[io: course_3a_file, filename: "#{course_3_filenames[1]}", content_type: 'image/jpg']
+course_3.photos.attach[io: course_3_file, filename: "#{course_3_filenames[0]}", content_type: 'image/jpg']
+course_3.photos.attach[io: course_3a_file, filename: "#{course_3_filenames[1]}", content_type: 'image/jpg']
 course_3.save
 puts "created #{course_2}"
 
@@ -114,8 +114,8 @@ course_4 = Course.create(
   holes: 72,
   par: 18
 )
-course_4.photos.attached[io: course_4_file, filename: "#{course_4_filenames[0]}", content_type: 'image/jpg']
-course_4.photos.attached[io: course_4a_file, filename: "#{course_4_filenames[1]}", content_type: 'image/jpg']
+course_4.photos.attach[io: course_4_file, filename: "#{course_4_filenames[0]}", content_type: 'image/jpg']
+course_4.photos.attach[io: course_4a_file, filename: "#{course_4_filenames[1]}", content_type: 'image/jpg']
 course_4.save
 puts "created #{course_4}"
 
@@ -131,8 +131,8 @@ course_5 = Course.create(
   holes: 18,
   par: 70
 )
-course_5.photos.attached[io: course_5_file, filename: "#{course_5_filenames[0]}", content_type: 'image/jpg']
-course_5.photos.attached[io: course_5a_file, filename: "#{course_5_filenames[1]}", content_type: 'image/jpg']
+course_5.photos.attach[io: course_5_file, filename: "#{course_5_filenames[0]}", content_type: 'image/jpg']
+course_5.photos.attach[io: course_5a_file, filename: "#{course_5_filenames[1]}", content_type: 'image/jpg']
 course_5.save
 puts "created #{course_5}"
 
@@ -148,7 +148,7 @@ course_6 = Course.create(
   holes: 18,
   par: 72
 )
-course_6.photos.attached[io: course_6_file, filename: "#{course_6_filenames[0]}", content_type: 'image/jpg']
-course_6.photos.attached[io: course_6a_file, filename: "#{course_6_filenames[1]}", content_type: 'image/jpg']
+course_6.photos.attach[io: course_6_file, filename: "#{course_6_filenames[0]}", content_type: 'image/jpg']
+course_6.photos.attach[io: course_6a_file, filename: "#{course_6_filenames[1]}", content_type: 'image/jpg']
 course_6.save
 puts "created #{course_6}"
