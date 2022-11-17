@@ -8,7 +8,7 @@
 require "open-uri"
 
 User.destroy_all
-# Course.destroy_all
+Course.destroy_all
 # Booking.destroy_all
 # Attendee.destroy_all
 
@@ -23,33 +23,33 @@ puts "created..."
 course_1_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/hole-3_s9uoox.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713899/GimmeGolf/pexels-pixabay-164250_mnaa6k.jpg']
 
-course_1_filenames = ['hole-3_s9uoox', 'pexels-pixabay-164250_mnaa6k']
+course_1_filenames = ['hole-3_s9uoox.jpg', 'pexels-pixabay-164250_mnaa6k.jpg']
 
 
 course_2_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713899/GimmeGolf/sedlescombe_ojnsxu.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713899/GimmeGolf/Woodbury-Park-Course-5_evdp0g.jpg']
 
-course_2_filenames = ['sedlescombe_ojnsxu', 'Woodbury-Park-Course-5_evdp0g']
+course_2_filenames = ['sedlescombe_ojnsxu.jpg', 'Woodbury-Park-Course-5_evdp0g.jpg']
 
 course_3_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/greenside-on-the-2nd-hole-at-thorpeness-golf-course-suffolk_csxzmt.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713899/GimmeGolf/opens2_iote5h.jpg']
 
-course_3_filenames = ['greenside-on-the-2nd-hole-at-thorpeness-golf-course-suffolk_csxzmt', 'opens2_iote5h']
+course_3_filenames = ['greenside-on-the-2nd-hole-at-thorpeness-golf-course-suffolk_csxzmt.jpg', 'opens2_iote5h.jpg']
 
 course_4_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668714790/GimmeGolf/Great_Waters_at_Reynolds_Lake_Oconee_-_Oct_2019_brgr1z.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668714790/GimmeGolf/ahnrz-golf-course-50669717_cwj6n1.jpg']
 
-course_4_filenames = ['Great_Waters_at_Reynolds_Lake_Oconee_-_Oct_2019_brgr1z', 'ahnrz-golf-course-50669717_cwj6n1']
+course_4_filenames = ['Great_Waters_at_Reynolds_Lake_Oconee_-_Oct_2019_brgr1z.jpg', 'ahnrz-golf-course-50669717_cwj6n1.jpg']
 
 course_5_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/Kendleshire-Golf-5_gsqpch.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/millgreen_k4vkdz.jpg']
 
-course_5_filenames = ['Kendleshire-Golf-5_gsqpch', 'millgreen_k4vkdz']
+course_5_filenames = ['Kendleshire-Golf-5_gsqpch.jpg', 'millgreen_k4vkdz.jpg']
 
 course_6_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/hole-14-Course-image_gshcym.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/img_bg_1_hyigjy.jpg']
 
-course_6_filenames = ['hole-14-Course-image_gshcym', 'img_bg_1_hyigjy']
+course_6_filenames = ['hole-14-Course-image_gshcym.jpg', 'img_bg_1_hyigjy.jpg']
 
 
 course_1_file = URI.open(course_1_photo[0])
@@ -63,8 +63,8 @@ course_1 = Course.create(
   holes: 18,
   par: 72
 )
-course_1.photos.attach[io: course_1_file, filename: "#{course_1_filenames[0]}", content_type: 'image/jpg']
-course_1.photos.attach[io: course_1a_file, filename: "#{course_1_filenames[1]}", content_type: 'image/jpg']
+course_1.photos.attach(io: course_1_file, filename: "#{course_1_filenames[0]}", content_type: 'image/jpg')
+course_1.photos.attach(io: course_1a_file, filename: "#{course_1_filenames[1]}", content_type: 'image/jpg')
 course_1.save
 puts "created #{course_1}"
 
@@ -80,8 +80,8 @@ course_2 = Course.create(
   holes: 9,
   par: 70
 )
-course_2.photos.attach[io: course_2_file, filename: "#{course_2_filenames[0]}", content_type: 'image/jpg']
-course_2.photos.attach[io: course_2a_file, filename: "#{course_2_filenames[1]}", content_type: 'image/jpg']
+course_2.photos.attach(io: course_2_file, filename: "#{course_2_filenames[0]}", content_type: 'image/jpg')
+course_2.photos.attach(io: course_2a_file, filename: "#{course_2_filenames[1]}", content_type: 'image/jpg')
 course_2.save
 puts "created #{course_2}"
 
@@ -97,8 +97,8 @@ course_3 = Course.create(
   holes: 18,
   par: 71
 )
-course_3.photos.attach[io: course_3_file, filename: "#{course_3_filenames[0]}", content_type: 'image/jpg']
-course_3.photos.attach[io: course_3a_file, filename: "#{course_3_filenames[1]}", content_type: 'image/jpg']
+course_3.photos.attach(io: course_3_file, filename: "#{course_3_filenames[0]}", content_type: 'image/jpg')
+course_3.photos.attach(io: course_3a_file, filename: "#{course_3_filenames[1]}", content_type: 'image/jpg')
 course_3.save
 puts "created #{course_2}"
 
@@ -114,8 +114,8 @@ course_4 = Course.create(
   holes: 72,
   par: 18
 )
-course_4.photos.attach[io: course_4_file, filename: "#{course_4_filenames[0]}", content_type: 'image/jpg']
-course_4.photos.attach[io: course_4a_file, filename: "#{course_4_filenames[1]}", content_type: 'image/jpg']
+course_4.photos.attach(io: course_4_file, filename: "#{course_4_filenames[0]}", content_type: 'image/jpg')
+course_4.photos.attach(io: course_4a_file, filename: "#{course_4_filenames[1]}", content_type: 'image/jpg')
 course_4.save
 puts "created #{course_4}"
 
@@ -131,8 +131,8 @@ course_5 = Course.create(
   holes: 18,
   par: 70
 )
-course_5.photos.attach[io: course_5_file, filename: "#{course_5_filenames[0]}", content_type: 'image/jpg']
-course_5.photos.attach[io: course_5a_file, filename: "#{course_5_filenames[1]}", content_type: 'image/jpg']
+course_5.photos.attach(io: course_5_file, filename: "#{course_5_filenames[0]}", content_type: 'image/jpg')
+course_5.photos.attach(io: course_5a_file, filename: "#{course_5_filenames[1]}", content_type: 'image/jpg')
 course_5.save
 puts "created #{course_5}"
 
@@ -148,7 +148,7 @@ course_6 = Course.create(
   holes: 18,
   par: 72
 )
-course_6.photos.attach[io: course_6_file, filename: "#{course_6_filenames[0]}", content_type: 'image/jpg']
-course_6.photos.attach[io: course_6a_file, filename: "#{course_6_filenames[1]}", content_type: 'image/jpg']
+course_6.photos.attach(io: course_6_file, filename: "#{course_6_filenames[0]}", content_type: 'image/jpg')
+course_6.photos.attach(io: course_6a_file, filename: "#{course_6_filenames[1]}", content_type: 'image/jpg')
 course_6.save
 puts "created #{course_6}"
