@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "index#home"
+  root to: "courses#home"
+
 
   resources :courses, only: [:index, :show] do
     resources :bookings, only: [:index, :create, :new]
