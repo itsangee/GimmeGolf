@@ -9,10 +9,16 @@ class CoursesController < ApplicationController
     if params[:search]
       @search = params[:search]
       booked_date = DateTime.parse(@search)
-      @courses = Course.where(datetime: booked_date)
-    # else
-    #   @courses = Course.all
+      bookings = Booking.where(datetime: booked_date)
+      courses_arr = []
+      bookings.each do |book|
+        courses_arr << book.course
+      end
+      @courses = Course.all - courses_arr
+    else
+      @courses = Course.all
     end
+
   end
 
   def show
