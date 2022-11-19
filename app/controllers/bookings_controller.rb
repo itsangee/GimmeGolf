@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    # binding.b
     @booking = Booking.new(booking_params)
     @course = Course.find(params[:course_id])
     # @booking = Booking.new(booking_params)
