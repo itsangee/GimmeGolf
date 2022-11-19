@@ -1,0 +1,30 @@
+.container{
+  background-color: white;
+  width: 100%;
+}
+.cards{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:16px;
+  width: 100%;
+
+
+}
+
+.card-course-info{
+  margin-left:10px;
+}
+.course-card{
+  overflow: hidden;
+  background-color: white;
+  color: #40531B;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-left:10px
+}
+
+.course-card h4, p{
+  font-weight: bold;
+  margin-top:10px;
+  margin-left:10px;
+}
