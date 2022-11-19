@@ -11,5 +11,6 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
+    
   end
 end
