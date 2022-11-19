@@ -31,10 +31,6 @@ gem "devise"
 
 gem "cloudinary"
 
-gem "omniauth"
-gem "omniauth-facebook"
-gem "omniauth-google-oauth2"
-gem "omniauth-rails_csrf_protection"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
