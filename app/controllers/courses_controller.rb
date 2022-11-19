@@ -5,12 +5,16 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all
+    if params[:search]
+      @search = params[:search]
+      @courses = Course.where("name ILIKE ?", "%#{params[:search]}%")
+    else
+      @courses = Course.all
+    end
   end
 
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
-    
   end
 end
