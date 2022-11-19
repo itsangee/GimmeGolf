@@ -5,11 +5,13 @@ class CoursesController < ApplicationController
   end
 
   def index
+    # binding.b
     if params[:search]
       @search = params[:search]
-      @courses = Course.where("name ILIKE ?", "%#{params[:search]}%")
-    else
-      @courses = Course.all
+      booked_date = DateTime.parse(@search)
+      @courses = Course.where(datetime: booked_date)
+    # else
+    #   @courses = Course.all
     end
   end
 
