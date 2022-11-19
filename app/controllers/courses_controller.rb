@@ -5,12 +5,18 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all
+    # binding.b
+    if params[:search]
+      @search = params[:search]
+      booked_date = DateTime.parse(@search)
+      @courses = Course.where(datetime: booked_date)
+    # else
+    #   @courses = Course.all
+    end
   end
 
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
-    
   end
 end
