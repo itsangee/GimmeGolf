@@ -1,6 +1,8 @@
 <h1>Hello world
 </h1>
 <%= @course.name%>
+
+<%= current_user.email %>
 <div>
   <%= simple_form_for [@course, @booking] do |f| %>
             <%= f.submit "Buy Now", class: "button", id: "buy-btn" %>
