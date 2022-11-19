@@ -5,6 +5,7 @@
 <%= current_user.email %>
 <div>
   <%= simple_form_for [@course, @booking] do |f| %>
+    <%= f.input :datetime, :as => :datetime %>
     <%= f.submit "Book Course Now", class: "button", id: "buy-btn" %>
   <% end %>
 </div>
