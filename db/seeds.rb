@@ -9,7 +9,7 @@ require "open-uri"
 
 User.destroy_all
 Course.destroy_all
-# Booking.destroy_all
+Booking.destroy_all
 # Attendee.destroy_all
 
 user = User.new(email: "magdalena@gmail.com", password: "123456")
@@ -19,6 +19,8 @@ puts "creating"
 user_2 = User.new(email: "angee@gmail.com", password: "123456")
 user_2.save!
 puts "created..."
+
+booking
 
 course_1_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/hole-3_s9uoox.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713899/GimmeGolf/pexels-pixabay-164250_mnaa6k.jpg']
