@@ -9,9 +9,9 @@ class CoursesController < ApplicationController
     if params[:search]
       @search = params[:search]
       booked_date = DateTime.parse(@search)
-      bookings = Booking.where(datetime: booked_date)
+      @bookings = Booking.where(datetime: booked_date)
       courses_arr = []
-      bookings.each do |book|
+      @bookings.each do |book|
         courses_arr << book.course
       end
       @courses = Course.all - courses_arr
@@ -23,6 +23,8 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @slots = @course.slots
     @booking = Booking.new
+    @bookings = Booking.all
   end
 end

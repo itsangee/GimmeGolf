@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_142323) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_212429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_142323) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "datetime"
+    t.date "datetime"
+    t.bigint "slot_id"
     t.index ["course_id"], name: "index_bookings_on_course_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -68,6 +69,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_142323) do
     t.integer "price"
     t.integer "holes"
     t.integer "par"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "number_slots", default: 0, null: false
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

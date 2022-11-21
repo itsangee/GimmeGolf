@@ -1,11 +1,43 @@
-<h1>Hello world
-</h1>
+<h1 class="text-center">
 <%= @course.name%>
+</h1>
 
-<%# <%= current_user.email %> %>
+
+<div class="text-center border-3 border d-flex flex-column justify-content-center ">
+  <h2>Current attendees:</h2>
+  <%# if the booking.course_id is same as this page %>
+  <%# show all bookings %>
+  <ul>
+
+    <% @bookings.each do |booking| %>
+    <% if booking.course_id == @course.id %>
+    <li>
+      <p>Booking id: <%= booking.user_id %></p>
+      <p><% booking.slots.each do |slot| %></p>
+        <%= slot.start_time %>
+        <% end %>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+
+
+<% current_year = Date.current.year %>
 <div>
   <%= simple_form_for [@course, @booking] do |f| %>
-    <%= f.input :datetime, :as => :datetime %>
+    <%# <%= f.input :datetime, :as => :datetime %>
+    <%#= f.input :slot, collection: @slots %>
+    <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
+    <%= f.input :datetime, as: :date, html5: true %>
+    <%# <%= f.input :datetime, html5: true, :minute_step => 60, :start_year => current_year, :start_hour => 9, :end_hour => 17, :discard_year => true, :order => [:day, :month, :year], :discard_minute => true %> %>
     <%= f.submit "Book Course Now", class: "button", id: "buy-btn" %>
   <% end %>
 </div>
+
+
+<p>User signed in? <%= user_signed_in? %></p>
+
+<%# How to generate the 'attendees' entry once you have booked a slot%>
+<%# limit to 4 attendees %>
+<%# How to book the course at pre-arranged times%>

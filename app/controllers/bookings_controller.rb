@@ -9,10 +9,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # binding.b
     @booking = Booking.new(booking_params)
     @course = Course.find(params[:course_id])
-    # @booking = Booking.new(booking_params)
     @booking.course = @course
     @booking.user = current_user
     if @booking.save
@@ -29,6 +27,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:datetime)
+    params.require(:booking).permit(:datetime, :slot_id)
   end
 end
