@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :bookings, only: [:show, :edit, :update, :delete]
+  resources :bookings, only: [:show, :edit, :update, :destroy]
 
-  resources :attendees, only: [:create, :delete]
+  resources :attendees, only: [:create]
   # Defines the root path route ("/")
   # root "articles#index"
 end

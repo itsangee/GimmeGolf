@@ -1,7 +1,35 @@
 <div class="text-center">
-  <h1 class="header">GimmeGolf</h1>
+    <div class="banner">
+      <div class="header-container">
+        <h1>GimmeGolf</h1>
+        <button class="name noselect">
+          <%= link_to "Select your course", courses_path, class: "select-course" %>
+        </button>
+      </div>
+    </div>
 
-  <div><%= image_tag("IMG_3377_qgaz0g", size: "1400x800")%></div>
+  <div class="description"><h2><strong>GimmeGolf</strong> comes from a group of friends.
+    Out of curiosity to find a community for golfers to get together and enjoy playing golf.
+    This enables you to book courses and include meet-ups with friends,
+    families, and other individuals with similar interests in golf!</h2>
+  </div>
 
-  <%= link_to "courses", courses_path %>
+  <h1 class="team">MEET OUR TEAM</h1>
+  <div class="team-photos">
+    <%= image_tag("magdalena1", :class => "style_image" ) %>
+    <h3>Magdalena</h3>
+    <%= image_tag("mustafa", :class => "style_image" ) %>
+    <h3>Mustafa</h3>
+    <%= image_tag("angee", :class => "style_image" ) %>
+    <h3>Angee</h3>
+    <%= image_tag("luba", :class => "style_image" ) %>
+    <h3>Luba</h3>
+  </div>
+
+  <div class="sign-up-div">
+    <h5>Get involved in the most exciting community for all the golfers!</h5>
+    <body>
+    <span><a href="#"></a></span>
+    </body>
+  </div>
 </div>
