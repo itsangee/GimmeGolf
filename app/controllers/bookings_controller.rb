@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @attendees = Attendee.all
+    @attendee = Attendee.new
   end
 
   def create
@@ -14,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.course = @course
     @booking.user = current_user
     if @booking.save
-      redirect_to courses_path
+      redirect_to bookings_path
     end
   end
 
