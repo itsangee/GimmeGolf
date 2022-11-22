@@ -26,5 +26,6 @@ class CoursesController < ApplicationController
     @slots = @course.slots
     @booking = Booking.new
     @bookings = Booking.all
+    @players = @course.bookings.map { |booking| User.find(booking.user_id)}
   end
 end

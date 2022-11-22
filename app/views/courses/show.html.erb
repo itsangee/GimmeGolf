@@ -5,21 +5,28 @@
 
 <div class="text-center border-3 border d-flex flex-column justify-content-center ">
   <h2>Current attendees:</h2>
-  <%# if the booking.course_id is same as this page %>
-  <%# show all bookings %>
-  <ul>
 
-    <% @bookings.each do |booking| %>
-    <% if booking.course_id == @course.id %>
-    <li>
-      <p>Booking id: <%= booking.user_id %></p>
-      <p><% booking.slots.each do |slot| %></p>
-        <%= slot.start_time %>
-        <% end %>
-    </li>
-    <% end %>
-    <% end %>
-  </ul>
+<%# Now show the booking information for each slot! %>
+<%# @course.bookings gives every booking for this course %>
+<%# Now we want every booking only for the specific slots %>
+
+<div>
+  <% @course.bookings.each do |booking| %>
+    <div>
+      <h2><%= slot = Slot.find(booking.slot_id).start_time %></h2>
+      <%# Display only bookings associated with this slot %>
+      <%# <p><% slot.bookings.each do |slotbooking|  %> %>
+        <%# <%= User.find(slotbooking.user_id) %></p> %>
+      <%# <% end %> %>
+      <%# User.find(Slot.first.bookings.first.user_id) %>
+    </div>
+  <% end %>
+</div>
+
+
+<% Slot.find(@course.bookings.last.slot_id).start_time %>
+
+
 </div>
 
 
