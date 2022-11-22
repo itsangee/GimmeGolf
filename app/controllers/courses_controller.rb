@@ -18,7 +18,6 @@ class CoursesController < ApplicationController
     else
       @courses = Course.all
     end
-
   end
 
   def show
