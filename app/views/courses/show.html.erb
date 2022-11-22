@@ -1,7 +1,10 @@
+
 <h1 class="text-center">
   <%= @course.name%>
 </h1>
 
+
+<%# ========== PLEASE LEAVE THIS CODE ALONE AND DO YOUR CODE ABOVE IT ===================================== %>
 
 <%# <%= @player %>
 <div class="text-center border-3 border d-flex flex-column justify-content-center ">
@@ -17,6 +20,10 @@
 
 
 <% current_year = Date.current.year %>
+
+<%= @course.name%>
+
+
 <div>
   <%= simple_form_for [@course, @booking] do |f| %>
     <%= f.input :game_start, collection: @course.slots_collection %>
@@ -27,6 +34,7 @@
   <% end %>
 </div>
 
-<%# Stimulus controller  %>
 
 <p>User signed in? <%= user_signed_in? %></p>
+
+
