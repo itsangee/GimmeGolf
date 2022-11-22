@@ -157,3 +157,11 @@ course_6.photos.attach(io: course_6_file, filename: "#{course_6_filenames[0]}", 
 course_6.photos.attach(io: course_6a_file, filename: "#{course_6_filenames[1]}", content_type: 'image/jpg')
 course_6.save
 puts "created #{course_6}"
+
+
+courses = Course.all
+courses.each do |course|
+  Slot.create(course: course, start_time: '09:00:00', end_time: '12:00:00')
+  Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
+  Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
+end

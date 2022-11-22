@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="card-show-course">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -28,4 +29,45 @@
     <% end %>
   </div>
   </div>
+
+
+<h1 class="text-center">
+  <%= @course.name%>
+</h1>
+
+
+<%# ========== PLEASE LEAVE THIS CODE ALONE AND DO YOUR CODE ABOVE IT ===================================== %>
+
+<%# <%= @player %>
+<div class="text-center border-3 border d-flex flex-column justify-content-center ">
+  <h2>Current attendees:</h2>
+  <%# Show the booking information for each slot! %>
+  <div>
+  <%# if user.booking game_start is same as slot.start_time %>
+    <% @slots.each do |slot| %>
+      <h3><%= slot.start_time %></h3>
+    <% end %>
+  </div>
 </div>
+
+
+<% current_year = Date.current.year %>
+
+<%= @course.name%>
+
+
+<div>
+  <%= simple_form_for [@course, @booking] do |f| %>
+    <%= f.input :game_start, collection: @course.slots_collection %>
+    <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %> %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%# <%= f.input :datetime, html5: true, :minute_step => 60, :start_year => current_year, :start_hour => 9, :end_hour => 17, :discard_year => true, :order => [:day, :month, :year], :discard_minute => true %> %>
+    <%= f.submit "Book Slot", class: "button", id: "buy-btn" %>
+  <% end %>
+
+</div>
+
+
+<p>User signed in? <%= user_signed_in? %></p>
+
+
