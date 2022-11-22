@@ -161,7 +161,7 @@ puts "created #{course_6}"
 
 courses = Course.all
 courses.each do |course|
-  Slot.create(course: course, start_time: '09:00:00', end_time: '12:00:00', number_slots: 4)
-  Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00', number_slots: 4)
-  Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00', number_slots: 4)
+  Slot.create(course: course, start_time: '09:00:00', end_time: '12:00:00')
+  Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
+  Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end

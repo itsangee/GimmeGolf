@@ -27,5 +27,9 @@ class CoursesController < ApplicationController
     @booking = Booking.new
     @bookings = Booking.all
     @players = @course.bookings.map { |booking| User.find(booking.user_id)}
+    @player = @players.map { |player| player}
+    # Create datetime for today HERE date = Date.today
+    # booking where course is the same, where date is the same, start_time
+    # @attendees = Booking.where(course_id: d ).where(date).where(start_time)
   end
 end
