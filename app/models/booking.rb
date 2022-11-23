@@ -1,7 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :course
   belongs_to :user
-  # belongs_to :slot
-  # has_many :attendees
+
+  validates :game_start, :date, presence: true
+  validates :user_id, presence: true, uniqueness: { scope: [ :date, :game_start ]}
 
 end
