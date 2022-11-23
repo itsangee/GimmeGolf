@@ -7,8 +7,7 @@ end
 
 
 # Why is my if/else show page not functioning correctly
-
-
 # Error message if don't fill form correctly
 # How to count up how many users filling a slot?
 # Block more than four users booking a course start_time
+# How to get all child elements of loop to be functional with stimulus, not just first item

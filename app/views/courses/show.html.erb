@@ -3,32 +3,29 @@
   <%= @course.name%>
 </h1>
 
-<p>Day: <%= @today %></p>
 <% current_year = Date.current.year %>
 
 <%# ========== PLEASE LEAVE THIS CODE ALONE AND DO YOUR CODE ABOVE IT ===================================== %>
+<%# data-controller="show-attendees" %>
+<%# data-action="click->show-attendees#revealAttendees" %>
+<%# class="d-none" data-show-attendees-target="attendees" %>
 
-<%# <%= @player %>
-<div class="text-center border-3 border d-flex flex-column justify-content-center ">
-  <h2>Current attendees:</h2>
-  <div class="mb-3">
-    <% @slots.each do |slot| %>
-      <button><%= slot.start_time.strftime("%I:%M %p") %></button>
-      
-    <% end %>
+
+<div class="text-center">
+  <div>
+    <h2><%= @today %></h2>
+    <h2>Current attendees:</h2>
   </div>
-  <%# if user.booking game_start is same as slot.start_time %>
-    <% @slots.each do |slot| %>
-      <h3><%= slot.start_time.strftime("%I:%M %p") %></h3>
-      <div>
-        <% @attendee_bookings.each do |attendee| %>
-          <% if slot.start_time == attendee.game_start %>
-            <p><%= attendee.user.email %> </p>
-          <% end %>
-        <% end %>
-      </div>
+  <% @slots.each do |slot| %>
+    <h2>
+      <%= slot.start_time.strftime("%I:%M %p") %>
+    </h2>
+    <% @attendee_bookings.each do |attendee| %>
+      <% if slot.start_time == attendee.game_start %>
+        <p ><%= attendee.user.email %> </p>
       <% end %>
-  </div>
+    <% end %>
+  <% end %>
 </div>
 
 
