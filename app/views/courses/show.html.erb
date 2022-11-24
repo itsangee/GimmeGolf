@@ -11,21 +11,27 @@
 <%# class="d-none" data-show-attendees-target="attendees" %>
 
 
-<div class="text-center">
-  <div>
+<div>
+  <div class="text-center">
     <h2><%= @today %></h2>
     <h2>Current attendees:</h2>
   </div>
-  <% @slots.each do |slot| %>
-    <h2>
-      <%= slot.start_time.strftime("%I:%M %p") %>
-    </h2>
-    <% @attendee_bookings.each do |attendee| %>
-      <% if slot.start_time == attendee.game_start %>
-        <p ><%= attendee.user.email %> </p>
-      <% end %>
+  <div class="d-flex justify-content-center">
+    <% @slots.each do |slot| %>
+      <div>
+        <button class="text-center">
+          <%= slot.start_time.strftime("%I:%M %p") %>
+        </button>
+        <div class="border border-3">
+          <% @attendee_bookings.each do |attendee| %>
+            <% if slot.start_time == attendee.game_start %>
+              <p ><%= attendee.user.email %> </p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 

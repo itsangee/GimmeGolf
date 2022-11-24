@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
     @today = Date.today
     # booking where course is the same, where date is the same, start_time
     @attendee_bookings = Booking.where(course_id: @course).where(date: @today)
+    @attendees = @attendee_bookings.map { |attendee| attendee}
     @attendee_count = @attendee_bookings.count
     # binding.pry
   end
