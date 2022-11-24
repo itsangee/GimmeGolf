@@ -20,6 +20,36 @@
   </div>
 </div>
 
+<div class="py-2">
+  <form action="/courses" method="get">
+    <div>
+      <div class="position-relative">
+        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      </div>
+      <div class="position-relative">
+        <%# <select name="location" id="cars">
+        <% @locations.each do |location| %>
+          <%# <%= <option value="#{location}">location</option> %>
+        <%# <% end %>
+        <%# </select> %>
+      </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-flat border" id="search-button">
+  </form>
+</div>
+
+<%= form_with url: courses_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    # class: "form-control",
+    placeholder: "Find a location"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%# dropdown to show all the locations available at choosen date %>
+<% end %>
+
+
+
 
 
 <h1><%= @course.name %> </h1>
