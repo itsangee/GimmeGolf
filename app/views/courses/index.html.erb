@@ -28,11 +28,17 @@
 <div class="py-2">
   <form action="/courses" method="get">
     <div class="position-relative">
-      <input type="datetime-local" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
 
     </div>
     <input type="submit" value="Search" class="btn btn-flat border" id="search-button">
+    <select name="location" id="cars">
+      <% @courses.each do |course| %>
+         <option value=<% course.name %>><%= course.name %></option>
+      <% end %>
+    </select>
   </form>
+
 </div>
 
 <%= link_to "Display all",  courses_path %>

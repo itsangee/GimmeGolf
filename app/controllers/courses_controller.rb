@@ -33,6 +33,7 @@ class CoursesController < ApplicationController
     @attendees = @attendee_bookings.map { |attendee| attendee}
     @attendee_count = @attendee_bookings.count
     # binding.pry
+
   end
 end
 
