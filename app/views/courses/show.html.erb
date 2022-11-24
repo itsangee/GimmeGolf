@@ -51,7 +51,44 @@
 
 
 
-  </div> %>
+
+<h1><%= @course.name %> </h1>
+<p> <small><%= @course.description %></small> </p>
+<h2><%= pluralize @course.reviews.size, "review" %></h2>
+
+<div>
+  <% if @course.reviews.blank? %>
+    Be the first to leave a review for <%= @course.name %>
+  <% else %>
+    <% @course.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
+<%= simple_form_for([@course, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to "Back to all courses", courses_path %>
+
+
+<h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
+<div class="py-2">
+  <form action="/courses" method="get">
+    <div>
+      <div class="position-relative">
+        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      </div>
+      <div class="position-relative">
+      </div>
+    </div>
+    <input type="submit" value="SELECT DATE" class="btn btn-flat border" id="search-button">
+  </form>
+</div>
+
+
+<button>SHOW TIMES</button>
+
 
 <% current_year = Date.current.year %>
 
