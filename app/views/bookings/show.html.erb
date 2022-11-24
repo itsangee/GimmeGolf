@@ -1,13 +1,15 @@
-<h1>Bookings info</h1>
-<%= @booking.user %>
-<%= @booking.datetime %>
-<%= @booking.course_id %>
+<div class="text-center">
+  <h1>Bookings info</h1>
+  <%= @booking.user %>
+  <%# <%= @booking.datetime %>
+  <%= @booking.course_id %>
 
-<%# to have the invitation - form - create attendee  %>
-<%= render 'form' %>
+  <%# to have the invitation - form - create attendee  %>
+  <%= render 'form' %>
 
-<%= @attendee %>
-<%# <%= link_to "Delete",
-    review_path(review),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %> %>
+  <%= @attendee %>
+  <%# <%= link_to "Delete",
+      review_path(review),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+</div>
