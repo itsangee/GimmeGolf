@@ -24,11 +24,17 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @slots = @course.slots
     @booking = Booking.new
+    # can use sql query here
     @bookings = Booking.all
-    @players = @course.bookings.map { |booking| User.find(booking.user_id)}
-    @player = @players.map { |player| player}
-    # Create datetime for today HERE date = Date.today
+    # Today's date
+    @today = Date.today
     # booking where course is the same, where date is the same, start_time
-    # @attendees = Booking.where(course_id: d ).where(date).where(start_time)
+    @attendee_bookings = Booking.where(course_id: @course).where(date: @today)
+    @attendees = @attendee_bookings.map { |attendee| attendee}
+    @attendee_count = @attendee_bookings.count
+    # binding.pry
   end
 end
+
+# How to make query to show people coming on other dates
+# How to make query to show people coming for each specific slot
