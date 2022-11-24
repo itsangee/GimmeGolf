@@ -33,6 +33,8 @@ class CoursesController < ApplicationController
     @attendees = @attendee_bookings.map { |attendee| attendee}
     @attendee_count = @attendee_bookings.count
     # binding.pry
+    @course = Course.find(params[:id])
+    @review = Review.new  # Add this line
   end
 end
 
