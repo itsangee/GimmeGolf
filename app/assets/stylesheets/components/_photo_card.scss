@@ -4,27 +4,45 @@
 }
 .cards{
   margin-top: 50px;
+  margin-bottom: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:16px;
   width: 100%;
-
+}
+a {
+  text-decoration: none; /* Убираем подчёркивание */
+ }
+.scale {
+  transition: 1s;
+}
+.scale:hover{
+  transform: scale(1.05);
+}
+.card-course-info {
+  margin-top:10px;
+  margin-left:10px;
+  color: #40531B;
 
 }
+.display-flex {
+  display: flex;
+}
 
-.card-course-info{
-  margin-left:10px;
+.item{
+  flex: 1 1 auto;
+  margin: 0 5px;
 }
 .course-card{
   overflow: hidden;
   background-color: white;
-  color: #40531B;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-left:10px
 }
 
-.course-card h4, p{
-  font-weight: bold;
-  margin-top:10px;
-  margin-left:10px;
+.course-name{
+  font-size: 18px;
+}
+.course-info{
+  font-size: 14px;
 }

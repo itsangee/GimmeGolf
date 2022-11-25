@@ -1,7 +1,94 @@
+<div class="container">
+  <div class="card-show-course">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% @course.photos.each_with_index do |photo,index| %>
+          <div class="carousel-item <%="active" if index.zero? %>">
+            <img src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev no-hover-color" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next no-hover-color" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>
 
-<h1 class="text-center">
-  <%= @course.name%>
-</h1>
+<div class="py-2">
+  <form action="/courses" method="get">
+    <div>
+      <div class="position-relative">
+        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      </div>
+      <div class="position-relative">
+        <%# <select name="location" id="cars">
+        <% @locations.each do |location| %>
+          <%# <%= <option value="#{location}">location</option> %>
+        <%# <% end %>
+        <%# </select> %>
+      </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-flat border" id="search-button">
+  </form>
+</div>
+
+<%= form_with url: courses_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    # class: "form-control",
+    placeholder: "Find a location"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%# dropdown to show all the locations available at choosen date %>
+<% end %>
+
+
+
+
+
+<h1><%= @course.name %> </h1>
+<p> <small><%= @course.description %></small> </p>
+<h2><%= pluralize @course.reviews.size, "review" %></h2>
+
+<div>
+  <% if @course.reviews.blank? %>
+    Be the first to leave a review for <%= @course.name %>
+  <% else %>
+    <% @course.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
+<%= simple_form_for([@course, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to "Back to all courses", courses_path %>
+
+
+<h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
+<div class="py-2">
+  <form action="/courses" method="get">
+    <div>
+      <div class="position-relative">
+        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      </div>
+      <div class="position-relative">
+      </div>
+    </div>
+    <input type="submit" value="SELECT DATE" class="btn btn-flat border" id="search-button">
+  </form>
+</div>
+
+
+<button>SHOW TIMES</button>
+
 
 <% current_year = Date.current.year %>
 
@@ -67,6 +154,7 @@
     <%= f.input :date, as: :date, html5: true, required: true %>
     <%= f.submit "Book Slot", class: "button", id: "buy-btn" %>
   <% end %>
+
 </div>
 
 

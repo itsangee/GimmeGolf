@@ -1,0 +1,8 @@
+<div class="form">
+  <%= simple_form_for([@booking, @attendee]) do |f| %>
+    <%# <h6 class="form-input"><%= f.input :user_id %></h6> %>
+    <h6 class="form-input"><%= f.input :user_id, collection: @attendees.all %></h6>
+    <%# <h6 class="form-input"><%= f.input :booking_id %></h6> %>
+    <button class="button1">Invite<% f.submit %></button>
+  <% end %>
+</div>

@@ -1,17 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="cards course-description">
+    <div class="cards course-description ">
       <% @courses.each do |course| %>
-      <div class="course-card" >
-        <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
-         <div class="card-course-infos">
-              <h4><%= course.name.upcase %></h4>
-              <p><%= course.location.upcase %></p>
+      <div class="course-card scale" >
+
+      <a href="#"><%= link_to course_path(course) do %>
+      <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
+         <div class="card-course-info">
+         <%course_city = course.location.split(",")[-2] %>
+         <%course_zip = course.location.split(",")[-1] %>
+              <h4 class="course-name"><%= course.name.upcase %></h4>
+              <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"%></p>
+              <div class="display-flex">
+                <p class="course-info item ">PAR <%= course.par %></p>
+                <p class="course-info item"> HOLE <%= course.holes %></p>
+              </div>
           </div>
+      <% end %></a>
       </div>
-       <%# <%= link_to course.name, course_path(course)%>
       <% end %>
-              <%# <%= link_to course.name, course_path(course)%>
+
     </div>
   </div>
 </div>
@@ -20,11 +28,17 @@
 <div class="py-2">
   <form action="/courses" method="get">
     <div class="position-relative">
-      <input type="datetime-local" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
+      <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
 
     </div>
     <input type="submit" value="Search" class="btn btn-flat border" id="search-button">
+    <select name="location" id="cars">
+      <% @courses.each do |course| %>
+         <option value=<% course.name %>><%= course.name %></option>
+      <% end %>
+    </select>
   </form>
+
 </div>
 
 <%= link_to "Display all",  courses_path %>

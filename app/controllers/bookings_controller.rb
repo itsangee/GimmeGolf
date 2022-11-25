@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @attendees = Attendee.all
+    @attendee = Attendee.new
   end
 
   # just determine the count of bookings
@@ -26,7 +28,9 @@ class BookingsController < ApplicationController
       else
         # todo
       end
-    end
+   # if @booking.save
+      # redirect_to booking_path(@booking)
+    # end
   end
 
   def destroy
