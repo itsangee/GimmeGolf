@@ -8,13 +8,24 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  # just determine the count of bookings
+  # you need to implement a database constraint
+
   def create
     @booking = Booking.new(booking_params)
     @course = Course.find(params[:course_id])
-    @booking.course = @course
+    # @slot will come from the dropdown on the form, @course.slots
+    # will then be passed over as params
+    @slot = Slot.find(params[:booking][:slot_id].to_i)
+    @booking.slot = @slot
     @booking.user = current_user
-    if @booking.save
-      redirect_to courses_path
+    # binding.pry
+    if @slot.todays_bookings_count < 4
+      if @booking.save
+        redirect_to courses_path
+      else
+        # todo
+      end
     end
   end
 
@@ -27,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :game_start, :course_id)
+    params.require(:booking).permit(:date, :slot_id, :game_start)
   end
 end

@@ -21,19 +21,19 @@ class CoursesController < ApplicationController
 
   end
 
+  # N + 1 queries. Preloading
   def show
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    @course = Course.includes(slots: :bookings).find(params[:id])
     @slots = @course.slots
+    # @slot_id = @slots.map { |slot| slot.id}
     @booking = Booking.new
-    # can use sql query here
-    @bookings = Booking.all
+    # @bookings = Booking.all
     # Today's date
     @today = Date.today
-    # booking where course is the same, where date is the same, start_time
-    @attendee_bookings = Booking.where(course_id: @course).where(date: @today)
-    @attendees = @attendee_bookings.map { |attendee| attendee}
-    @attendee_count = @attendee_bookings.count
-    # binding.pry
+    # Show only bookings where the date is for today and the slot_id belongs to @course
+    # @todays_bookings = Booking.where(date: @today, slot_id: @slot)
+
   end
 end
 
