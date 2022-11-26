@@ -169,3 +169,18 @@ courses.each do |course|
   Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
+
+Booking.create!(user_id: 1, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 1, date: Date.today)
+
+Booking.create!(user_id: 1, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 2, date: Date.today)
+
+Booking.create!(user_id: 1, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 3, date: Date.today)
