@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def unfollow
     if current_user.unfollow(@user.id)
       respond_to do |format|
-        format.html { redirect_to user_path }
+        # format.html { redirect_to user_path }
         format.js { render action: :follow }
       end
     end
@@ -34,16 +34,20 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
-    render 'show_follow'
+    @users = @user.following
+    # paginate(page: params[:page])
+    redirect_to user_path(@user)
 
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
+    # binding.pry
+    @users = @user.followers
+    # paginate(page: params[:page])
+    # render 'show_follow'
+    redirect_to user_path(@user)
   end
 
   private

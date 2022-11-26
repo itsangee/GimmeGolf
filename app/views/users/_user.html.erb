@@ -1,12 +1,12 @@
 <li data-user=<%= user.id %>>
   <%= user.email %>
   <% if current_user.following?(user.id) %>
-    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
+    <%= link_to "Unfollow", unfollow_user_path(user.id),data: {turbo_method: :post, remote: true}  %>
   <% else %>
-    <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+    <%= link_to "Follow", follow_user_path(user.id), data: {turbo_method: :post, remote: true} %>
   <% end %>
 </li>
 
-<%= render  partial: 'stats' %>
+<%= render  partial: 'stats', locals: { user: user} %>
 <%= render 'follow' %>
 <%= render 'unfollow' %>
