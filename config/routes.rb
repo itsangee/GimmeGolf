@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:index, :show] do
     resources :bookings, only: [:index, :create, :new]
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:new, :create]
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
