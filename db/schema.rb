@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_195058) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_203704) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,13 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_195058) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "course_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
     t.time "game_start"
-    t.index ["course_id"], name: "index_bookings_on_course_id"
+    t.bigint "slot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -71,6 +70,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_195058) do
     t.integer "par"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
+    t.index ["following_id"], name: "index_follows_on_following_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_reviews_on_course_id"
   end
 
   create_table "slots", force: :cascade do |t|
@@ -99,6 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_195058) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attendees", "bookings"
   add_foreign_key "attendees", "users"
-  add_foreign_key "bookings", "courses"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "courses"
 end

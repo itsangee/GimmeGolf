@@ -1,0 +1,33 @@
+<%= @player.first_name %>
+<div class="text-center">
+  <h1>Show page for <%= @player.email %></h1>
+</div>
+
+<div class="border border-2">
+  <p><b>Socials section:</b></p>
+  <div>
+    <p><%= @player.email %> is following:</p>
+  </div>
+  <div>
+  <p><%= @player.email %> is followed by:</p>
+  </div>
+</div>
+
+<div>
+  <div>
+    <% @bookings.each do |booking| %>
+      <% if booking.date == @today%>
+        <h4>Current bookings:</h4>
+        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+      <% elsif booking.date < @today %>
+        <h4>Past bookings:</h4>
+        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+      <% else %>
+        <h4>Future bookings:</h4>
+        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+      <% end %>
+    <% end %>
+
+
+  </div>
+</div>
