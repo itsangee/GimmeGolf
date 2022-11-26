@@ -1,0 +1,24 @@
+.usershow-bookings-panel {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.usershow-bookings {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  border-left: 1px grey;
+  border-right: 1px grey;
+
+  // flex-direction: column;
+}
+
+.usershow-bookings-tab {
+  background-color: green;
+  color: white;
+  padding: 10px 5px;
+  text-align: center;
+  border-left: 1px grey;
+  border-right: 1px grey;
+}
