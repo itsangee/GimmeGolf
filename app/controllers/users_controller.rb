@@ -5,6 +5,14 @@ class UsersController < ApplicationController
     @users = User.where.not(id: current_user.id)
   end
 
+  def show
+    @player = User.find(params[:id])
+    @user = current_user
+    @bookings = Booking.where(user_id: @player)
+    @follow = Follow.new
+    @today = Date.today
+  end
+
   def follow
     if current_user.follow(@user.id)
       respond_to do |format|

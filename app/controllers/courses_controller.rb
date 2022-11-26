@@ -30,20 +30,7 @@ class CoursesController < ApplicationController
     # @bookings = Booking.all
     # Today's date
     @today = Date.today
-    
-    # Show only bookings where the date is for today and the slot_id belongs to @course
-    # @todays_bookings = Booking.where(date: @today, slot_id: @slot)
-    # booking where course is the same, where date is the same, start_time
-    
-    @attendee_bookings = Booking.where(course_id: @course).where(date: @today)
-    @attendees = @attendee_bookings.map { |attendee| attendee}
-    @attendee_count = @attendee_bookings.count
     # binding.pry
-    
-    @course = Course.find(params[:id])
     @review = Review.new  # Add this line
   end
 end
-
-# How to make query to show people coming on other dates
-# How to make query to show people coming for each specific slot
