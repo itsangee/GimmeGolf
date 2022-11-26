@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     # binding.pry
     if @slot.todays_bookings_count < 4
       if @booking.save
-        redirect_to courses_path
+        redirect_to booking_path(@booking)
       else
         # todo
       end
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to courses_path(@booking.course), status: :see_other
+    redirect_to courses_path(@curses), status: :see_other
   end
 
   private
