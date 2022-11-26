@@ -1,5 +1,5 @@
-<%= @player.first_name %>
 <div class="text-center">
+
   <h1>Show page for <%= @player.email %></h1>
 </div>
 
@@ -9,4 +9,15 @@
     <%= render partial: "stats", locals: {user: @player}  %>
   </div>
 </div>
+
+
+    <h1><%= @player.first_name %></h1>
+
+    <div>
+      <p><%= @player.email %> <%= render partial: "stats", locals: {user: @player} %></p>
+      <%= render 'bio_show' %>
+    </div>
+
+    <div><h3>Bio:</h3></div>
+
 

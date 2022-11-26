@@ -7,24 +7,24 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
-User.destroy_all
-Course.destroy_all
 Booking.destroy_all
+Course.destroy_all
+User.destroy_all
 # Attendee.destroy_all
 
-user = User.new(email: "magdalena@gmail.com", password: "123456")
+user = User.new(email: "magdalena@gmail.com", password: "123456", first_name: "Magda")
 user.save!
 puts "creating"
 
-user_2 = User.new(email: "angee@gmail.com", password: "123456")
+user_2 = User.new(email: "angee@gmail.com", password: "123456", first_name: "Angee")
 user_2.save!
 puts "created..."
 
-user_3 = User.new(email: "johnnyboy@gmail.com", password: "123456")
+user_3 = User.new(email: "johnnyboy@gmail.com", password: "123456", first_name: "Johnny")
 user_3.save!
 puts "creating!.."
 
-user_4 = User.new(email: "mustafatahir@hotmail.co.uk", password: "123456")
+user_4 = User.new(email: "mustafatahir@hotmail.co.uk", password: "123456", first_name: "Mustafa")
 user_4.save!
 puts "creating!.."
 
@@ -169,3 +169,18 @@ courses.each do |course|
   Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
+
+Booking.create!(user_id: 1, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 1, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 1, date: Date.today)
+
+Booking.create!(user_id: 1, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 2, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 2, date: Date.today)
+
+Booking.create!(user_id: 1, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 2, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 3, slot_id: 3, date: Date.today)
+Booking.create!(user_id: 4, slot_id: 3, date: Date.today)
