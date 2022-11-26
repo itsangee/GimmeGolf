@@ -1,15 +1,20 @@
-<div class="text-center">
-  <h1>Bookings info</h1>
-  <%= @booking.user %>
-  <%# <%= @booking.datetime %>
-  <%= @booking.course_id %>
 
+<div class="container">
   <%# to have the invitation - form - create attendee  %>
-  <%= render 'form' %>
-
-  <%= @attendee %>
-  <%# <%= link_to "Delete",
-      review_path(review),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
-</div>
+  <div class="row">
+    <div class="col-sm-9">
+      <h1>Booking</h1>
+      <h4>Course: "<%= @booking.slot.course.name %>"</h4>
+      <h4>DAY: <%= @booking.date.strftime("%d/%m/%Y") %></h3>
+      <h4>TIME: <%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h3>
+    </div>
+  <div class="col-sm-3 mt-auto mb-auto ">
+        <button type="button" class="btn success "><%= link_to "Back", courses_path(@course) %></button>
+        <button class="btn btn-danger"><%= link_to "Cancel", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+    </div>
+      <%= @attendee %>
+      <%# <%= link_to "Delete",
+          review_path(review),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+  </div>

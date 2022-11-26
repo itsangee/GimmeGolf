@@ -73,6 +73,13 @@
 
 <%= render 'reviews/new' %>
 
+<%= simple_form_for([@course, @review]) do |f| %>
+  <%# <%= f.input :rating, collection: (1..5).to_a, label: "Rate this user", input_html: {data: {controller: "star-rating"}} %>
+  <%= f.input :content %>
+  <%= f.submit "Submit Review", class: "button", id: "buy-btn" %>
+<% end %>
+<%= link_to "Back to all courses", courses_path %>
+
 
 <h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
 <div class="py-2">
@@ -155,6 +162,7 @@
     <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
     <%= f.input :date, as: :date, html5: true, required: true %>
     <%= f.submit "Book Slot", class: "button", id: "buy-btn" %>
+
   <% end %>
 
 </div>

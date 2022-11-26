@@ -6,6 +6,10 @@ class Slot < ApplicationRecord
   def todays_bookings_count
     bookings.where(date: Date.today).count
   end
+
+  def available_spaces?(search_date)
+    self.bookings.where(date: search_date).count < 4
+  end
 end
 
 
