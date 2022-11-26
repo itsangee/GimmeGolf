@@ -58,8 +58,7 @@ class CoursesController < ApplicationController
 
     @course = Course.find(params[:id])
     @review = Review.new # Add this line
+    # binding.pry
+    @review = Review.new  # Add this line
   end
 end
-
-# How to make query to show people coming on other dates
-# How to make query to show people coming for each specific slot
