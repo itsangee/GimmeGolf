@@ -12,7 +12,7 @@
         <button type="button" class="btn success "><%= link_to "Back", courses_path(@course) %></button>
         <button class="btn btn-danger"><%= link_to "Cancel", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
     </div>
-      <%= @attendee %>
+
       <%# <%= link_to "Delete",
           review_path(review),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
