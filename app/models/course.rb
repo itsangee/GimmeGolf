@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   has_many_attached :photos
-  # has_many :bookings
   has_many :slots
+  has_many :bookings, through: :slots
   attribute :slot_id
   has_many :reviews, dependent: :destroy
   # attribute :slot_id

@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
-User.destroy_all
-Course.destroy_all
 Booking.destroy_all
+Course.destroy_all
+User.destroy_all
 # Attendee.destroy_all
 
 user = User.new(email: "magdalena@gmail.com", password: "123456")

@@ -154,6 +154,7 @@
     <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
     <%= f.input :date, as: :date, html5: true, required: true %>
     <%= f.submit "Book Slot", class: "button", id: "buy-btn" %>
+
   <% end %>
 
 </div>
