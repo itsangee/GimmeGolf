@@ -15,19 +15,22 @@
 
 <div>
   <div>
-    <% @bookings.each do |booking| %>
-      <% if booking.date == @today%>
-        <h4>Current bookings:</h4>
-        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
-      <% elsif booking.date < @today %>
-        <h4>Past bookings:</h4>
-        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
-      <% else %>
-        <h4>Future bookings:</h4>
-        <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+    <% if @bookings.any? %>
+      <% @bookings.each do |booking| %>
+        <% if booking.date == @today%>
+          <h4>Current bookings:</h4>
+          <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+        <% elsif booking.date < @today %>
+          <h4>Past bookings:</h4>
+          <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+        <% elsif booking.date > @today %>
+          <h4>Future bookings:</h4>
+          <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+        <% end %>
       <% end %>
+    <% else %>
+      <p>No bookings to display</p>
     <% end %>
-
 
   </div>
 </div>
