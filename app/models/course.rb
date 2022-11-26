@@ -17,6 +17,16 @@ class Course < ApplicationRecord
 
   # validate :banner_count
 
+  def average_rating
+    sum = 0
+    count = 0
+    self.reviews.each do |review|
+      sum += review.ratings
+      count += 1
+    end
+    average = sum / count
+  end
+
   # private
 
   #   def banner_count

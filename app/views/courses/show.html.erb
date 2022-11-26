@@ -20,39 +20,39 @@
   </div>
 </div>
 
-<div class="py-2">
+<%# <div class="py-2">
   <form action="/courses" method="get">
     <div>
       <div class="position-relative">
-        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
-      </div>
-      <div class="position-relative">
+        <%# <input type="date" name="search" value="<%=params[:search]%>
+
+      <%# </div>
+      <div class="position-relative"> %>
         <%# <select name="location" id="cars">
         <% @locations.each do |location| %>
           <%# <%= <option value="#{location}">location</option> %>
         <%# <% end %>
         <%# </select> %>
-      </div>
+      <%# </div>
     </div>
     <input type="submit" value="Search" class="btn btn-flat border" id="search-button">
   </form>
-</div>
+</div> %>
 
-<%= form_with url: courses_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
+<%# <%= form_with url: courses_path, method: :get, class: "d-flex" do %>
+  <%# <%= text_field_tag :query,
     params[:query],
     # class: "form-control",
     placeholder: "Find a location"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%# <%= submit_tag "Search", class: "btn btn-primary" %>
   <%# dropdown to show all the locations available at choosen date %>
-<% end %>
+<%# <% end %>
 
 
 
 
-
-<h1><%= @course.name %> </h1>
+<h1>Showing Tee Times for: <%= @course.name %> on <%=  %></h1>
 <p> <small><%= @course.description %></small> </p>
 <h2><%= pluralize @course.reviews.size, "review" %></h2>
 
@@ -62,14 +62,16 @@
   <% else %>
     <% @course.reviews.each do |review| %>
       <p><%= review.content %></p>
+      <%= "⭐️" * review.ratings %>
+      <p>Created at:</p> <%= review.created_at.strftime("%d-%m-%Y") %>
+      <p>User:</p> <%= review.user.email %>
+      <%# display reviewer %>
     <% end %>
+    <%= @course.average_rating %>
   <% end %>
 </div>
-<%= simple_form_for([@course, @review]) do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
-<% end %>
-<%= link_to "Back to all courses", courses_path %>
+
+<%= render 'reviews/new' %>
 
 
 <h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
