@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
       else
         # todo
       end
+    end
    # if @booking.save
       # redirect_to booking_path(@booking)
     # end
@@ -44,4 +45,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:date, :slot_id, :game_start)
   end
+
 end
