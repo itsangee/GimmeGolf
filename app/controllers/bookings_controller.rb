@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
       else
         # todo
       end
+    end
    # if @booking.save
       # redirect_to booking_path(@booking)
     # end

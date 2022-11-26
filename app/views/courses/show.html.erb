@@ -66,8 +66,9 @@
   <% end %>
 </div>
 <%= simple_form_for([@course, @review]) do |f| %>
+  <%# <%= f.input :rating, collection: (1..5).to_a, label: "Rate this user", input_html: {data: {controller: "star-rating"}} %>
   <%= f.input :content %>
-  <%= f.button :submit %>
+  <%= f.submit "Submit Review", class: "button", id: "buy-btn" %>
 <% end %>
 <%= link_to "Back to all courses", courses_path %>
 

@@ -11,6 +11,7 @@ class Course < ApplicationRecord
     self.slots.map { |slot| [slot.id, slot.start_time.strftime("%I:%M %p")]}
   end
 
+
   # def slots
   #   self.slots.map {|slot| slot.id}
   # end
