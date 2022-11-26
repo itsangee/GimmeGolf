@@ -37,6 +37,7 @@ class CoursesController < ApplicationController
 
   # N + 1 queries. Preloading
   def show
+
     # @course = Course.find(params[:id])
     @course = Course.includes(slots: :bookings).find(params[:id])
     @slots = @course.slots
@@ -60,5 +61,6 @@ class CoursesController < ApplicationController
     @review = Review.new # Add this line
     # binding.pry
     @review = Review.new  # Add this line
+
   end
 end
