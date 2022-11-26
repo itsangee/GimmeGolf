@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import ShowAttendeesController from "./show_attendees_controller"
 application.register("show-attendees", ShowAttendeesController)
+
+import ShowBookingsController from "./show_bookings_controller"
+application.register("show-bookings", ShowBookingsController)

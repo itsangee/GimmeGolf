@@ -1,0 +1,63 @@
+<h1 class="text-center">Your Dashboard</h1>
+<p class="text-center"><small><%= @user.email %></small></p>
+
+<div data-controller="show-bookings">
+  <div>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <p class="nav-link active" aria-current="page" id="today"
+        data-action="click->show-bookings#showContent">| Today's Bookings |</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link" id="past"
+        data-action="click->show-bookings#showContent">| Past Bookings |</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link" id="future"
+        data-action="click->show-bookings#showContent">| Future Bookings |</p>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+
+    <div>
+      <div class="d-none future" data-show-bookings-target="bookings">
+        <% if @future_bookings.any? %>
+          <% @future_bookings.each do |booking| %>
+            <ul>
+              <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="d-none past" data-show-bookings-target="bookings">
+        <% if @past_bookings.any? %>
+          <% @past_bookings.each do |booking| %>
+            <ul>
+              <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="today" data-show-bookings-target="bookings">
+        <% if @todays_bookings.any? %>
+          <% @todays_bookings.each do |booking| %>
+            <ul>
+              <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+ </div>

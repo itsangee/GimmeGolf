@@ -4,41 +4,9 @@
 </div>
 
 <div class="border border-2">
-  <p><b>Socials section:</b></p>
+  <p><b>Socials:</b></p>
   <div>
-    <p><%= @player.email %> is following:</p>
-      <%= render partial: "stats", locals: {user: @player}  %>
-  </div>
-  <div>
-  <p><%= @player.email %> is followed by:</p>
+    <%= render partial: "stats", locals: {user: @player}  %>
   </div>
 </div>
 
-<div class="usershow-bookings-panel">
-
-  <div class="usershow-bookings">
-    <% if @bookings.any? %>
-      <% @bookings.each do |booking| %>
-        <% if booking.date == @today%>
-          <div>
-            <h4 class="usershow-bookings-tab">Current bookings:</h4>
-            <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
-          </div>
-        <% elsif booking.date < @today %>
-          <div>
-            <h4 class="usershow-bookings-tab">Past bookings:</h4>
-            <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
-          </div>
-        <% elsif booking.date > @today %>
-          <div>
-            <h4 class="usershow-bookings-tab">Future bookings:</h4>
-            <p><%= "#{booking.slot.course.name} - #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
-          </div>
-        <% end %>
-      <% end %>
-    <% else %>
-      <p>No bookings to display</p>
-    <% end %>
-  </div>
-
-</div>
