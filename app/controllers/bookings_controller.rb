@@ -8,7 +8,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @attendees = Attendee.all
     @attendee = Attendee.new
+
   end
+
 
   def create
     @booking = Booking.new(booking_params)
@@ -19,6 +21,7 @@ class BookingsController < ApplicationController
       redirect_to booking_path(@booking)
     end
   end
+
 
   def destroy
     @booking = Booking.find(params[:id])

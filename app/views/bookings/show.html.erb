@@ -1,10 +1,14 @@
-<h1>Bookings info</h1>
-<%= @booking.user %>
-<%# <%= @booking.datetime %>
-<%= @booking.course_id %>
+
+
+
+
 
 <%# to have the invitation - form - create attendee  %>
-<% render 'form' %>
+<h1>Booking</h1>
+<h3><%= @booking.date %></h3>
+<h3><%= @booking.slot.start_time %></h3>
+
+<%= link_to "Cancel", @booking, method: "delete" %>
 
 <%= @attendee %>
 <%# <%= link_to "Delete",
