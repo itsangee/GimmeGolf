@@ -7,12 +7,19 @@ Rails.application.routes.draw do
       post :follow
       post :unfollow
     end
+
+    member do
+      get :following, :followers
+    end
   end
+
+  resources :follows, only: [:create, ]
 
   resources :courses, only: [:index, :show] do
     resources :bookings, only: [:index, :create, :new]
-    resources :reviews, only: :create
+    resources :reviews, only: [:create, :destroy]
   end
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :attendees, only: [:create]

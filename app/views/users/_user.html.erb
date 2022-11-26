@@ -6,3 +6,7 @@
     <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
   <% end %>
 </li>
+
+<%= render  partial: 'stats' %>
+<%= render 'follow' %>
+<%= render 'unfollow' %>
