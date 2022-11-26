@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :create, :new]
     resources :reviews, only: [:create, :destroy]
   end
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :attendees, only: [:create]

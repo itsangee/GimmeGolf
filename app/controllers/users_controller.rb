@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   def show
     @player = User.find(params[:id])
     @user = current_user
+    @bookings = Booking.where(user_id: @player)
     @follow = Follow.new
+    @today = Date.today
   end
 
   def follow
