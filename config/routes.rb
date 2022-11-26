@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "courses#home"
 
+  get '/users/:id', to: 'users#dashboard', as: 'dashboard'
+
   resources :users, only: [:index, :show, :update, :edit] do
+
     member do
       post :follow
       post :unfollow

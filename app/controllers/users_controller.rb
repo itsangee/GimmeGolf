@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     @users = User.where.not(id: current_user.id)
   end
 
+  def dashboard
+    @user = current_user
+    @bookings = Booking.where(user_id: @user)
+    @today = Date.today
+    @future_bookings = @bookings.select { |booking| booking.date > @today}
+    @todays_bookings = @bookings.select { |booking| booking.date == @today}
+    @past_bookings = @bookings.select { |booking| booking.date < @today}
+  end
+
   def show
     @player = User.find(params[:id])
     @user = current_user
