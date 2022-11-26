@@ -13,6 +13,17 @@ class UsersController < ApplicationController
     @today = Date.today
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    current_user.update(bio_params)
+    if current_user.save!
+      redirect_to user_path
+    end
+  end
+
   def follow
     if current_user.follow(@user.id)
       respond_to do |format|
@@ -54,5 +65,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def bio_params
+    params.require(:user).permit(:bio)
   end
 end
