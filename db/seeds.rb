@@ -12,19 +12,19 @@ Course.destroy_all
 User.destroy_all
 # Attendee.destroy_all
 
-user = User.new(email: "magdalena@gmail.com", password: "123456")
+user = User.new(email: "magdalena@gmail.com", password: "123456", first_name: "Magda")
 user.save!
 puts "creating"
 
-user_2 = User.new(email: "angee@gmail.com", password: "123456")
+user_2 = User.new(email: "angee@gmail.com", password: "123456", first_name: "Angee")
 user_2.save!
 puts "created..."
 
-user_3 = User.new(email: "johnnyboy@gmail.com", password: "123456")
+user_3 = User.new(email: "johnnyboy@gmail.com", password: "123456", first_name: "Johnny")
 user_3.save!
 puts "creating!.."
 
-user_4 = User.new(email: "mustafatahir@hotmail.co.uk", password: "123456")
+user_4 = User.new(email: "mustafatahir@hotmail.co.uk", password: "123456", first_name: "Mustafa")
 user_4.save!
 puts "creating!.."
 
