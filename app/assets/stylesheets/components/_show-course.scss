@@ -17,7 +17,11 @@
   color: none !important;
 }
 
-.card-show-course {
+.show-card-description {
+  justify-content: flex-end;
+}
+
+.show-card-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

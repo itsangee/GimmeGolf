@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-card-info">
   <div class="card-show-course">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -17,6 +17,12 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+  </div>
+  <div class="show-card-description">
+    <h2>Showing Tee Times for: <%= @course.name %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ")  %></h2>
+    <p> <small><%= @course.description %></small> </p>
+    <h2>This location has <%= pluralize @course.reviews.size, "" %> review/s</h2>
+    <p>Rating:  <%= "⭐️" * @course.average_rating %> </p>
   </div>
 </div>
 
@@ -49,13 +55,6 @@
   <%# dropdown to show all the locations available at choosen date %>
 <%# <% end %>
 
-
-
-
-<h1>Showing Tee Times for: <%= @course.name %> on <%=  %></h1>
-<p> <small><%= @course.description %></small> </p>
-<h2><%= pluralize @course.reviews.size, "review" %></h2>
-
 <div>
   <% if @course.reviews.blank? %>
     Be the first to leave a review for <%= @course.name %>
@@ -67,18 +66,11 @@
       <p>User:</p> <%= review.user.email %>
       <%# display reviewer %>
     <% end %>
-    <%= @course.average_rating %>
   <% end %>
 </div>
 
 <%= render 'reviews/new' %>
 
-<%= simple_form_for([@course, @review]) do |f| %>
-  <%# <%= f.input :rating, collection: (1..5).to_a, label: "Rate this user", input_html: {data: {controller: "star-rating"}} %>
-  <%= f.input :content %>
-  <%= f.submit "Submit Review", class: "button", id: "buy-btn" %>
-<% end %>
-<%= link_to "Back to all courses", courses_path %>
 
 
 <h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
