@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DashboardShowFriendsController from "./dashboard_show_friends_controller"
+application.register("dashboard-show-friends", DashboardShowFriendsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

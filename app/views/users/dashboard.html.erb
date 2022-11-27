@@ -1,27 +1,33 @@
-<h1 class="text-center">Your Dashboard</h1>
-<p class="text-center"><small><%= @user.email %></small></p>
+<div class="d-flex justify-content-center align-items-center mb-4">
+  <h1 class="text-center me-3">Your Dashboard</h1>
+  <p class="text-center mt-3"><small><%= @user.email %></small></p>
+</div>
 
-<div data-controller="show-bookings">
+<div>
+<div data-controller="show-bookings" class="d-flex flex-column align-items-center justify-content-center dashboard-show-bookings">
   <div>
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <p class="nav-link active" aria-current="page" id="today"
+      <%# id=today %>
+        <p class="nav-link active dashboard-cursor " aria-current="page" id="today"
         data-action="click->show-bookings#showContent">| Today's Bookings |</p>
       </li>
       <li class="nav-item">
-        <p class="nav-link" id="past"
+      <%# id=past %>
+        <p class="nav-link dashboard-cursor " id="past"
         data-action="click->show-bookings#showContent">| Past Bookings |</p>
       </li>
       <li class="nav-item">
-        <p class="nav-link" id="future"
+      <%# id=future %>
+        <p class="nav-link dashboard-cursor " id="future"
         data-action="click->show-bookings#showContent">| Future Bookings |</p>
       </li>
     </ul>
   </div>
 
-  <div>
+  <div class="dashboard-bookings">
 
-    <div>
+    <div >
       <div class="d-none future" data-show-bookings-target="bookings">
         <% if @future_bookings.any? %>
           <% @future_bookings.each do |booking| %>
@@ -29,6 +35,8 @@
               <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
             </ul>
           <% end %>
+        <% else %>
+          <p>No bookings</p>
         <% end %>
       </div>
     </div>
@@ -42,6 +50,8 @@
               <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
             </ul>
           <% end %>
+        <% else %>
+          <p>No bookings</p>
         <% end %>
       </div>
     </div>
@@ -55,9 +65,53 @@
               <li><p><%= "#{booking.slot.course.name}, #{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
             </ul>
           <% end %>
+        <% else %>
+          <p>No bookings</p>
         <% end %>
       </div>
     </div>
-
   </div>
  </div>
+</div>
+
+  <div data-controller="dashboard-show-friends"
+  class="dashboard-socials d-flex flex-column justify-content-center align-items-center mt-5">
+
+  <h2 class="font-white">Your Golfing Friends</h2>
+
+    <div class="d-flex justify-content-center">
+      <div class="me-2">
+        <ul class="list-group">
+          <h5 class="dashboard-social-follows py-3 px-5 text-center"
+          data-action="click->dashboard-show-friends#showFollowees">Following: <%= @user.following.count %></h5>
+          <% @user.following.each do |followee| %>
+            <div class="d-none" data-dashboard-show-friends-target="followees">
+              <li class="list-group-item"><%= link_to followee.email, user_path(followee)  %></li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+
+
+      <div class="ms-2">
+        <ul class="list-group">
+          <h5 class="dashboard-social-follows py-3 px-5 text-center"
+          data-action="click->dashboard-show-friends#showFollowers">Followers: <%= @user.followers.count %></h5>
+          <% @user.followers.each do |follower| %>
+            <div class="d-none" data-dashboard-show-friends-target="followers">
+              <li class="list-group-item"><%= link_to follower.email, user_path(follower)  %></li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<%# <ul class="list-inline tabs-underlined"> %>
+  <%# <li> %>
+    <%# <a href="#" class="tab-underlined active">Following</a> %>
+  <%# </li> %>
+  <%# <li> %>
+    <%# <a href="#" class="tab-underlined">Followers</a> %>
+  <%# </li> %>
+<%# </ul> %>
