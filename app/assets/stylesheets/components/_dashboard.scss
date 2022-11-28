@@ -1,13 +1,37 @@
+.main-dashboard-container {
+  height: 100vh;
+  border-top: 1px solid black;
+  width: 70%;
+
+  margin: auto;
+}
+
 .dashboard-cursor {
   cursor: pointer;
   color: white;
+  font-size: 2rem;
+}
+// .flexy {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+.dashboard-cursor:hover {
+  color: lightgrey;
+  font-size: 2rem;
+}
+
+.dashboard-modal-button {
+  background-color: green;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .dashboard-show-bookings {
-  background-color: #7AA095;
-  width: 65%;
+  background-color: $golfgreen;
   margin: auto;
   border-radius: 5px;
+  border: 1px solid $golfdarkgreen;
 }
 
 .dashboard-bookings {
@@ -15,18 +39,19 @@
   background-color: #FFFFFF;
 }
 
+.dashboard-bookings ul li{
+  list-style: none;
+}
+
 .dashboard-link {
   background-color: green;
 }
 
 
-
-
 .dashboard-socials {
   margin: auto;
   border: 1px solid black;
-
-  width: 70%;
+  background-color: $golfdarkgreen;
 }
 
 .dashboard-social-follows {
