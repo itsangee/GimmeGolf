@@ -32,7 +32,8 @@
 }
 .course-name{
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .border{
@@ -45,7 +46,23 @@
 
 .booking-page-container img{
    position: absolute;
+   width: 100%;
 }
+
+
 .row{
   color:#40531B;
+}
+
+.display-flex{
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-golf-pricing {
+  font-size: 20px;
+  font-weight: bold;
 }
