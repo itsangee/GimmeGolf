@@ -22,16 +22,21 @@
 }
 
 .dashboard-modal-button {
-  background-color: green;
+  background-color: white;
+  color: $golfdarkgreen;
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+.dashboard-modal-button:hover {
+  background-color: $golfdarkgreen;
+  color: white;
 }
 
 .dashboard-show-bookings {
   background-color: $golfgreen;
   margin: auto;
   border-radius: 5px;
-  border: 1px solid $golfdarkgreen;
 }
 
 .dashboard-bookings {
@@ -51,7 +56,7 @@
 .dashboard-socials {
   margin: auto;
   border: 1px solid black;
-  background-color: $golfdarkgreen;
+  background-color: $golfpalegreen;
 }
 
 .dashboard-social-follows {
