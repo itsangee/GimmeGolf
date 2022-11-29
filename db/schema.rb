@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_203704) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_164048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,7 +87,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_203704) do
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.integer "ratings"
     t.index ["course_id"], name: "index_reviews_on_course_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "slots", force: :cascade do |t|
@@ -108,6 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_203704) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.text "content"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -118,4 +123,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_203704) do
   add_foreign_key "attendees", "users"
   add_foreign_key "bookings", "users"
   add_foreign_key "reviews", "courses"
+  add_foreign_key "reviews", "users"
 end

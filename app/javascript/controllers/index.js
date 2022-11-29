@@ -4,8 +4,13 @@
 
 import { application } from "./application"
 
+
 import DashboardShowFriendsController from "./dashboard_show_friends_controller"
 application.register("dashboard-show-friends", DashboardShowFriendsController)
+
+import ButtonShowCoursesController from "./button_show_courses_controller"
+application.register("button-show-courses", ButtonShowCoursesController)
+
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
@@ -15,3 +20,12 @@ application.register("show-attendees", ShowAttendeesController)
 
 import ShowBookingsController from "./show_bookings_controller"
 application.register("show-bookings", ShowBookingsController)
+
+// import StarRatingController from "./star_rating_controller"
+// application.register("star-rating", StarRatingController)
+
+// import TypedJsController from "./typed_js_controller"
+// application.register("typed-js", TypedJsController)
+
+import TypedJsController from "./button_show_courses_controller"
+application.register("button_show_courses", ButtonShowCoursesController)

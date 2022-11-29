@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   has_many_attached :photos
-  # has_many :bookings
   has_many :slots
+  has_many :bookings, through: :slots
   attribute :slot_id
   has_many :reviews, dependent: :destroy
   # attribute :slot_id
@@ -11,11 +11,26 @@ class Course < ApplicationRecord
     self.slots.map { |slot| [slot.id, slot.start_time.strftime("%I:%M %p")]}
   end
 
+
   # def slots
   #   self.slots.map {|slot| slot.id}
   # end
 
   # validate :banner_count
+
+  def average_rating
+    sum = 0
+    count = 0
+    self.reviews.each do |review|
+      sum += review.ratings
+      count += 1
+    end
+    if count > 0
+      average = sum / count
+    else
+      average = 0
+    end
+  end
 
   # private
 

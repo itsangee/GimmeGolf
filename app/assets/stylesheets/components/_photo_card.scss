@@ -25,13 +25,27 @@ a {
   color: #40531B;
 
 }
-.display-flex {
+.display-flex{
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }
+
+.card-golf-pricing {
+  margin-right: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+// .display-flex {
+//   display: block;
+//   text-align: center;
+// }
 
 .item{
   flex: 1 1 auto;
-  margin: 0 5px;
+
 }
 .course-card{
   overflow: hidden;
@@ -45,4 +59,12 @@ a {
 }
 .course-info{
   font-size: 14px;
+}
+
+.location{
+  text-align: center;
+
+}
+.hole{
+  // padding-bottom: 10px;
 }

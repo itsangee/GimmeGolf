@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   root to: "courses#home"
 
   get '/users/:id', to: 'users#dashboard', as: 'dashboard'
-  # get '/patients/:id', to: 'patients#show'
 
+  resources :users, only: [:index, :show, :update, :edit] do
 
-  resources :users, only: [:index, :show] do
     member do
       post :follow
       post :unfollow
@@ -17,11 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :follows, only: [:create, ]
+  resources :follows, only: [:create]
 
   resources :courses, only: [:index, :show] do
     resources :bookings, only: [:index, :create, :new]
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:new, :create]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
