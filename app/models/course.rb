@@ -25,7 +25,11 @@ class Course < ApplicationRecord
       sum += review.ratings
       count += 1
     end
-    average = sum / count
+    if count > 0
+      average = sum / count
+    else
+      average = 0
+    end
   end
 
   # private

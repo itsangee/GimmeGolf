@@ -4,10 +4,8 @@
       <%= simple_form_for [@course, @review] do |f| %>
         <%= f.input :content %>
         <%= f.input :ratings, collection: (1..5).to_a, label: "Rate your experience" %>
-        <%= f.submit "Send your review" %>
+        <%= f.submit "Send your review", class: "button-show"%>
       <% end %>
     </div>
   </div>
 </div>
-
-<%= link_to "Back to all courses", courses_path %>
