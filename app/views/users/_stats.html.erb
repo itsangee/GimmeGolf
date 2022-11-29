@@ -1,14 +1,16 @@
 <div class="stats">
-  <a href="<%= following_user_path(user) %>">
-    <strong id="following" class="stat">
-      <%= user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(user) %>">
-    <strong id="followers" class="stat">
-      <%= user.followers.count %>
-    </strong>
-    followers
-  </a>
+  <div>
+    <a href="<%= following_user_path(user) %>">
+      <strong id="following" class="stat">
+        Following: <%= user.following.count %>
+      </strong>
+    </a>
+    </div>
+    <div>
+    <a href="<%= followers_user_path(user) %>">
+      <strong id="followers" class="stat">
+        Followers: <%= user.followers.count %>
+      </strong>
+    </a>
+  </div>
 </div>

@@ -1,0 +1,125 @@
+.main-dashboard-container {
+  height: 100vh;
+  border-top: 1px solid black;
+  width: 70%;
+
+  margin: auto;
+}
+
+.dashboard-cursor {
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+}
+// .flexy {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+.dashboard-cursor:hover {
+  color: lightgrey;
+  font-size: 2rem;
+}
+
+.dashboard-modal-button {
+  background-color: white;
+  color: $golfdarkgreen;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.dashboard-modal-button:hover {
+  background-color: $golfdarkgreen;
+  color: white;
+}
+
+.dashboard-show-bookings {
+  background-color: $golfgreen;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.dashboard-bookings {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.dashboard-bookings ul li{
+  list-style: none;
+}
+
+.dashboard-link {
+  background-color: green;
+}
+
+
+.dashboard-socials {
+  margin: auto;
+  border: 1px solid black;
+  background-color: $golfpalegreen;
+}
+
+.dashboard-social-follows {
+  background-color: $golfdarkgreen;
+  color: white;
+}
+
+.dashboard-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.dashboard-profile-box {
+  background: $golfpalegreen;
+  text-align: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+  border-radius: 20px;
+}
+
+.dashboard-menu-icon {
+  width: 25px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+.dashboard-setting-icon {
+  width: 25px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.dashboard-profile-pic {
+  width: 15px;
+  border-radius: 50%;
+  background: white;
+  padding: 6px;
+  margin-top: 40px;
+}
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
