@@ -26,7 +26,8 @@ a {
 
 }
 .display-flex {
-  display: flex;
+  display: block;
+  text-align: center;
 }
 
 .item{
@@ -45,4 +46,12 @@ a {
 }
 .course-info{
   font-size: 14px;
+}
+
+.location{
+  text-align: center;
+
+}
+.hole{
+  padding-bottom: 10px;
 }
