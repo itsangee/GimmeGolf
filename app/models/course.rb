@@ -4,6 +4,9 @@ class Course < ApplicationRecord
   has_many :bookings, through: :slots
   attribute :slot_id
   has_many :reviews, dependent: :destroy
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
   # attribute :slot_id
 
   def slots_collection

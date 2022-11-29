@@ -10,6 +10,9 @@ application.register("button-show-courses", ButtonShowCoursesController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import ShowAttendeesController from "./show_attendees_controller"
 application.register("show-attendees", ShowAttendeesController)
 
@@ -21,6 +24,3 @@ application.register("show-bookings", ShowBookingsController)
 
 // import TypedJsController from "./typed_js_controller"
 // application.register("typed-js", TypedJsController)
-
-import TypedJsController from "./button_show_courses_controller"
-application.register("button_show_courses", ButtonShowCoursesController)
