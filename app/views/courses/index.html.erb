@@ -1,5 +1,30 @@
 <div class="container">
   <div class="row">
+
+
+    <div class="py-2">
+      <%= form_with url: courses_path, method: :get, class: "d-flex" do %>
+      <%= date_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a course"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <%= link_to "Display all",  courses_path %>
+
+    <% if params[:search].present? %>
+      <% @courses.each do |course| %>
+        <%= link_to course.name, course_path(course) %>
+      <% end %>
+    <% else %>
+      <% @courses.each do |course| %>
+        <%= link_to course.name, course_path(course)%>
+      <% end %>
+    <% end %>
+
     <div class="cards course-description ">
       <% @courses.each do |course| %>
       <div class="course-card scale" >
@@ -32,28 +57,3 @@
     </div>
   </div>
 </div>
-<h1>Hello</h1>
-
-<div class="py-2">
-  <%= form_with url: courses_path, method: :get, class: "d-flex" do %>
-  <%= date_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a course"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-</div>
-
-<%= link_to "Display all",  courses_path %>
-
-<% if params[:search].present? %>
-  <% @courses.each do |course| %>
-    <%= link_to course.name, course_path(course) %>
-  <% end %>
-<% else %>
-  <% @courses.each do |course| %>
-    <%= link_to course.name, course_path(course)%>
-  <% end %>
-<% end %>

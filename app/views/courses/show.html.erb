@@ -1,30 +1,84 @@
-<div class="container show-card-info">
-  <div class="card-show-course">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% @course.photos.each_with_index do |photo,index| %>
-          <div class="carousel-item <%="active" if index.zero? %>">
-            <img src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
-          </div>
-        <% end %>
+  <div class="container-show-page">
+    <div class="show-card">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% @course.photos.each_with_index do |photo,index| %>
+            <div class="carousel-item <%="active" if index.zero? %> m-3">
+              <img class="d-block" src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev no-hover-color" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next no-hover-color" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="show-card-info">
+        <h2>Showing Tee Times for: <%= @course.name %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ")  %></h2>
+        <p> <small><%= @course.description %></small> </p>
+        <div>
+          <h3>This location has <%= pluralize @course.reviews.size, "" %>
+          <% if @course.reviews.size == 1 %>
+            review
+          <% else %>
+            reviews
+          <% end %></h3>
+          <% if @course.average_rating > 0  %>
+            <p>Rating: <%= "⭐️" * @course.average_rating %> </p>
+          <% else %>
+            <p>✩✩✩✩✩</p>
+          <% end %> </p>
+        </div>
+      </div>
     </div>
+
+
+  <div class='show-card-slots'>
+
+    <div class="mb-6">
+      <h3>Book a slot: </h3>
+      <%= simple_form_for [@course, @booking] do |f| %>
+        <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
+        <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
+        <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
+        <%= f.input :date, as: :date, html5: true, required: true %>
+        <%= f.submit "Book now", class: "", id: "slot-button" %>
+      <% end %>
+    </div>
+
+    <div data-controller="button-show-courses">
+
+    <% if @course.reviews.blank? %>
+      <h5>Be the first to leave a review for <%= @course.name %></h5>
+      <%= render 'reviews/new' %>
+    <% else %>
+      <%= render 'reviews/new' %>
+      <% @course.reviews.each do |review| %>
+        <p><%= review.content %></p>
+        <%= "⭐️" * review.ratings %>
+        <p>Created at:</p> <%= review.created_at.strftime("%d-%m-%Y") %>
+        <p>User:</p> <%= review.user.email %>
+        <%# display reviewer %>
+      <% end %>
+    <% end %>
   </div>
-  <div class="show-card-description">
-    <h2>Showing Tee Times for: <%= @course.name %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ")  %></h2>
-    <p> <small><%= @course.description %></small> </p>
-    <h2>This location has <%= pluralize @course.reviews.size, "" %> review/s</h2>
-    <p>Rating:  <%= "⭐️" * @course.average_rating %> </p>
+
   </div>
-</div>
+
+
+
+    <%# <p>User signed in? <%= user_signed_in? %>
+    <%# <p>Current user: <%= current_user.email %>
+  <%= link_to "Home page", courses_path, id: "button-back" %>
+  </div>
+
+
+
+<%# <% current_year = Date.current.year %>
 
 <%# <div class="py-2">
   <form action="/courses" method="get">
@@ -55,43 +109,7 @@
   <%# dropdown to show all the locations available at choosen date %>
 <%# <% end %>
 
-<div>
-  <% if @course.reviews.blank? %>
-    Be the first to leave a review for <%= @course.name %>
-  <% else %>
-    <% @course.reviews.each do |review| %>
-      <p><%= review.content %></p>
-      <%= "⭐️" * review.ratings %>
-      <p>Created at:</p> <%= review.created_at.strftime("%d-%m-%Y") %>
-      <p>User:</p> <%= review.user.email %>
-      <%# display reviewer %>
-    <% end %>
-  <% end %>
-</div>
 
-<%= render 'reviews/new' %>
-
-
-
-<h2> Showing Tee Times for: <%= @course.name %> on "DATE WHICH USER PICKED" </h2>
-<div class="py-2">
-  <form action="/courses" method="get">
-    <div>
-      <div class="position-relative">
-        <input type="date" name="search" value="<%=params[:search]%>" placeholder="Search bookings..">
-      </div>
-      <div class="position-relative">
-      </div>
-    </div>
-    <input type="submit" value="SELECT DATE" class="btn btn-flat border" id="search-button">
-  </form>
-</div>
-
-
-<button>SHOW TIMES</button>
-
-
-<% current_year = Date.current.year %>
 
 <%# ========== PLEASE LEAVE THIS CODE ALONE AND DO YOUR CODE ABOVE IT ===================================== %>
 <%# data-controller="show-attendees" %>
@@ -122,18 +140,6 @@
   <%# </div> %>
 <%# </div> %>
 
-<% @slots.each do |slot| %>
-  <p class="border border-2"><%= slot.start_time.strftime("%I:%M %p") %></p>
-    <% if slot.todays_bookings_count.zero? %>
-      <p>no bookings</p>
-    <% else %>
-      <% slot.bookings.each do |booking| %>
-        <% if booking.date == @today %>
-          <p>User = <%= booking.user.email%> - <%= booking.date %></p>
-        <% end %>
-      <% end %>
-    <% end %>
-<% end %>
 
 
 
@@ -147,18 +153,20 @@
   <%# <% end %>
 <%# </div> %>
 
-<div>
-  <%= simple_form_for [@course, @booking] do |f| %>
-    <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
-    <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
-    <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
-    <%= f.input :date, as: :date, html5: true, required: true %>
-    <%= f.submit "Book Slot", class: "button", id: "buy-btn" %>
-
-  <% end %>
-
-</div>
-
-
-<p>User signed in? <%= user_signed_in? %></p>
-<p>Current user: <%= current_user.email %> </p>
+    <%# <div class="" data-controller="button-show-courses"> %>
+      <%# <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p> %>
+      <%# <div data-show-slots-target="slots"> %>
+        <%# <% @slots.each do |slot| %>
+          <%# <p class=""><%= slot.start_time.strftime("%I:%M %p") </p> %>
+            <%# <% if slot.todays_bookings_count.zero? %>
+              <%# <p>no bookings</p> %>
+            <%# <% else %>
+              <%# <% slot.bookings.each do |booking| %>
+                <%# <% if booking.date == @today %>
+                  <%# <p>User = <%= booking.user.email%> <%# - <%= booking.date</p> %>
+                <%# <% end %>
+              <%# <% end %>
+            <%# <% end %>
+        <%# <% end %>
+      <%# </div> %>
+    <%# </div> %>

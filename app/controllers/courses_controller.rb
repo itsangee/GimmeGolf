@@ -60,7 +60,5 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @review = Review.new # Add this line
     # binding.pry
-    @review = Review.new  # Add this line
-
   end
 end
