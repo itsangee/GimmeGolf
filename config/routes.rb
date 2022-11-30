@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+
   end
 
   resources :follows, only: [:create]
@@ -26,8 +27,10 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :attendees, only: [:create]
+    resources :invitations, only: [:new, :create]
   end
 
+  get "bookings/:id/invite_user", to: "invitations#invite_user", as: :invite_user
 
   # Defines the root path route ("/")
   # root "articles#index"

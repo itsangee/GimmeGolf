@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_30_083308) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_083308) do
     t.integer "par"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -80,6 +83,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_083308) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
     t.index ["following_id"], name: "index_follows_on_following_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_invitations_on_booking_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -122,6 +134,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_083308) do
   add_foreign_key "attendees", "bookings"
   add_foreign_key "attendees", "users"
   add_foreign_key "bookings", "users"
+  add_foreign_key "invitations", "bookings"
+  add_foreign_key "invitations", "users"
   add_foreign_key "reviews", "courses"
   add_foreign_key "reviews", "users"
 end
