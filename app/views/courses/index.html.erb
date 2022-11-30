@@ -1,7 +1,5 @@
 <div class="container">
   <div class="row">
-
-
     <div class="py-2">
       <%= form_with url: courses_path, method: :get, class: "d-flex" do %>
       <%= date_field_tag :query,
@@ -9,20 +7,30 @@
         class: "form-control",
         placeholder: "Find a course"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= text_field_tag :location,
+        params[:location],
+        class: "form-control",
+        placeholder: "Find a location"
+      %>
+      <%= submit_tag "Search", class: "btn" %>
       <% end %>
     </div>
 
-    <%= link_to "Display all",  courses_path %>
+    <%# <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <%# </div> %> %> %>
 
+    <%= link_to "Display all",  courses_path %>
     <% if params[:search].present? %>
-      <% @courses.each do |course| %>
-        <%= link_to course.name, course_path(course) %>
-      <% end %>
+    <% @courses.each do |course| %>
+      <%= link_to course.name, course_path(course) %>
+    <% end %>
     <% else %>
-      <% @courses.each do |course| %>
-        <%= link_to course.name, course_path(course)%>
-      <% end %>
+    <% @courses.each do |course| %>
+      <%= link_to course.name, course_path(course)%>
+    <% end %>
     <% end %>
 
     <div class="cards course-description ">
@@ -32,22 +40,13 @@
       <a href="#"><%= link_to course_path(course, selected_date: params[:query]) do %>
       <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
          <div class="card-course-info">
-          <%course_city = course.location.split(",")[-2] %>
-          <%course_zip = course.location.split(",")[-1] %>
+         <%course_city = course.location.split(",")[-2] %>
+         <%course_zip = course.location.split(",")[-1] %>
               <h4 class="course-name"><%= course.name.upcase %></h4>
-              <div >
-                <div class="location">
-                  <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"%></p>
-                </div>
-                <div class="display-flex card-text">
-                  <div class="justify-index-content">
-                    <p class="course-info item "><i class="fa-solid fa-golf-ball-tee"></i> PAR <%= course.par %></p>
-                    <p class="course-info item hole"><i class="fa-solid fa-ring"></i> HOLE <%= course.holes %></p>
-                  </div>
-                  <div class="price">
-                    <h2 class="card-golf-pricing">£<%= course.price %></h2>
-                  </div>
-                </div>
+              <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"%></p>
+              <div class="display-flex">
+                <p class="course-info item ">PAR <%= course.par %></p>
+                <p class="course-info item"> HOLE <%= course.holes %></p>
               </div>
           </div>
       <% end %></a>
@@ -57,3 +56,11 @@
     </div>
   </div>
 </div>
+
+    <%# <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a location"
+      %>
+      <%# <%= submit_tag "Search", class: "btn" %>
+      <%# <% end %>

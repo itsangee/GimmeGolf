@@ -11,7 +11,14 @@
         <div d-flex>
           <button type="button" class="btn success "><%= link_to "Back", courses_path(@course) %></button>
           <button class="btn btn-danger"><%= link_to "Cancel", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
-          <button><%= link_to "Send invite" %></button>
+          <%# <button><%= link_to "Invite", invite_path(user:user) %>
+        </div>
+
+        <div>
+        <% current_user.following.each do |followee| %>
+        <%# <% @current_user.followers.each do |follower|%>
+           <%= link_to followee.first_name, invite_user_path( @booking, user: followee) %>
+         <% end %>
         </div>
 
   </div>
