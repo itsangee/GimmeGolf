@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "courses#home"
 
-  get 'dashboard', to: 'users#dashboard'
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
 
   resources :users, only: [:index, :show, :update, :edit] do
 
