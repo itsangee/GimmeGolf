@@ -60,3 +60,20 @@
 .location{
   text-align: center;
 }
+
+.followers {
+  width: 300px;
+  margin-left: auto;
+  margin-right: 60px;
+  background-color: white;
+  padding: 16px 8px;
+  border-radius: 4px;
+}
+// .followers p{
+//   text-align: center;
+// }
+
+.followers ul{
+  list-style: none;
+  padding-left: 0;
+}

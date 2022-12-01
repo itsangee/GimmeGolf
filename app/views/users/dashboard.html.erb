@@ -112,6 +112,7 @@
         <div>
           <div class="d-none future" data-show-bookings-target="bookings">
             <% if @future_bookings.any? %>
+
               <% @future_bookings.each do |booking| %>
                 <ul>
                   <hr>
@@ -134,6 +135,7 @@
         <div>
           <div class="d-none past" data-show-bookings-target="bookings">
             <% if @past_bookings.any? %>
+
               <% @past_bookings.each do |booking| %>
                 <ul>
                   <hr>

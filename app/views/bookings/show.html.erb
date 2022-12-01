@@ -16,13 +16,31 @@
           <%# <button><%= link_to "Invite", invite_path(user:user) %>
         </div>
 
-        <div>
-        <% current_user.following.each do |followee| %>
-        <%# <% @current_user.followers.each do |follower|%>
-           <%= link_to followee.first_name, invite_user_path( @booking, user: followee) %>
-         <% end %>
-        </div>
+
 
     </div>
   </div>
+
+        <% if current_user.following.length > 0 %>
+
+        <div class="followers">
+          <p class="text-center">Followers</p>
+          <ul>
+            <% current_user.following.each do |followee| %>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="booking-confirm-avatar justify-content-center d-flex">
+                  <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+                  <p class="ms-4 mt-3"><%= followee.first_name %></p>
+                </div>
+                 <div>
+                  <button><%= link_to "Invite", invite_user_path( @booking, user: followee) %></button>
+                </div>
+              </li>
+              <hr>
+            <% end %>
+          </ul>
+        </div>
+        <% else%>
+        <p>I'll play alone</p>
+      <% end %>
 </div>
