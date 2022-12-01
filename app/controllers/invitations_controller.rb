@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
     @invitation.save!
   end
 
-  def invite_seen
-    self.seen = true
-  end
+  # def invite_seen
+  #   self.seen = true
+  # end
 end

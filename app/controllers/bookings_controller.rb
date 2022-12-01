@@ -6,8 +6,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-
-
   end
 
 
@@ -30,9 +28,21 @@ class BookingsController < ApplicationController
         # todo
       end
     end
-   # if @booking.save
-      # redirect_to booking_path(@booking)
-    # end
+  end
+
+  def accept
+    booking = Booking.find(params[:id])
+    if booking.slot.todays_bookings_count < 4
+      new_booking = booking.dup
+      new_booking.user = current_user
+      # Turn invite to 'invite_seen' to true
+      # new_booking.update_attribute(:invite_seen, true)
+      if new_booking.save
+        redirect_to booking_path(new_booking)
+      else
+        # todo
+      end
+    end
   end
 
 

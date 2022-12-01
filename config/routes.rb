@@ -26,8 +26,14 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:show, :edit, :update, :destroy] do
-    resources :attendees, only: [:create]
-    resources :invitations, only: [:new, :create]
+    member do
+      post :accept
+    end
+    resources :invitations, only: [:new, :create] do
+      #member do
+       # get :invite_user
+      #end
+    end
   end
 
   get "bookings/:id/invite_user", to: "invitations#invite_user", as: :invite_user

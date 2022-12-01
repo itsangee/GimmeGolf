@@ -17,15 +17,17 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div>
-    <% current_user.following.each do |followee| %>
-    <%# <% @current_user.followers.each do |follower|%>
-      <%= link_to followee.first_name, invite_user_path(@booking, user: followee) %>
-    <% end %>
-  </div>
-
-
+    <div class="booking-invite-users">
+      <% current_user.following.each do |followee| %>
+      <%# <% @current_user.followers.each do |follower|%>
+        <%= link_to followee.first_name, invite_user_path(@booking, user: followee) %>
+      <% end %>
+    </div>
 
   </div>
+
+
+
+
+</div>
