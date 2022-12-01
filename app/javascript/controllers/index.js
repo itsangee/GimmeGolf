@@ -13,6 +13,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ReviewController from "./review_controller"
+application.register("review", ReviewController)
+
 import ShowAttendeesController from "./show_attendees_controller"
 application.register("show-attendees", ShowAttendeesController)
 
