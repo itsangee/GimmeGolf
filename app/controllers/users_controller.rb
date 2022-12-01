@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     @future_bookings = @bookings.select { |booking| booking.date > @today}
     @todays_bookings = @bookings.select { |booking| booking.date == @today}
     @past_bookings = @bookings.select { |booking| booking.date < @today}
-    @invitations = Invitation.where(user: current_user)
-    
+    @invitations = Invitation.where(user: current_user, invite_seen: false)
+
   end
 
   def show
