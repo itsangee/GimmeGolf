@@ -1,9 +1,13 @@
 .main-dashboard-container {
   height: 100vh;
-  border-top: 1px solid black;
-  width: 70%;
-
+  width: 75%;
   margin: auto;
+}
+
+
+.box-shadow {
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .dashboard-cursor {
@@ -11,10 +15,7 @@
   color: white;
   font-size: 2rem;
 }
-// .flexy {
-//   display: flex;
-//   justify-content: space-around;
-// }
+
 
 .dashboard-cursor:hover {
   color: lightgrey;
@@ -22,10 +23,17 @@
 }
 
 .dashboard-modal-button {
-  background-color: white;
-  color: $golfdarkgreen;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: $golfgreen;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+.dashboard-booking-delete {
+  color: rgb(247, 138, 138);
+}
+.dashboard-booking-delete:hover {
+  color: lightgrey;
 }
 
 .dashboard-modal-button:hover {
@@ -55,7 +63,6 @@
 
 .dashboard-socials {
   margin: auto;
-  border: 1px solid black;
   background-color: $golfpalegreen;
 }
 
@@ -122,4 +129,30 @@
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #555555;
+}
+
+.dashboard-popup-heading {
+  background-color: $golfdarkgreen;
+}
+
+.dashboard-popup-link {
+  color: lightgrey;
+}
+
+.dashboard-popup-link:hover {
+  color: white;
+}
+
+.dashboard-unfollow {
+  font-size: 0.6rem;
+  color: black;
+  background-color: lightgray;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.dashboard-unfollow:hover {
+  color: white;
+  background-color: darkgrey;
+  
 }
