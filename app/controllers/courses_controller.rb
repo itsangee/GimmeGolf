@@ -9,38 +9,12 @@ class CoursesController < ApplicationController
   def index
     # binding.b
   # The `geocoded` scope filters only flats with coordinates
-
-    if params[:query] && params[:query] != ""
-      # @search = params[:search]
-      # booked_date = DateTime.parse(@search)
-      # @bookings = Booking.where(datetime: booked_date)
-      # courses_arr = []
-      # @bookings.each do |book|
-      #   courses_arr << book.course
-      # end
-      # @courses = Course.all - courses_arr
-      booked_date = DateTime.parse(params[:query])
-      # location = Location.parse(params[:query])
-      @courses = Course.all
-      puts "before loops #{@courses.count}"
-      @courses = @courses.reject do |course|
-        var = true
-        course.slots.each do |slot|
-          puts "slot"
-          puts "available #{slot.available_spaces?(booked_date)}"
-          var = false if slot.available_spaces?(booked_date)
-        end
-        var
-      end
-      puts "after loops #{@courses.count}"
-    # location value exist . check nearest location and show
-    elsif params[:location] && params[:location] != ""
-      @courses = Course.near(params[:location])
-
+    if params[:location] && params[:location] != ""
+      @courses = Course.near(params[:location], 5, units: :km)
     elsif params[:location] && params[:query]
       booked_date = DateTime.parse(params[:query])
       # location = Location.parse(params[:query])
-      @courses = Course.near(params[:location])
+      @courses = Course.near(params[:location], 5, units: :km)
       puts "before loops #{@courses.count}"
       @courses = @courses.reject do |course|
         var = true
@@ -51,19 +25,45 @@ class CoursesController < ApplicationController
         end
         var
       end
+    puts "after loops #{@courses.count}"
+    elsif params[:query] && params[:query] != ""
+        # @search = params[:search]
+        # booked_date = DateTime.parse(@search)
+        # @bookings = Booking.where(datetime: booked_date)
+        # courses_arr = []
+        # @bookings.each do |book|
+        #   courses_arr << book.course
+        # end
+        # @courses = Course.all - courses_arr
+        booked_date = DateTime.parse(params[:query])
+        # location = Location.parse(params[:query])
+        @courses = Course.all
+        puts "before loops #{@courses.count}"
+        @courses = @courses.reject do |course|
+          var = true
+          course.slots.each do |slot|
+            puts "slot"
+            puts "available #{slot.available_spaces?(booked_date)}"
+            var = false if slot.available_spaces?(booked_date)
+        end
+        var
+      end
       puts "after loops #{@courses.count}"
-      # raise
+
+    # location value exist . check nearest location and show
+
+
     # data and location exist look for available slots and near locations
 
     else
       @courses = Course.all
     end
-    # @markers = @courses.geocoded.map do |course|
-    #   {
-    #     lat: course.latitude,
-    #     lng: course.longitude
-    #   }
-    # end
+    @markers = @courses.geocoded.map do |course|
+      {
+        lat: course.latitude,
+        lng: course.longitude
+      }
+    end
   end
 
   # N + 1 queries. Preloading

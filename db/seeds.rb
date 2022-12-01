@@ -67,7 +67,7 @@ course_1a_file = URI.open(course_1_photo[1])
 course_1 = Course.create(
   name: "Enfield Golf Club",
   description: "Our picturesque, 18 hole parkland Course and Clubhouse are situated in beautiful, tranquil surroundings and we are ideally located in North London, within easy reach of the M25, Hertfordshire and Essex.",
-  location: "Old Park Road South, Enfield, Middlesex, EN27DA",
+  location: "Denewood Rd, London, N6 4AH",
   price: 22,
   holes: 18,
   par: 72
@@ -84,7 +84,7 @@ course_2a_file = URI.open(course_2_photo[1])
 course_2 = Course.create(
   name: "Woodford Golf Club",
   description: "Woodford Golf Clubs fantastic 9-hole course was created in 1890 making it one of the oldest in Essex. Woodford Golf Club’s course is beautifully designed through the Epping Forest making golfers feel secluded from the outside world.",
-  location: "Sunset Avenue, Woodford, Essex, IG8 0ST",
+  location: "82 Winnington Rd, London, N2 0TU",
   price: 14,
   holes: 9,
   par: 70
@@ -152,7 +152,7 @@ course_6a_file = URI.open(course_6_photo[1])
 course_6 = Course.create(
   name: "Dukes Meadows Golf",
   description: "Dukes Meadows overlooks the River Thames in Chiswick, it is well located for easy access to and from London and within close proximity to mainline stations.",
-  location: "Dan Mason Drive, Chiswick, Middlesex, W4 2SH",
+  location: "Rhodes Ave, London, N22 7UT",
   price: 30,
   holes: 18,
   par: 72
