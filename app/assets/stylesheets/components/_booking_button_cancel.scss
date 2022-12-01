@@ -9,7 +9,7 @@
 .success{
   margin-bottom: 10px;
   background-color: #618B4A;
-  margin-left: 60px;
+  // margin-left: 60px;
 }
 .danger{
   background-color: #618B4A;
@@ -17,11 +17,11 @@
 
 .booking-container {
   width: 500px;
-  height: 300px;
-  background-color: white;
+  height: 375px;
+  background-color: #7aa095;
   position: relative;
   top: 200px;
-  opacity: 0.8;
+  // opacity: 0.8;
   border-radius: 20px;
 }
 .booking{
@@ -34,6 +34,8 @@
   text-align: center;
   font-size: 20px;
   font-weight: bold;
+  // padding: 8px 0;
+  color: white
 }
 
 .border{
@@ -42,6 +44,12 @@
   width: 300px;
   margin: auto;
   margin-bottom: 10px;
+  padding: 8px 0;
+}
+
+.booking-page-container img{
+  position: absolute;
+  width: 100%;
 }
 
 .booking-page-container {
@@ -55,7 +63,20 @@
 
 
 .row{
-  color:#40531B;
+  color: white;
+}
+
+.booking-button-container {
+  height: auto;
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-invite-users {
+  background-color: white;
 }
 .location{
   text-align: center;

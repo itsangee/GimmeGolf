@@ -4,6 +4,28 @@
   margin: auto;
 }
 
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #1EDD88;
+}
+
+.flash-warning {
+  border: 2px solid #FFC65A;
+}
+
+.flash-danger {
+  border: 2px solid #FD1015;
+}
 
 .box-shadow {
   margin-top: 30px;
@@ -154,5 +176,24 @@
 .dashboard-unfollow:hover {
   color: white;
   background-color: darkgrey;
-  
+
+}
+
+.dashboard-invitations {
+  border: 3px solid $golfpalegreen;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  background-color: white;
+  width: 65%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-invitations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
