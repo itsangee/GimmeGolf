@@ -16,6 +16,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+
       </div>
       <div class="show-card-info">
         <h2>Showing Tee Times for: <%= @course.name %> on <% if params[:selected_date] && params[:selected_date] != "" %> <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
