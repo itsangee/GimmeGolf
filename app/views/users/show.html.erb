@@ -1,8 +1,11 @@
 <div class="text-center">
 
   <h1><%= @player.first_name %></h1>
-  <%= cl_image_tag @player.avatar.key, height: 300, width: 400, crop: :fill%>
-
+  <% if @player.avatar.key.nil? %>
+    <%= image_tag "logo.png" %>
+  <% else %>
+    <%= cl_image_tag @player.avatar.key, height: 300, width: 400, crop: :fill%>
+  <% end %>
   <div>
     <p><%= @player.email %> <%= render partial: "stats", locals: {user: @player} %></p>
       <div>
