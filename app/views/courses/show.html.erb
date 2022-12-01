@@ -21,7 +21,7 @@
       <div class="show-card-info">
         <h2>Showing Tee Times for: <%= @course.name %> on <% if params[:selected_date] && params[:selected_date] != "" %> <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
         <p> <small><%= @course.description %></small> </p>
-        <div>
+        <div class="">
           <h3>This location has <%= pluralize @course.reviews.size, "" %>
           <% if @course.reviews.size == 1 %>
             review
