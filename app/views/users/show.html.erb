@@ -1,23 +1,16 @@
 <div class="text-center">
 
-  <h1>Show page for <%= @player.email %></h1>
-</div>
-
-<div class="border border-2">
-  <p><b>Socials:</b></p>
+  <h1><%= @player.first_name %></h1>
+  <% if @player.avatar.key.nil? %>
+    <%= image_tag "logo.png" %>
+  <% else %>
+    <%= cl_image_tag @player.avatar.key, height: 300, width: 400, crop: :fill%>
+  <% end %>
   <div>
-    <%= render partial: "stats", locals: {user: @player}  %>
+    <p><%= @player.email %> <%= render partial: "stats", locals: {user: @player} %></p>
+      <div>
+        <h3>Bio:</h3>
+      </div>
+    <%= render 'bio_show' %>
   </div>
 </div>
-
-
-    <h1><%= @player.first_name %></h1>
-
-    <div>
-      <p><%= @player.email %> <%= render partial: "stats", locals: {user: @player} %></p>
-      <%= render 'bio_show' %>
-    </div>
-
-    <div><h3>Bio:</h3></div>
-
-

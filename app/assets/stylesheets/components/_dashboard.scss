@@ -1,0 +1,158 @@
+.main-dashboard-container {
+  height: 100vh;
+  width: 75%;
+  margin: auto;
+}
+
+
+.box-shadow {
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-cursor {
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+}
+
+
+.dashboard-cursor:hover {
+  color: lightgrey;
+  font-size: 2rem;
+}
+
+.dashboard-modal-button {
+  background-color: $golfgreen;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+.dashboard-booking-delete {
+  color: rgb(247, 138, 138);
+}
+.dashboard-booking-delete:hover {
+  color: lightgrey;
+}
+
+.dashboard-modal-button:hover {
+  background-color: $golfdarkgreen;
+  color: white;
+}
+
+.dashboard-show-bookings {
+  background-color: $golfgreen;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.dashboard-bookings {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.dashboard-bookings ul li{
+  list-style: none;
+}
+
+.dashboard-link {
+  background-color: green;
+}
+
+
+.dashboard-socials {
+  margin: auto;
+  background-color: $golfpalegreen;
+}
+
+.dashboard-social-follows {
+  background-color: $golfdarkgreen;
+  color: white;
+}
+
+.dashboard-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.dashboard-profile-box {
+  background: $golfpalegreen;
+  text-align: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+  border-radius: 20px;
+}
+
+.dashboard-menu-icon {
+  width: 25px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+.dashboard-setting-icon {
+  width: 25px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.dashboard-profile-pic {
+  width: 15px;
+  border-radius: 50%;
+  background: white;
+  padding: 6px;
+  margin-top: 40px;
+}
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
+
+.dashboard-popup-heading {
+  background-color: $golfdarkgreen;
+}
+
+.dashboard-popup-link {
+  color: lightgrey;
+}
+
+.dashboard-popup-link:hover {
+  color: white;
+}
+
+.dashboard-unfollow {
+  font-size: 0.6rem;
+  color: black;
+  background-color: lightgray;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.dashboard-unfollow:hover {
+  color: white;
+  background-color: darkgrey;
+  
+}
