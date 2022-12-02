@@ -37,7 +37,6 @@ class BookingsController < ApplicationController
       # new_booking.user = current_user
       new_booking = Booking.create(date: booking.date, user_id: current_user.id, slot_id: booking.slot.id)
       # Turn invite to 'invite_seen' to true
-      # new_booking.update_attribute(:invite_seen, true)
       invitation = Invitation.where(booking_id: booking.id, user_id: current_user.id).first
       invitation.update(invite_seen: true)
       # binding.pry

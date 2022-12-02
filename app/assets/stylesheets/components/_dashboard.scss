@@ -51,6 +51,21 @@
   border-radius: 10px;
 }
 
+.dashboard-accept-button {
+  background-color: $golfpalegreen;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+.dashboard-accept-button:hover {
+  background-color: $golfdarkgreen;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+
 .dashboard-booking-delete {
   color: rgb(247, 138, 138);
 }
