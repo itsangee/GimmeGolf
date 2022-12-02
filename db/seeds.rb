@@ -171,17 +171,41 @@ courses.each do |course|
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
 
-Booking.create!(user_id: user.id, slot_id: 1, date: Date.today)
-Booking.create!(user_id: user_2.id, slot_id: 1, date: Date.today)
-Booking.create!(user_id: user_3.id, slot_id: 1, date: Date.today)
-Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_2.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_3.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.today)
 
-Booking.create!(user_id: user.id, slot_id: 2, date: Date.today)
-Booking.create!(user_id: user_2.id, slot_id: 2, date: Date.today)
-Booking.create!(user_id: user_3.id, slot_id: 2, date: Date.today)
-Booking.create!(user_id: user_4.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_2.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_3.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_4.id, slot_id: 2, date: Date.today)
 
 Booking.create!(user_id: user.id, slot_id: 3, date: Date.today)
 Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.today)
 Booking.create!(user_id: user_3.id, slot_id: 3, date: Date.today)
 Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.today)
+
+Booking.create!(user_id: user.id, slot_id: 3, date: Date.parse('2022-10-02'))
+Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-12-30'))
+Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-09-17'))
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-10-07'))
+Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.parse('2022-08-12'))
+Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.parse('2022-08-12'))
+
+
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-12-15'))
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-11-28'))
+
+Follow.create!(following_id: 1, follower_id: 3)
+Follow.create!(following_id: 2, follower_id: 3)
+Follow.create!(following_id: 4, follower_id: 3)
+Follow.create!(following_id: 3, follower_id: 1)
+Follow.create!(following_id: 2, follower_id: 1)
+Follow.create!(following_id: 4, follower_id: 2)
+Follow.create!(following_id: 3, follower_id: 4)
+Follow.create!(following_id: 1, follower_id: 2)
+
+Invitation.create!(booking_id: 6, user_id: 3, invite_seen: false)
+Invitation.create!(booking_id: 11, user_id: 2, invite_seen: false)
+Invitation.create!(booking_id: 11, user_id: 1, invite_seen: false)
