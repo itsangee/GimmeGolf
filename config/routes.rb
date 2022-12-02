@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :invitations, only: [:destroy]
+
   get "bookings/:id/invite_user", to: "invitations#invite_user", as: :invite_user
 
   # Defines the root path route ("/")

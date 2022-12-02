@@ -33,11 +33,14 @@ class BookingsController < ApplicationController
   def accept
     booking = Booking.find(params[:id])
     if booking.slot.todays_bookings_count < 4
-      new_booking = booking.dup
-      new_booking.user = current_user
+      # new_booking = booking.dup
+      # new_booking.user = current_user
+      new_booking = Booking.create(date: booking.date, user_id: current_user.id, slot_id: booking.slot.id)
       # Turn invite to 'invite_seen' to true
-      # new_booking.update_attribute(:invite_seen, true)
-      if new_booking.save
+      invitation = Invitation.where(booking_id: booking.id, user_id: current_user.id).first
+      invitation.update(invite_seen: true)
+      # binding.pry
+      if new_booking.present?
         redirect_to booking_path(new_booking)
       else
         # todo

@@ -88,18 +88,30 @@
   <div class="box-shadow bg-white">
     <div class="dashboard-invitations-container">
       <h3 class="mb-3">Your invitations:</h3>
-      <% @invitations.each do |invitation| %>
-        <div class="dashboard-invitations">
-          <div class="ps-3 pt-3">
-            <p><%= "#{invitation.booking.slot.course.name} - #{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
-            <p><small class="text-muted">Invited by: <%= invitation.booking.user.email %></small></p>
+      <% if current_user.count_invites > 0 %>
+        <p><%= current_user.count_invites %> outstanding invitations</p>
+      <% end %>
+      <% if @invitations.any? %>
+        <% @invitations.each do |invitation| %>
+          <div class="dashboard-invitations">
+            <div class="ps-3 pt-3">
+              <p><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %> - <%= "#{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
+              <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.email, user_path(invitation.booking.user) %></small></p>
+            </div>
+            <div class="pe-3 d-flex flex-column align-items-center justify-content-center">
+              <div>
+                <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
+                  <%= form.submit "Accept", class: "dashboard-accept-button" %>
+                <% end %>
+              </div>
+              <div>
+                <%= link_to "Ignore", invitation_path(invitation), class: "text-muted", style: "font-size: 0.9rem", data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} %>
+              </div>
+            </div>
           </div>
-          <div class="pe-3">
-            <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
-              <%= form.submit "Accept" %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
+      <% else %>
+        <p>No invites currently</p>
       <% end %>
     </div>
   </div>

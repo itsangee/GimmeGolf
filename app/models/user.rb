@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings
+  has_many :invitations
   has_many :reviews, dependent: :destroy
   has_one_attached :avatar
 
@@ -24,5 +25,9 @@ class User < ApplicationRecord
   def following?(user_id)
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
+  end
+
+  def count_invites
+    self.invitations.where(invite_seen: false).count
   end
 end

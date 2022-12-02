@@ -7,6 +7,12 @@ class InvitationsController < ApplicationController
     @invitation.save!
   end
 
+  def destroy
+    @invitation = Invitation.find(params[:id])
+    # raise
+    @invitation.destroy
+    redirect_to dashboard_path, status: :see_other
+  end
   # def invite_seen
   #   self.seen = true
   # end
