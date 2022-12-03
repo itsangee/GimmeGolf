@@ -69,8 +69,9 @@
     </div>
   </div>
 
-    <div class='show-card-slots' data-controller="button-show-courses">
-      <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p>
+<div class="show-card-info">
+ <div class='show-card-slots' data-controller="button-show-courses">
+      <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:<p>
       <div data-show-slots-target="slots">
         <% @slots.each do |slot| %>
           <p> <%= slot.start_time.strftime("%I:%M %p") %></p>
@@ -86,6 +87,8 @@
         <% end %>
       </div>
     </div>
+</div>
+
 
 
   <div class='show-card-slots-reviews'>
@@ -95,14 +98,14 @@
     <% else %>
       <h2>Review the course: <%= render 'reviews/new' %> </h2>
     <% end %>
-    <div>
+    <div class="">
       <p>
         <button class="button-show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           See reviews
         </button>
       </p>
       <div class="collapse" id="collapseExample">
-        <div class="card card-review card-body">
+        <div class="card card-review card-body review-show-course">
           <% @course.reviews.each do |review| %>
           <p><%= review.content %></p>
           <%= "⭐️" * review.ratings %>
