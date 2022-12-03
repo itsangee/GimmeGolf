@@ -123,6 +123,11 @@
 
 }
 
+.course-slots-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .show-card-slots {
   overflow: hidden;
   height: 400px;
@@ -130,6 +135,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-around;
   margin-top: 20px;
   margin-bottom: 20px;

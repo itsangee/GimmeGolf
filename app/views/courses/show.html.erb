@@ -69,24 +69,37 @@
     </div>
   </div>
 
-    <div class='show-card-slots' data-controller="button-show-courses">
-      <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p>
-      <div data-show-slots-target="slots">
-        <% @slots.each do |slot| %>
-          <p> <%= slot.start_time.strftime("%I:%M %p") %></p>
-            <% if slot.todays_bookings_count.zero? %>
-              <p>no bookings</p>
-            <% else %>
-              <% slot.bookings.each do |booking| %>
-                <% if booking.date == @today %>
-                  <p>User: <%= booking.user.email%> - <%= booking.date %> </p>
-                <% end %>
-              <% end %>
+    <div class='show-card-slots' data-controller="show-booked-users" >
+      <p class="">Today's slots:</p>
+        <div class="course-slots-container">
+          <ul class="nav">
+            <% @slots.each do |slot| %>
+              <div>
+                <li data-action="click->show-booked-users#showUsers"> | <%= slot.start_time.strftime("%I:%M %p") %> |</li>
+              </div>
             <% end %>
-        <% end %>
+          </ul>
+          <div data-show-booked-users-target="users">
+          All booked users
+          </div>
       </div>
     </div>
 
+
+            <%# <% if slot.todays_bookings_count.zero? %> %>
+              <%# <p>No users have booked this slot yet</p> %>
+            <%# <% else %> %>
+              <%# <div> %>
+                <%# <% slot.bookings.each do |booking| %> %>
+                  <%# <% if booking.date == @today %> %>
+                    <%# <p>User: <%= booking.user.email%>
+                    <%# - <%= booking.date %> </p> %> %>
+                  <%# <% end %> %>
+                <%# <% end %> %>
+              <%# </div> %>
+            <%# <% end %> %>
+            <%# </div> %>
+          <%# </div> %>
 
   <div class='show-card-slots-reviews'>
     <% if @course.reviews.blank? %>
