@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
   <div class="row">
     <div class="py-2">
       <%= form_with url: courses_path, method: :get, class: "d-flex search-form-control form-group" do %>
@@ -16,13 +16,7 @@
       <% end %>
     </div>
 
-
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-    <%= link_to "Display all",  courses_path %>
+  <div class="row">
     <%# <% if params[:search].present? %>
     <%# <% @courses.each do |course| %>
       <%# <%= link_to course.name, course_path(course) %>
@@ -32,8 +26,8 @@
       <%# <%= link_to course.name, course_path(course)%>
     <%# <% end %>
     <%# <% end %>
-
-    <div class="cards course-description ">
+  <div class="col-8">
+    <div class="cards course-description cards-show">
       <% @courses.each do |course| %>
       <div class="course-card scale" >
 
@@ -53,6 +47,16 @@
       </div>
       <% end %>
 
+    </div>
+    </div>
+    <div class="col-4 mt-5">
+      <div id="map" style=" "
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+      <% link_to "Display all",  courses_path %>
+    </div>
     </div>
   </div>
 </div>

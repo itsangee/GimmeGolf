@@ -15,7 +15,6 @@ class CoursesController < ApplicationController
       booked_date = DateTime.parse(params[:query])
       # location = Location.parse(params[:query])
       @courses = Course.near(params[:location], 5, units: :km)
-      puts "before loops #{@courses.count}"
       @courses = @courses.reject do |course|
         var = true
         course.slots.each do |slot|
@@ -61,7 +60,8 @@ class CoursesController < ApplicationController
     @markers = @courses.geocoded.map do |course|
       {
         lat: course.latitude,
-        lng: course.longitude
+        lng: course.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {course: course})
       }
     end
   end

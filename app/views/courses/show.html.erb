@@ -1,25 +1,29 @@
   <div class="container-show-page">
     <div class="show-card">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
           <% @course.photos.each_with_index do |photo,index| %>
-            <div class="carousel-item <%="active" if index.zero? %> m-3">
+            <div class="carousel-item <%="active" if index.zero? %>">
               <img class="d-block" src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
             </div>
           <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+
       <div class="show-card-info">
-        <h2>Showing Tee Times for: <%= @course.name %> on <% if params[:selected_date] && params[:selected_date] != "" %> <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
+        <h2><%= @course.name %> <% if params[:selected_date] && params[:selected_date] != "" %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
         <p> <small><%= @course.description %></small> </p>
         <div class="">
           <h3>This location has <%= pluralize @course.reviews.size, "" %>
@@ -33,10 +37,9 @@
           <% else %>
             <p>✩✩✩✩✩</p>
           <% end %> </p>
-        </div>
-        <button type="button", id="slot-button", data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Book a slot now!
-    </button>
+          <button type="button", id="slot-button", data-bs-toggle="modal" data-bs-target="#exampleModal">Book now</button>
+      </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -63,42 +66,8 @@
     </div>
 
 
-      </div>
-    </div>
-
-
-
-
-  <div class='show-card-slots'>
-    <% if @course.reviews.blank? %>
-      <h5>Be the first to leave a review for <%= @course.name %></h5>
-      <%= render 'reviews/new' %>
-    <% else %>
-      <%= render 'reviews/new' %>
-    <% end %>
-
-    <div>
-      <p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          See reviews
-        </button>
-      </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <% @course.reviews.each do |review| %>
-          <p><%= review.content %></p>
-          <%= "⭐️" * review.ratings %>
-          <p>Created at:</p> <%= review.created_at.strftime("%d-%m-%Y") %>
-          <p>User:</p> <%= review.user.email %>
-          <%# display reviewer %>
-          <% end %>
-        </div>
-      </div>
-
     </div>
   </div>
-
-
 
     <div class='show-card-slots' data-controller="button-show-courses">
       <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p>
@@ -117,6 +86,37 @@
         <% end %>
       </div>
     </div>
+
+
+  <div class='show-card-slots-reviews'>
+    <% if @course.reviews.blank? %>
+      <h5>Be the first to leave a review for <%= @course.name %></h5>
+      <%= render 'reviews/new' %>
+    <% else %>
+      <h2>Review the course: <%= render 'reviews/new' %> </h2>
+    <% end %>
+    <div>
+      <p>
+        <button class="button-show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          See reviews
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-review card-body">
+          <% @course.reviews.each do |review| %>
+          <p><%= review.content %></p>
+          <%= "⭐️" * review.ratings %>
+          <p>Created at:</p> <%= review.created_at.strftime("%d-%m-%Y") %>
+          <p>User:</p> <%= review.user.email %>
+          <%# display reviewer %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 
 
