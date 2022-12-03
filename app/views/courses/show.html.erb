@@ -88,16 +88,19 @@
     </div>
 
 
-  <div class='show-card-slots-reviews'>
+  <div class='show-card-slots-reviews' data-controller="button-review">
     <% if @course.reviews.blank? %>
       <h5>Be the first to leave a review for <%= @course.name %></h5>
       <%= render 'reviews/new' %>
     <% else %>
-      <h2>Review the course: <%= render 'reviews/new' %> </h2>
+    <div class="review-form">
+      <h2>Review the course:</h2>
+      <%= render 'reviews/new' %>
+    </div>
     <% end %>
     <div>
       <p>
-        <button class="button-show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button data-action="click->button-review#disappear" data-button-review-target="button" class="button-show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           See reviews
         </button>
       </p>
