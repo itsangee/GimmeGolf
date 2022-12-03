@@ -23,12 +23,14 @@
   <body>
 
     <div id="page-container">
-      <%= render "shared/navbar"%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+      <div class="test">
+        <%= render "shared/navbar"%>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
       <div>
-        <% render "shared/footer"%>
+        <%= render "shared/footer"%>
       </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

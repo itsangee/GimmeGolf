@@ -142,6 +142,7 @@
         <div>
           <div class="d-none future" data-show-bookings-target="bookings">
             <% if @future_bookings.any? %>
+
               <% @future_bookings.each do |booking| %>
                 <ul>
                   <hr>
@@ -164,6 +165,7 @@
         <div>
           <div class="d-none past" data-show-bookings-target="bookings">
             <% if @past_bookings.any? %>
+
               <% @past_bookings.each do |booking| %>
                 <ul>
                   <hr>
@@ -184,7 +186,12 @@
               <% @todays_bookings.each do |booking| %>
                 <ul>
                   <hr>
-                  <li><p class="mt-3 text-center pt-3 pb-3"><%= link_to booking.slot.course.name, course_path(booking.slot.course)%>, <%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p></li>
+                  <li>
+                    <p class="mt-3 text-center pt-3 pb-3">
+                    <%= link_to booking.slot.course.name, course_path(booking.slot.course)%>,
+                    <%= "#{booking.date.strftime("%d/%m/%Y")},
+                    #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                  </li>
                   <hr>
                 </ul>
               <% end %>
