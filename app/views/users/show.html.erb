@@ -1,16 +1,70 @@
-<div class="text-center">
 
-  <h1><%= @player.first_name %></h1>
-  <% if @player.avatar.key.nil? %>
-    <%= image_tag "logo.png" %>
-  <% else %>
-    <%= cl_image_tag @player.avatar.key, height: 300, width: 400, crop: :fill%>
-  <% end %>
-  <div>
-    <p><%= @player.email %> <%= render partial: "stats", locals: {user: @player} %></p>
-      <div>
-        <h3>Bio:</h3>
+<% render partial: "stats", locals: {user: @player} %>
+
+<section class="vh-10" style="background-color: white;">
+  <div class="container py-5 h-200">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-md-9 col-lg-7 col-xl-5">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <div class="d-flex text-black">
+              <div class="flex-shrink-0">
+                  <% if @player.avatar.key.nil? %>
+                    <%= image_tag "logo.png", size: "150x150" %>
+                  <% else %>
+                    <%= cl_image_tag @player.avatar.key, :transformation=>[
+                    {:gravity=>"face", :height=>150, :radius=>"max", :width=>150, :crop=>"fill"},
+                    {:quality=>100, :radius=>0}] %>
+                  <% end %>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5 class="mb-1"><%= @player.first_name%> <%=@player.last_name%></h5>
+                <p class="mb-2 pb-1" style="color: #2b2a2a;"><%= @player.bio %></p>
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                  style="background-color: #efefef;">
+                  <div>
+                    <p class="small text-muted mb-1">Following</p>
+                    <p class="mb-0"><%=@player.following.count%></p>
+                  </div>
+                  <div class="px-3">
+                    <p class="small text-muted mb-1">Followers</p>
+                    <p class="mb-0"><%=@player.followers.count%></p>
+                  </div>
+                </div>
+                <div class="d-flex pt-1">
+                  <button type="button" class="btn btn-outline me-1 flex-grow-1">
+                    See past bookings
+                  </button>
+                  <button type="button" class="btn btn-primary flex-grow-1">
+                    <%= link_to "Follow", following_user_path(@player)%>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    <%= render 'bio_show' %>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="vh-50" style="background-color: white;">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="container py-5 h-50">
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body p-4" id="card-booking-body">
+          <div class="d-flex text-black">
+            <div class="flex-shrink-0">
+              <div class="flex-grow-1 ms-3">
+                <% @player.bookings.each do |booking| %>
+                  <p> <%= booking.date %>
+                      <%= booking.course.name %> </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
