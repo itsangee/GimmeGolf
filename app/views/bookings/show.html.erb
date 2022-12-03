@@ -1,37 +1,54 @@
 <div class="booking-page-container">
   <%# <%= cl_image_tag @booking.slot.course.photos[0].key,  crop: :fill %>
 
-  <div class="container booking-container">
-    <%# to have the invitation - form - create attendee  %>
-    <div class="row">
-      <h1 class="booking">Success <i class="fa-solid fa-check"></i></h1>
-      <h4 class="course-name"><%= @booking.slot.course.name %></h4>
-      <h4 class="border "><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%d/%m/%Y") %></h4>
-      <h4 class="border"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
-      <div class="booking-button-container">
-        <div>
-  # below not sure if i should delete
-        <h4 class="location"><%= @booking.slot.course.location.split(",")[-2] %>, <%= @booking.slot.course.location.split(",")[-1] %></h4>
-       <h4 class="border"><i class="fa-regular fa-calendar-days ml-2"></i> <%= @booking.date.strftime("%d/%m/%Y") %></h3>
-        <h4 class="border"><i class="fa-solid fa-clock"></i> <%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h3>
+  <div class="booking-container">
 
-        <div d-flex>
-  # up til here
-          <button type="button" class="btn success "><%= link_to "Back", courses_path(@course) %></button>
-        </div>
+    <div class="row">
+      <h1 class="booking">Booking confirmed! <i class="fa-solid fa-check"></i></h1>
+      <h4 class="course-name mt-2"><%= @booking.slot.course.name %></h4>
+      <div class="mt-2">
+        <h4 class="border booking-border"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%d/%m/%Y") %></h4>
+        <h4 class="border booking-border"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
+      </div>
+      <div class="booking-button-container mt-3">
         <div>
-          <button type="button" class="btn btn-danger"><%= link_to "Cancel", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+          <button type="button" class="btn booking-confirmation-back"><%= link_to "Back to course", course_path(@booking.slot.course) %></button>
         </div>
       </div>
     </div>
 
-    <div class="booking-invite-users">
-      <% current_user.following.each do |followee| %>
-      <%# <% @current_user.followers.each do |follower|%>
-        <%= link_to followee.first_name, invite_user_path(@booking, user: followee) %>
-      <% end %>
-    </div>
-
-    </div>
   </div>
+
+
+  <% if current_user.following.any? %>
+    <div class="booking-invite-users">
+      <div class="invite-users-ctr">
+      <h3 class="text-center mb-3">Invite a friend</h3>
+        <ul>
+        <% current_user.following.each do |followee| %>
+          <li class="booking-follower-li">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="mt-3">
+                <p><%= followee.first_name %></p>
+              </div>
+              <div class="me-2">
+                <%= link_to invite_user_path(@booking, user: followee) do %>
+                  <%# button will be disabled if the invitation exists %>
+                  <%# 'disabled unless' invitation.empty? - button will be disabled unless the invitation is empty, in which case we need to kep the button active  %>
+                  <%if Invitation.where(booking: @booking, user: followee).empty?%>
+                    <button class="booking-invite-button"> Invite </button>
+                  <% else %>
+                    <a disabled>Invited <i class="fa-sharp fa-solid fa-check"></i></a>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <%# <hr> %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
 </div>

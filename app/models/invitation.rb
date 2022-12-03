@@ -5,4 +5,5 @@ class Invitation < ApplicationRecord
   def turn_invite_seen
     self.invite_seen = true
   end
+
 end

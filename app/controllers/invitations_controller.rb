@@ -4,7 +4,9 @@ class InvitationsController < ApplicationController
     @booking = Booking.find(params[:id])
     @user = User.find(params[:user])
     @invitation = Invitation.new(booking: @booking, user: @user)
-    @invitation.save!
+    if @invitation.save!
+      redirect_to booking_path(@booking)
+    end
   end
 
   def destroy
