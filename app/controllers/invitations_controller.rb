@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
     @user = User.find(params[:user])
     @invitation = Invitation.new(booking: @booking, user: @user)
     @invitation.save!
+    redirect_to dashboard_path
   end
 
   def destroy
