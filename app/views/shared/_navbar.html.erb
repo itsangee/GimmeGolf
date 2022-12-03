@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to courses_path, class: "navbar-brand" do %>
-      <%= image_tag "logo" %>
+      <%= image_tag "logo.png" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -33,13 +33,13 @@
             <%# <%= link_to "Home", "#", class: "nav-link" %>
           <%# </li> %>
           <li class="nav-item">
-            <%= current_user.email%>
+            <p class="mt-2"><%= current_user.email%></p>
           </li>
           <li class="nav-item">
-            <%= link_to "My Dashboard", dashboard_path(current_user), class: "nav-link pe-3" %>
+            <%= link_to "My Dashboard", dashboard_path, class: "nav-link pe-3" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "mustafa", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "mustafa.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>

@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+Invitation.destroy_all
 Booking.destroy_all
 Course.destroy_all
 User.destroy_all
@@ -67,7 +68,7 @@ course_1a_file = URI.open(course_1_photo[1])
 course_1 = Course.create(
   name: "Enfield Golf Club",
   description: "Our picturesque, 18 hole parkland Course and Clubhouse are situated in beautiful, tranquil surroundings and we are ideally located in North London, within easy reach of the M25, Hertfordshire and Essex.",
-  location: "Old Park Road South, Enfield, Middlesex, EN27DA",
+  location: "Denewood Rd, London, N6 4AH",
   price: 22,
   holes: 18,
   par: 72
@@ -84,7 +85,7 @@ course_2a_file = URI.open(course_2_photo[1])
 course_2 = Course.create(
   name: "Woodford Golf Club",
   description: "Woodford Golf Clubs fantastic 9-hole course was created in 1890 making it one of the oldest in Essex. Woodford Golf Club’s course is beautifully designed through the Epping Forest making golfers feel secluded from the outside world.",
-  location: "Sunset Avenue, Woodford, Essex, IG8 0ST",
+  location: "82 Winnington Rd, London, N2 0TU",
   price: 14,
   holes: 9,
   par: 70
@@ -152,7 +153,7 @@ course_6a_file = URI.open(course_6_photo[1])
 course_6 = Course.create(
   name: "Dukes Meadows Golf",
   description: "Dukes Meadows overlooks the River Thames in Chiswick, it is well located for easy access to and from London and within close proximity to mainline stations.",
-  location: "Dan Mason Drive, Chiswick, Middlesex, W4 2SH",
+  location: "Rhodes Ave, London, N22 7UT",
   price: 30,
   holes: 18,
   par: 72
@@ -170,17 +171,41 @@ courses.each do |course|
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
 
-Booking.create!(user_id: 1, slot_id: 1, date: Date.today)
-Booking.create!(user_id: 2, slot_id: 1, date: Date.today)
-Booking.create!(user_id: 3, slot_id: 1, date: Date.today)
-Booking.create!(user_id: 4, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_2.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_3.id, slot_id: 1, date: Date.today)
+# Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.today)
 
-Booking.create!(user_id: 1, slot_id: 2, date: Date.today)
-Booking.create!(user_id: 2, slot_id: 2, date: Date.today)
-Booking.create!(user_id: 3, slot_id: 2, date: Date.today)
-Booking.create!(user_id: 4, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_2.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_3.id, slot_id: 2, date: Date.today)
+# Booking.create!(user_id: user_4.id, slot_id: 2, date: Date.today)
 
-Booking.create!(user_id: 1, slot_id: 3, date: Date.today)
-Booking.create!(user_id: 2, slot_id: 3, date: Date.today)
-Booking.create!(user_id: 3, slot_id: 3, date: Date.today)
-Booking.create!(user_id: 4, slot_id: 3, date: Date.today)
+Booking.create!(user_id: user.id, slot_id: 3, date: Date.today)
+Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.today)
+Booking.create!(user_id: user_3.id, slot_id: 3, date: Date.today)
+Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.today)
+
+Booking.create!(user_id: user.id, slot_id: 3, date: Date.parse('2022-10-02'))
+Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-12-30'))
+Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-09-17'))
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-10-07'))
+Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.parse('2022-08-12'))
+Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.parse('2022-08-12'))
+
+
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-12-15'))
+Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-11-28'))
+
+Follow.create!(following_id: 1, follower_id: 3)
+Follow.create!(following_id: 2, follower_id: 3)
+Follow.create!(following_id: 4, follower_id: 3)
+Follow.create!(following_id: 3, follower_id: 1)
+Follow.create!(following_id: 2, follower_id: 1)
+Follow.create!(following_id: 4, follower_id: 2)
+Follow.create!(following_id: 3, follower_id: 4)
+Follow.create!(following_id: 1, follower_id: 2)
+
+Invitation.create!(booking_id: 6, user_id: 3, invite_seen: false)
+Invitation.create!(booking_id: 11, user_id: 2, invite_seen: false)
+Invitation.create!(booking_id: 11, user_id: 1, invite_seen: false)
