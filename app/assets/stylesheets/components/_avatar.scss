@@ -32,3 +32,22 @@
   width: 200px;
   border-radius: 100px;
 }
+
+.show-user {
+  text-align: center;
+  background-color: white;
+  border: 3cm;
+  border-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-page-infor {
+  border: 20px;
+}
+
+#card-booking-body {
+  display: flex;
+  justify-content: center;
+}
