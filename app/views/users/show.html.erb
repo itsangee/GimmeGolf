@@ -58,7 +58,7 @@
               <div class="flex-grow-1 ms-3">
                 <% @player.bookings.each do |booking| %>
                   <p> <%= booking.date %>
-                      <%= booking.course.name %> </p>
+                      <%= booking.slot.course.name %> </p>
                 <% end %>
               </div>
             </div>
