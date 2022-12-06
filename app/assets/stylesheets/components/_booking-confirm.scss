@@ -16,31 +16,20 @@
 }
 
 .booking-container {
-  width: 500px;
-  height: 375px;
-<<<<<<< HEAD:app/assets/stylesheets/components/_booking_button_cancel.scss
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 1000px;
+  height: 600px;
   background-color: white;
-  // position: relative;
-  // top: 200px;
-  opacity: 0.8;
-  border-radius: 8px;
-=======
-  background-color: #7aa095;
-  // position: relative;
-  top: 200px;
-  // opacity: 0.8;
-  border-radius: 20px;
->>>>>>> dd35eb567b71bb4761f805e1cf957021134c15ae:app/assets/stylesheets/components/_booking-confirm.scss
-}
-
-.booking-container .row {
-  color: black;
+  border-radius: 4px;
+  border: 4px solid $golfgreen;
 }
 
 .booking{
   text-align: center;
   font-weight: bold;
-  margin-top:20px;
+  padding-bottom: 20px;
 
 }
 .course-name{
@@ -76,7 +65,6 @@
 }
 
 .booking-page-container {
-<<<<<<< HEAD:app/assets/stylesheets/components/_booking_button_cancel.scss
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -84,18 +72,15 @@
   background-image: linear-gradient(to right, rgba(47,48,58,0.8), rgba(47,48,58,0.8)),url("golf-field.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-=======
-  //  position: absolute;
-   width: 100%;
-   height: 100%;
-   background-image: linear-gradient(to right, rgba(47,48,58,0.8), rgba(47,48,58,0.8)),url("golf-field.jpg");
-   background-repeat: no-repeat;
-   background-size: cover;
->>>>>>> dd35eb567b71bb4761f805e1cf957021134c15ae:app/assets/stylesheets/components/_booking-confirm.scss
 }
 
-.row{
-  color: white;
+.booking-confirmed-details {
+  width: 450px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .booking-button-container {
@@ -125,12 +110,15 @@
   background-color: $golfdarkgreen;
 }
 
+.booking-user-deets {
+  display: flex;
+  align-items: center;
+}
+
 .booking-invite-users {
-  background-color: white;
-  width: 300px;
-  margin-left: 30px;
+  width: 450px;
+  height: 600px;
   overflow: auto;
-  height: 375px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -139,14 +127,20 @@
 
 .booking-invite-users ul {
   padding: 16px 12px;
+  background: rgba(211, 211, 211, 0.2);
+  border-radius: 6px;
 }
 .location{
   text-align: center;
 }
 
-<<<<<<< HEAD:app/assets/stylesheets/components/_booking_button_cancel.scss
+
 .booking-confirmation-back {
   background-color: $golfdarkgreen;
+}
+
+.booking-confirmation-back a {
+  color: white;
 }
 
 .booking-confirmation-back:hover {
@@ -168,22 +162,11 @@
   padding: 4px 4px;
   margin-bottom: 8px;
   border-radius: 4px;
-}
-=======
-.followers {
-  width: 300px;
-  margin-left: auto;
-  margin-right: 60px;
   background-color: white;
-  padding: 16px 8px;
-  border-radius: 4px;
 }
-// .followers p{
-//   text-align: center;
-// }
 
-.followers ul{
-  list-style: none;
-  padding-left: 0;
+.booking-follower-li:last-child {
+
+  margin-bottom: 0;
+
 }
->>>>>>> dd35eb567b71bb4761f805e1cf957021134c15ae:app/assets/stylesheets/components/_booking-confirm.scss
