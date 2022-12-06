@@ -6,9 +6,25 @@
   margin-top: 50px;
   margin-bottom: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap:16px;
   width: 100%;
+
+}
+.course-card-index{
+  height: 300px;
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.course-card-index h3{
+  align-self: end;
+}
+.course-card-index h2{
+  font-weight: bold;
 }
 a {
   text-decoration: none; /* Убираем подчёркивание */
