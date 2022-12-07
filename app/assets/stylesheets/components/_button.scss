@@ -91,12 +91,20 @@ span a:hover{
 		-5px 5px 0 #618b4a,
 		5px -5px 0 #618b4a;
 	transition: 500ms ease-in-out;
+  text-decoration: none !important;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 2px;
 }
 
 .button1:hover {
 	box-shadow: 20px 5px 0 white, -20px -5px 0 white;
+  text-decoration: none !important;
+  color: #618b4a !important;
 }
 
 .button1:focus {
 	outline: none;
+  text-decoration: none !important;
+  color: #618b4a !important;
+
 }
