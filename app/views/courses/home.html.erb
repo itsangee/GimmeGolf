@@ -8,23 +8,52 @@
       </div>
     </div>
 
-  <div class="description"><h2><strong>GimmeGolf</strong> comes from a group of friends.
+  <div class="description"><h2 id="descrip"><strong>GimmeGolf</strong> comes from a group of friends.
     Out of curiosity to find a community for golfers to get together and enjoy playing golf.
     This enables you to book courses and include meet-ups with friends,
     families, and other individuals with similar interests in golf!</h2>
   </div>
 
-  <h1 class="team">MEET OUR TEAM</h1>
-  <div class="team-photos">
-    <%= image_tag("magdalena1.jpg", :class => "style_image" ) %>
-    <h3>Magdalena</h3>
-    <%= image_tag("mustafa.png", :class => "style_image" ) %>
-    <h3>Mustafa</h3>
-    <%= image_tag("angee.jpg", :class => "style_image" ) %>
-    <h3>Angee</h3>
-    <%= image_tag("luba.jpg", :class => "style_image" ) %>
-    <h3>Luba</h3>
+  <%# <h1 class="text-center">Courses</h1>
+  <div class="grid-container-cards">
+    <div class="card-item-container">
+        <% @courses.each do |course| %>
+          <%#= cl_image_tag course.photos[0].key, height: 300, width: 300,  crop: :fill %>
+        <%# <div> %>
+        <%# <p>= course.name</p> %>
+        <%# </div> %>
+        <%# end %>
+    <%# </div> %>
+  <%# </div> %>
+
+  <div>
+    <h2 class="how">HOW IT WORKS</h2>
+    <div class="how-it-works">
+      <div class="how-photos">
+        <%= image_tag("1.png") %>
+      </div>
+      <div class="how-photos">
+        <%= image_tag("2.png") %>
+      </div>
+      <div class="how-photos">
+      <%= image_tag("3.png") %>
+      </div>
+    </div>
   </div>
+
+  <%# <div class="team-container">
+    <h1 class="team">MEET OUR TEAM</h1>
+    <div class="team-photos">
+      <%= image_tag("magdalena1.jpg", :class => "style_image" ) %>
+      <%# <h3>Magdalena</h3> %>
+      <%#= image_tag("mustafa.png", :class => "style_image" ) %>
+      <%# <h3>Mustafa</h3> %>
+      <%#= image_tag("angee.jpg", :class => "style_image" ) %>
+      <%# <h3>Angee</h3> %>
+      <%#= image_tag("luba.jpg", :class => "style_image" ) %>
+      <%# <h3>Luba</h3> %>
+    <%# </div> %>
+  <%# </div> %>
 
   <div class="sign-up-div">
     <h5>Get involved in the most exciting community for all the golfers!</h5>

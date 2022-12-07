@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def home
+    @courses = Course.all
   end
 
   def index
