@@ -30,23 +30,31 @@
   text-align: center;
   font-weight: bold;
   padding-bottom: 20px;
+  font-size: 4rem;
+  color: white;
 
 }
 .course-name{
   text-align: center;
-  font-size: 20px;
+  font-size: 3rem;
   font-weight: 600;
-  color: black
+  color: $golfdarkgreen;
 }
 
-// .border{
-//   text-align: center;
-//   box-shadow: 10px 5px 5px black;
-//   width: 300px;
-//   margin: auto;
-//   margin-bottom: 10px;
-//   padding: 8px 0;
-// }
+.course-name:hover{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: $golfgreen;
+}
+
+.followee-text {
+  color: $golfdarkgreen;
+}
+
+.followee-text:hover {
+  color: $golfgreen;
+}
 
 .booking-border {
   text-align: center;
@@ -67,6 +75,7 @@
 .booking-page-container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to right, rgba(47,48,58,0.8), rgba(47,48,58,0.8)),url("golf-field.jpg");
@@ -80,7 +89,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .booking-button-container {
@@ -137,6 +146,8 @@
 
 .booking-confirmation-back {
   background-color: $golfdarkgreen;
+  padding: 6px 8px;
+  border-radius: 4px;
 }
 
 .booking-confirmation-back a {

@@ -1,10 +1,14 @@
 <div class="booking-page-container">
 
+  <h1 class="booking">Booking successful! <i class="fa-solid fa-check"></i></h1>
   <div class="booking-container">
 
-    <div class="booking-confirmed-details">
-      <h1 class="booking">Booking confirmed! <i class="fa-solid fa-check"></i></h1>
-      <h4 class="course-name mt-2"><%= @booking.slot.course.name %></h4>
+    <div class="booking-confirmed-details" style="padding-bottom: 50px;">
+      <div class="d-flex justify-content-center align-items-center flex-column">
+        <p>Booking confirmed for: </p>
+        <h4 class="mt-2" style="
+      display: flex;"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
+      </div>
       <div class="mt-2">
         <h4 class="border booking-border"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%d/%m/%Y") %></h4>
         <h4 class="border booking-border"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
@@ -16,13 +20,13 @@
       </div>
     </div>
 
-    <%= image_tag('gimmegolf_v2.jpeg') %>
+    <%# <%= image_tag('gimmegolf2.jpeg') %>
 
 
     <% if current_user.following.any? %>
     <div class="booking-invite-users">
       <div class="invite-users-ctr">
-      <h2 class="text-center mb-3">Invite a friend</h2>
+      <h2 class="mb-3">Why not invite a friend?</h2>
         <ul>
         <% current_user.following.each do |followee| %>
           <li class="booking-follower-li">
@@ -35,7 +39,7 @@
                       {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
                     {:quality=>100, :radius=>0}] %>
                   <% end %>
-                <p class="ms-2 mt-3"><b><%= followee.first_name %></b></p>
+                <p class="ms-2 mt-3"><b><%= link_to followee.first_name, user_path(followee), class: "followee-text" %></b></p>
               </div>
               <div class="me-2">
                 <%= link_to invite_user_path(@booking, user: followee) do %>
