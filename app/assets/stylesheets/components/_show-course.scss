@@ -10,12 +10,34 @@
 //   margin-bottom: 50px;
 // }
 
-#carouselExampleControls {
-  width: 400px;
+#carouselExampleCaptions {
+  width: 600px;
   padding: 20px;
 }
+
+.image-carousel {
+  height: 350px;
+  width: 600px;
+  object-fit: cover;
+}
+
 .no-hover-color:hover {
   color: none !important;
+}
+
+.row {
+  color: black;
+}
+
+.carousel-indicators [data-bs-target] {
+  height: 80px;
+  width: 80px;
+}
+
+
+
+.carousel-indicators {
+  bottom: -100px;
 }
 
 // .show-card-description {
@@ -192,22 +214,21 @@
   // margin: 20px;
   // justify-content: right;
   border-radius: 10px;
-
   top: 8px;
   bottom: 8px;
   right: 8px;
   border: none;
   margin-left: 20px;
   color: white;
-  background-color: #618B4A;
+  background-color: #40531b
 }
 
 #slot-button:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-  background-color: #40531b;
-  color: #618B4A;
+  color: white;
+  background-color: #618B4A;
 }
 
 #slot-button:focus{
@@ -218,7 +239,6 @@
   top: 8px;
   bottom: 8px;
   right: 8px;
-
 }
 
 #button-back {
@@ -281,8 +301,4 @@
 .card-review {
   border: none;
   color: black;
-}
-
-.review-show-course {
-  overflow: scroll;
 }

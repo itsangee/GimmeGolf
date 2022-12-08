@@ -1,29 +1,31 @@
-  <div class="container-show-page">
-    <div class="show-card">
+   <div class="container-show-page">
 
-
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-          <% @course.photos.each_with_index do |photo,index| %>
-            <div class="carousel-item <%="active" if index.zero? %>">
-              <img class="d-block" src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
-            </div>
-          <% end %>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+  <div class="row show-row">
+    <div class="col-12 col-lg-8">
+        <div id="carouselExampleControls" class="carousel slide my-4" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+              <% @course.photos.each_with_index do |photo,index| %>
+                <div class="carousel-item <%="active" if index.zero? %>">
+                  <img class="d-block image-carousel" src="<%= cl_image_path photo.key, crop: :fill %>" alt="<%=@course.name%>">
+                </div>
+              <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
     </div>
-
-
-
-      <div class="show-card-info">
-        <h2><%= @course.name %> <% if params[:selected_date] && params[:selected_date] != "" %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
+    <h2><%= @course.name %> <% if params[:selected_date] && params[:selected_date] != "" %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
         <p> <small><%= @course.description %></small> </p>
         <div class="">
           <h3>This location has <%= pluralize @course.reviews.size, "" %>
@@ -37,6 +39,48 @@
           <% else %>
             <p>✩✩✩✩✩</p>
           <% end %> </p>
+  </div>
+
+    <div class="row">
+    <div class="col-12 col-lg-4">
+
+    </div>
+  </div>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <% @course.photos.each_with_index do |photo,index| %>
+      <img type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>"  class="<%="active" if index.zero? %> image-button" aria-current="true" aria-label="Slide 1" src="<%= cl_image_path photo.key, crop: :fill %>" alt="<%=@course.name%>">
+    <% end %>
+  </div>
+  <div class="carousel-inner">
+    <% @course.photos.each_with_index do |photo,index| %>
+    <div class="carousel-item <%="active" if index.zero? %>">
+      <img  class="d-block w-100 image-carousel" src="<%= cl_image_path photo.key, crop: :fill %>" alt="<%=@course.name%>">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= @course.name %> <% if params[:selected_date] && params[:selected_date] != "" %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h5>
+        <p>        <% if @course.average_rating > 0  %>
+            <p>Rating: <%= "⭐️" * @course.average_rating %> </p>
+          <% else %>
+            <p>✩✩✩✩✩</p>
+          <% end %> </p></p>
+      </div>
+    </div>
+     <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  <div class="show-card">
+      <div class="show-card-info">
+
           <button type="button", id="slot-button", data-bs-toggle="modal" data-bs-target="#exampleModal">Book now</button>
       </div>
 
@@ -69,9 +113,8 @@
     </div>
   </div>
 
-<div class="show-card-info">
- <div class='show-card-slots' data-controller="button-show-courses">
-      <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:<p>
+    <div class='show-card-slots' data-controller="button-show-courses">
+      <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p>
       <div data-show-slots-target="slots">
         <% @slots.each do |slot| %>
           <p> <%= slot.start_time.strftime("%I:%M %p") %></p>
@@ -87,8 +130,6 @@
         <% end %>
       </div>
     </div>
-</div>
-
 
 
   <div class='show-card-slots-reviews'>
@@ -98,14 +139,14 @@
     <% else %>
       <h2>Review the course: <%= render 'reviews/new' %> </h2>
     <% end %>
-    <div class="">
+    <div>
       <p>
         <button class="button-show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           See reviews
         </button>
       </p>
       <div class="collapse" id="collapseExample">
-        <div class="card card-review card-body review-show-course">
+        <div class="card card-review card-body">
           <% @course.reviews.each do |review| %>
           <p><%= review.content %></p>
           <%= "⭐️" * review.ratings %>
