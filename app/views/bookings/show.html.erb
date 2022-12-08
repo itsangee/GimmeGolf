@@ -1,11 +1,11 @@
 <div class="booking-page-container">
 
-  <h1 class="booking">Booking successful! <i class="fa-solid fa-check"></i></h1>
+  <h1 class="booking">Booking successful!</h1>
   <div class="booking-container">
 
     <div class="booking-confirmed-details" style="padding-bottom: 50px;">
       <div class="d-flex justify-content-center align-items-center flex-column">
-        <p>Booking confirmed for: </p>
+        <p style="font-size: 1.25rem;">Booking confirmed for: </p>
         <h4 class="mt-2" style="
       display: flex;"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
       </div>
@@ -15,7 +15,9 @@
       </div>
       <div class="booking-button-container mt-3">
         <div>
-          <button type="button" class="booking-confirmation-back"><%= link_to "Back to course", course_path(@booking.slot.course) %></button>
+          <button type="button" class="booking-confirmation-back">
+            <%= link_to "See dashboard", dashboard_path %>
+          </button>
         </div>
       </div>
     </div>
@@ -26,7 +28,7 @@
     <% if current_user.following.any? %>
     <div class="booking-invite-users">
       <div class="invite-users-ctr">
-      <h2 class="mb-3">Why not invite a friend?</h2>
+      <h2 class="mb-3 mt-3"><b>Why not invite a friend?</b></h2>
         <ul>
         <% current_user.following.each do |followee| %>
           <li class="booking-follower-li">
