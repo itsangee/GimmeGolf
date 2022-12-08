@@ -38,14 +38,15 @@
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
-  color: $golfdarkgreen;
+  color: white;
+  transition-duration: 0.5s;
 }
 
 .course-name:hover{
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
-  color: $golfgreen;
+  color: #e4e8e5;
 }
 
 .followee-text {
@@ -58,12 +59,12 @@
 
 .booking-border {
   text-align: center;
-  box-shadow: 8px 4px 4px rgba(34, 34, 34, 0.5);
+  box-shadow: 2px 2px 2px rgba(182, 172, 172, 0.5);
   width: 300px;
   margin: auto;
   margin-bottom: 10px;
   padding: 8px 0;
-  color: $golfdarkgreen;
+  color: white;
 }
 
 
@@ -90,6 +91,8 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 6px;
+  background-image: linear-gradient(rgba(8, 30, 12, 0.5), rgba(0, 0, 0, 0.9)), url('gimmegolf_v2.jpg');
 }
 
 .booking-button-container {
@@ -102,11 +105,12 @@
 }
 
 .booking-invite-button {
-  background-color: $golfpalegreen;
+  background-color: $golfgreen;
   font-size: 0.8rem;
   padding: 4px 8px;
   color: white;
   border-radius: 8px;
+  border: 1px solid black;
 }
 
 .booking-invite-button-disabled {
@@ -147,7 +151,8 @@
 .booking-confirmation-back {
   background-color: $golfdarkgreen;
   padding: 6px 8px;
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 1px solid white;
 }
 
 .booking-confirmation-back a {
@@ -155,7 +160,7 @@
 }
 
 .booking-confirmation-back:hover {
-  background-color: $golfpalegreen;
+  background-color: $golfgreen;
 }
 
 .booking-confirmation-cancel {

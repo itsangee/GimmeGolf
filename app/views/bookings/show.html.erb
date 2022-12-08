@@ -5,7 +5,6 @@
 
     <div class="booking-confirmed-details">
       <div class="d-flex justify-content-center align-items-center flex-column">
-        <p style="font-size: 1.25rem;">Booking confirmed for: </p>
         <h4 class="mt-2" style="
       display: flex;"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
       </div>
@@ -22,7 +21,11 @@
       </div>
     </div>
 
-    <%# <%= image_tag('gimmegolf2.jpeg') %>
+
+
+
+
+    <%# <%= cl_image_tag @booking.slot.course.photos[0].key, height: 300, crop: :fill %>
 
 
     <% if current_user.following.any? %>
