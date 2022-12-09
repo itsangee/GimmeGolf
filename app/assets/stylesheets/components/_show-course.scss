@@ -11,14 +11,19 @@
 // }
 
 #carouselExampleCaptions {
-  width: 600px;
-  padding: 20px;
+  width: 100%;
+  padding-top: 24px;
+  padding-left: 90px;
+  padding-right: 80px;
+  // padding-top: 24px;
+  // padding-bottom: 48px;
 }
 
 .image-carousel {
-  height: 350px;
-  width: 600px;
+  height: 400px;
+  width: 560px;
   object-fit: cover;
+  border-radius: 30px;
 }
 
 .no-hover-color:hover {
@@ -30,16 +35,81 @@
 }
 
 .carousel-indicators [data-bs-target] {
-  height: 80px;
-  width: 80px;
+  height: 170px;
+  width: 300px;
+  border-radius: 30px;
 }
 
-
+.show-description {
+  color: black;
+  padding: 24px;
+  overflow: hidden;
+  height: 400px;
+  width: 500px;
+  width: fit-content;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 .carousel-indicators {
-  bottom: -100px;
+  bottom: -205px;
 }
 
+.title-show {
+  color: black;
+  padding-left: 100px;
+  padding-right: 80px;
+  padding-top: 24px;
+  // padding-bottom: 48px;
+}
+
+.description-show {
+  border-top: 1px solid #eaf4e4;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 24px;
+  margin-top: 200px;
+  margin-left: 140px;
+
+  width: 80%;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description-div {
+  justify-content: flex-start;
+  width: 50%;
+  padding-right: 80px;
+  padding-top: 20px;
+}
+
+.body-show {
+  border: 1px solid #eaf4e4;
+  margin-left: 80px;
+  padding: 20px;
+  // padding-left: 20px;
+  border-radius: 30px;
+
+}
+
+#new_booking {
+  border: 1px solid #eaf4e4;;
+  padding: 20px;
+  border-radius: 30px;
+  // padding-top: ;
+  // padding-bottom: ;
+  // padding-right: ;
+  // padding-left: ;
+}
+
+.form-select {
+  border-radius: 30px;
+  background-color: #eaf4e4;
+}
 // .show-card-description {
 //   justify-content: flex-end;
 // }
@@ -90,11 +160,14 @@
 //   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 // }
 .container-show-page {
-  padding: 20px;
   background-color: white;
-
-  margin: 20px;
-  margin-right: 20px;
+  border-top: 1px solid #eaf4e4;
+  // padding-left: 80px;
+  // padding-right: 80px;
+  // padding-top: 24px;
+  // padding-bottom: 48px;
+  // margin: 20px;
+  // margin-right: 20px;
 }
 
 .show-card {
@@ -111,6 +184,7 @@
   // height: 100%;
   // width: 120px;
   object-fit: cover;
+
 }
 
 .show-card h2 {
@@ -213,7 +287,7 @@
   font-size: 20px;
   // margin: 20px;
   // justify-content: right;
-  border-radius: 10px;
+  border-radius: 30px;
   top: 8px;
   bottom: 8px;
   right: 8px;
