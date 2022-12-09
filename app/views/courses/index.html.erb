@@ -30,28 +30,29 @@
     <div class="cards course-description cards-show">
       <% @courses.each do |course| %>
       <%= link_to course_path(course, selected_date: params[:query]) do %>
-        <div class="course-card-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path course.photos[0].key, height: 300,  crop: :fill %>)">
-          <h3>Available</h3>
-          <div>
-            <p>
-          <% if course.average_rating > 0  %>
-           <%= course.average_rating %>
-          <% else %>
+        <div class="course-card-index scale" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path course.photos[0].key, height: 300, crop: :fill %>)">
 
-          <% end %>
-          ⭐️
-          <%= pluralize course.reviews.size, "" %>
-          <% if course.reviews.size == 1 %>
-            review
+          <% if course.average_rating > 0  %>
+            <p class="margin-left-rating"> <%= "⭐️" * course.average_rating %> </p>
           <% else %>
-            reviews
-          <% end %>
-          </p>
+            <p>✩✩✩✩✩</p>
+          <% end %> </p>
+          <div class="margin-top-name">
 
             <h2><%= course.name%></h2>
+              <div class="d-flex mt-2">
+                <div>
+                  <p class="padding-right-hole"><i class="fa-solid fa-ring"></i></i> HOLE <%= course.holes %></p>
+                </div>
+                <div>
+                  <p><i class="fa-solid fa-golf-ball-tee"></i> PAR <%= course.par %></p>
+                </div>
+              </div>
+
           </div>
         </div>
         <%end %>
+
       <%# <div class="course-card scale" >
 
       /* <a href="#"><%= link_to course_path(course, selected_date: params[:query]) do %>
@@ -61,10 +62,6 @@
          <%# <%course_zip = course.location.split(",")[-1] %>
               <%# <h4 class="course-name"><%= course.name.upcase</h4> %>
               <%# <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"</p> %>
-              <%# <div class="display-flex"> %>
-                <%# <p class="course-info item ">PAR <%= course.par</p> %>
-                <%# <% <p class="course-info item"> HOLE <%= course.holes</p> %>
-              <%# </div> %>
           <%# <%</div> %>
       <% end %>
       </div>
