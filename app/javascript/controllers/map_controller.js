@@ -25,7 +25,7 @@ export default class extends Controller {
     );
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/liubov300/clbfiztmm001z14m5vb7lbnly",
+      style: "mapbox://styles/liubov300/clbhw35du004y14r31nxrkowh",
     });
   }
 
