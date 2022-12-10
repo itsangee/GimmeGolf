@@ -1,6 +1,6 @@
 <div class="container-show-page">
 
-  <div class="row show-row mb-5">
+  <div class="show-row mb-5">
     <h2 class= "title-show"><strong><%= @course.name.upcase %></strong></h2>
     <h5 class= "title-show">
       <% if @course.average_rating > 0 %>
@@ -44,33 +44,28 @@
       </div>
     </div>
   </div>
-
-  <div class="description-show">
+<div class="d-block">
+  <div class="description-show d-flex">
     <h5 class="description-div"> <%= @course.description %> </h5>
-    <div class="modal-body body-show">
-        <h5><strong>£104</strong><small> per hour</small></h5>
-        <p><% if @course.average_rating > 0 %>
-      ⭐️ <%= @course.average_rating %> · <%=  pluralize @course.reviews.size %>
-      <% else %>
-      ⭐️ <strong>0.0</strong>
-      <% end %></p>
-          <%= simple_form_for [@course, @booking] do |f| %>
-          <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
-          <%# <%= f.label %>
-          <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
-          <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
-          <%= f.input :date, as: :date, html5: true, required: true %>
-          <%= f.submit "Book now", class: "", id: "slot-button" %>
-        <% end %>
+     <div class="modal-body body-show">
+      <h5><strong>£104</strong><small> per hour</small></h5>
+      <p><% if @course.average_rating > 0 %>
+    ⭐️ <%= @course.average_rating %> · <%=  pluralize @course.reviews.size %>
+    <% else %>
+    ⭐️ <strong>0.0</strong>
+    <% end %></p>
+        <%= simple_form_for [@course, @booking] do |f| %>
+        <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
+        <%# <%= f.label %>
+        <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
+        <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
+        <%= f.input :date, as: :date, html5: true, required: true %>
+        <%= f.submit "Book now", class: "", id: "slot-button" %>
+      <% end %>
     </div>
   </div>
 
-
-
-
-
-
-  <div class='show-card-slots' data-controller="button-show-courses">
+  <div class='description-show' data-controller="button-show-courses">
     <p class="" id="available" data-action="click->button-show-courses#showContent">Available courses:</p>
     <div data-show-slots-target="slots">
       <% @slots.each do |slot| %>
@@ -89,7 +84,7 @@
   </div>
 
 
-  <div class='show-card-slots-reviews'>
+  <div class='description-show'>
     <% if @course.reviews.blank? %>
       <h5>Be the first to leave a review for <%= @course.name %></h5>
       <%= render 'reviews/new' %>
@@ -115,6 +110,12 @@
       </div>
     </div>
   </div>
+
+</div>
+
+
+
+
 
 
 
