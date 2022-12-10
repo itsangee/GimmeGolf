@@ -2,11 +2,6 @@
   <div class="row">
     <div class="py-2">
       <%= form_with url: courses_path, method: :get, class: "d-flex search-form-control form-group" do %>
-      <%= date_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a course"
-      %>
       <%= text_field_tag :location,
         params[:location],
         class: "form-control",
@@ -40,6 +35,11 @@
           <div class="margin-top-name">
 
             <h2><%= course.name%></h2>
+            <div >
+              <%= course.location.split(",")[-2] %>,
+              <%= course.location.split(",")[-1] %>
+
+            </div>
               <div class="d-flex mt-2">
                 <div>
                   <p class="padding-right-hole"><i class="fa-solid fa-ring"></i></i> HOLE <%= course.holes %></p>
@@ -57,12 +57,6 @@
 
       /* <a href="#"><%= link_to course_path(course, selected_date: params[:query]) do %>
       <%# <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
-         <%# <div class="card-course-info"> %>
-         <%# <%course_city = course.location.split(",")[-2] %>
-         <%# <%course_zip = course.location.split(",")[-1] %>
-              <%# <h4 class="course-name"><%= course.name.upcase</h4> %>
-              <%# <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"</p> %>
-          <%# <%</div> %>
       <% end %>
       </div>
       <%# <% end %>
