@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container-show-page">
   <div class="row">
     <div class="py-2">
       <%= form_with url: courses_path, method: :get, class: "d-flex search-form-control form-group" do %>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
 
-  <div class="row">
+  <%# <div class="row"> %>
     <%# <% if params[:search].present? %>
     <%# <% @courses.each do |course| %>
       <%# <%= link_to course.name, course_path(course) %>
@@ -29,35 +29,54 @@
   <div class="col-8">
     <div class="cards course-description cards-show">
       <% @courses.each do |course| %>
-      <div class="course-card scale" >
+      <%= link_to course_path(course, selected_date: params[:query]) do %>
+        <div class="course-card-index scale" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path course.photos[0].key, height: 300, crop: :fill %>)">
 
-      <a href="#"><%= link_to course_path(course, selected_date: params[:query]) do %>
-      <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
-         <div class="card-course-info">
-         <%course_city = course.location.split(",")[-2] %>
-         <%course_zip = course.location.split(",")[-1] %>
-              <h4 class="course-name"><%= course.name.upcase %></h4>
-              <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"%></p>
-              <div class="display-flex">
-                <p class="course-info item ">PAR <%= course.par %></p>
-                <p class="course-info item"> HOLE <%= course.holes %></p>
+          <% if course.average_rating > 0  %>
+            <p class="margin-left-rating"> <%= "⭐️" * course.average_rating %> </p>
+          <% else %>
+            <p>✩✩✩✩✩</p>
+          <% end %> </p>
+          <div class="margin-top-name">
+
+            <h2><%= course.name%></h2>
+              <div class="d-flex mt-2">
+                <div>
+                  <p class="padding-right-hole"><i class="fa-solid fa-ring"></i></i> HOLE <%= course.holes %></p>
+                </div>
+                <div>
+                  <p><i class="fa-solid fa-golf-ball-tee"></i> PAR <%= course.par %></p>
+                </div>
               </div>
+
           </div>
-      <% end %></a>
-      </div>
+        </div>
+        <%end %>
+
+      <%# <div class="course-card scale" >
+
+      /* <a href="#"><%= link_to course_path(course, selected_date: params[:query]) do %>
+      <%# <%= cl_image_tag course.photos[0].key, height: 300,  crop: :fill %>
+         <%# <div class="card-course-info"> %>
+         <%# <%course_city = course.location.split(",")[-2] %>
+         <%# <%course_zip = course.location.split(",")[-1] %>
+              <%# <h4 class="course-name"><%= course.name.upcase</h4> %>
+              <%# <p class="course-info location"><%= "#{course_city.upcase}, #{course_zip.upcase}"</p> %>
+          <%# <%</div> %>
       <% end %>
+      </div>
+      <%# <% end %>
 
     </div>
-    </div>
-    <div class="col-4 mt-5">
-      <div id="map" style=" "
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div class="col-4 mt-5  ">
+        <div id="map" style=" "
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-      <% link_to "Display all",  courses_path %>
-    </div>
-    </div>
+        <% link_to "Display all",  courses_path %>
+      </div>
+      </div>
   </div>
 </div>
 

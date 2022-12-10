@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def home
+    @courses = Course.all
   end
 
   def index
@@ -11,6 +12,7 @@ class CoursesController < ApplicationController
   # The `geocoded` scope filters only flats with coordinates
     if params[:location] && params[:location] != ""
       @courses = Course.near(params[:location], 5, units: :km)
+
     elsif params[:location] && params[:query]
       booked_date = DateTime.parse(params[:query])
       # location = Location.parse(params[:query])
@@ -61,7 +63,8 @@ class CoursesController < ApplicationController
       {
         lat: course.latitude,
         lng: course.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {course: course})
+        info_window: render_to_string(partial: "info_window", locals: {course: course}),
+        image_url: helpers.asset_url("golf-field.jpg")
       }
     end
   end

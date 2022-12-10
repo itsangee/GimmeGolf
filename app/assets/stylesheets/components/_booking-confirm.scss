@@ -16,49 +16,56 @@
 }
 
 .booking-container {
-  width: 500px;
-  height: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 1000px;
+  height: 600px;
   background-color: white;
-  // position: relative;
-  // top: 200px;
-  opacity: 0.8;
-  border-radius: 8px;
-}
+  border-radius: 4px;
+  border: 4px solid $golfgreen;
 
-.booking-container .row {
-  color: black;
 }
 
 .booking{
   text-align: center;
   font-weight: bold;
-  margin-top:20px;
+  padding-bottom: 20px;
+  font-size: 4rem;
+  color: white;
 
 }
 .course-name{
   text-align: center;
-  font-size: 20px;
+  font-size: 3rem;
   font-weight: 600;
-  color: black
+  color: white;
+  transition-duration: 0.5s;
 }
 
-// .border{
-//   text-align: center;
-//   box-shadow: 10px 5px 5px black;
-//   width: 300px;
-//   margin: auto;
-//   margin-bottom: 10px;
-//   padding: 8px 0;
-// }
+.course-name:hover{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #e4e8e5;
+}
+
+.followee-text {
+  color: $golfdarkgreen;
+}
+
+.followee-text:hover {
+  color: $golfgreen;
+}
 
 .booking-border {
   text-align: center;
-  box-shadow: 8px 4px 4px rgba(34, 34, 34, 0.5);
+  box-shadow: 2px 2px 2px rgba(182, 172, 172, 0.5);
   width: 300px;
   margin: auto;
   margin-bottom: 10px;
   padding: 8px 0;
-  color: $golfdarkgreen;
+  color: white;
 }
 
 
@@ -70,6 +77,7 @@
 .booking-page-container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to right, rgba(47,48,58,0.8), rgba(47,48,58,0.8)),url("golf-field.jpg");
@@ -77,8 +85,15 @@
   background-size: cover;
 }
 
-.row{
-  color: white;
+.booking-confirmed-details {
+  width: 450px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 6px;
+  background-image: linear-gradient(rgba(8, 30, 12, 0.5), rgba(0, 0, 0, 0.9)), url('gimmegolf_v2.jpg');
 }
 
 .booking-button-container {
@@ -91,11 +106,12 @@
 }
 
 .booking-invite-button {
-  background-color: $golfpalegreen;
+  background-color: $golfgreen;
   font-size: 0.8rem;
   padding: 4px 8px;
   color: white;
   border-radius: 8px;
+  border: 1px solid black;
 }
 
 .booking-invite-button-disabled {
@@ -108,12 +124,15 @@
   background-color: $golfdarkgreen;
 }
 
+.booking-user-deets {
+  display: flex;
+  align-items: center;
+}
+
 .booking-invite-users {
-  background-color: white;
-  width: 300px;
-  margin-left: 30px;
+  width: 450px;
+  height: 600px;
   overflow: auto;
-  height: 375px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -122,6 +141,8 @@
 
 .booking-invite-users ul {
   padding: 16px 12px;
+  background: rgba(211, 211, 211, 0.2);
+  border-radius: 6px;
 }
 .location{
   text-align: center;
@@ -129,10 +150,17 @@
 
 .booking-confirmation-back {
   background-color: $golfdarkgreen;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid white;
+}
+
+.booking-confirmation-back a {
+  color: white;
 }
 
 .booking-confirmation-back:hover {
-  background-color: $golfpalegreen;
+  background-color: $golfgreen;
 }
 
 .booking-confirmation-cancel {
@@ -150,4 +178,9 @@
   padding: 4px 4px;
   margin-bottom: 8px;
   border-radius: 4px;
+  background-color: white;
+}
+
+.booking-follower-li:last-child {
+  margin-bottom: 0;
 }

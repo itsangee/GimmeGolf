@@ -1,71 +1,67 @@
-  <div class="container-show-page">
-    <div class="show-card">
+<div class="container-show-page">
 
-
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+  <div class="row show-row mb-5">
+    <h2 class= "title-show"><strong><%= @course.name.upcase %></strong></h2>
+    <h5 class= "title-show">
+      <% if @course.average_rating > 0 %>
+      <%= "⭐️" * @course.average_rating %> ·
+      <% else %>
+      ✩✩✩✩✩ ·
+      <% end %>
+     <%= pluralize @course.reviews.size, "" %>
+      <% if @course.reviews.size == 1 %>
+      review ·
+        <% else %>
+          reviews ·
+        <% end %>
+    <%= @course.location %>
+    </h5>
+    <div class="">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
           <% @course.photos.each_with_index do |photo,index| %>
-            <div class="carousel-item <%="active" if index.zero? %>">
-              <img class="d-block" src="<%= cl_image_path photo.key, height: 400, width: 400, crop: :fit %>" alt="<%=@course.name%>">
-            </div>
+            <img type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>"  class="<%="active" if index.zero? %> image-button" aria-current="true" aria-label="Slide 1" src="<%= cl_image_path photo.key, crop: :fill %>" alt="<%=@course.name%>">
           <% end %>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-
-
-      <div class="show-card-info">
-        <h2><%= @course.name %> <% if params[:selected_date] && params[:selected_date] != "" %> on <%= params[:selected_date].to_date.strftime("%a, %b %e ") %> <% end %> </h2>
-        <p> <small><%= @course.description %></small> </p>
-        <div class="">
-          <h3>This location has <%= pluralize @course.reviews.size, "" %>
-          <% if @course.reviews.size == 1 %>
-            review
-          <% else %>
-            reviews
-          <% end %></h3>
-          <% if @course.average_rating > 0  %>
-            <p>Rating: <%= "⭐️" * @course.average_rating %> </p>
-          <% else %>
-            <p>✩✩✩✩✩</p>
-          <% end %> </p>
-          <button type="button", id="slot-button", data-bs-toggle="modal" data-bs-target="#exampleModal">Book now</button>
-      </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">BOOK A SLOT!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for [@course, @booking] do |f| %>
-            <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
-            <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
-            <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
-            <%= f.input :date, as: :date, html5: true, required: true %>
-            <%= f.submit "Book now", class: "", id: "slot-button" %>
-          <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
         </div>
+        <div class="carousel-inner">
+          <% @course.photos.each_with_index do |photo,index| %>
+          <div class="carousel-item <%="active" if index.zero? %>">
+            <img  class="d-block w-100 image-carousel" src="<%= cl_image_path photo.key, crop: :fill %>" alt="<%=@course.name%>">
+            <div class="carousel-caption d-none d-md-block">
+
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
+  </div>
 
-
+  <div class="description-show">
+    <h5 class="description-div"> <%= @course.description %> </h5>
+    <div class="modal-body body-show">
+        <h5><strong>£104</strong><small> per hour</small></h5>
+        <p><% if @course.average_rating > 0 %>
+      ⭐️ <%= @course.average_rating %> · <%=  pluralize @course.reviews.size %>
+      <% else %>
+      ⭐️ <strong>0.0</strong>
+      <% end %></p>
+          <%= simple_form_for [@course, @booking] do |f| %>
+          <%# <%= f.input :game_start, collection: @course.slots_collection, required: true %>
+          <%# <%= f.label %>
+          <%= f.input :slot_id, collection: @course.slots_collection, required: true, label_method: :second, value_method: :first %>
+          <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
+          <%= f.input :date, as: :date, html5: true, required: true %>
+          <%= f.submit "Book now", class: "", id: "slot-button" %>
+        <% end %>
     </div>
   </div>
 
@@ -98,7 +94,9 @@
 
     </div>
       </div>
+
     </div>
+  </div>
 
 
 
@@ -236,3 +234,6 @@
       <%# <% end %>
     <%# </div> %>
   <%# </div> %>
+
+
+<%#

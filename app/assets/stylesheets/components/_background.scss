@@ -14,39 +14,17 @@
 //   position: relative;
 // }
 
-.banner h1 {
-  font-size: 135px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 'bold 700';
-  letter-spacing: 1.3rem;
-}
-
-.header-container {
-  color: #ffffff;
-  padding: 260px;
-  text-decoration: none !important;
-}
-
-.banner {
-  background: url("IMG_3377_qgaz0g.jpg");
-  display: block;
-  width: 100%;
-  height: 700px;
-  text-decoration: none !important;
-}
-
-.title {
-  padding: 2cm;
-}
-
-.team-photos {
-  display: flexbox;
-}
-
 .description {
   color: #40531b;
   margin: 10px;
   padding: 100px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#descrip {
+  color: #40531b;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 2px;
 }
 
 .sign-up-div{
@@ -56,6 +34,8 @@
 .sign-up-div h5 {
   font-size: 30px;
   color: #40531b;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 3px;
 }
 
 .team {
@@ -63,6 +43,50 @@
 }
 
 .select-course {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #40531b;
 }
+
+.how-it-works {
+  color: #40531b;
+  // border: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 34px;
+  padding-top: 0px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.how-photos {
+  // padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  // background-color: #ffffff;
+  // background-clip: border-box;
+  // display: contents;
+}
+
+.how {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  color: #40531b;
+  letter-spacing: 7px;
+}
+
+
+// button
+
+
+
+// margin
+
+
+// box shadows
+
+
+
+// colours - slack
+
+
+
+// fonts - never black - dark green
