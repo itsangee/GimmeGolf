@@ -64,7 +64,7 @@ class CoursesController < ApplicationController
         lat: course.latitude,
         lng: course.longitude,
         info_window: render_to_string(partial: "info_window", locals: {course: course}),
-        image_url: helpers.asset_url("golf-field.jpg")
+        image_url: helpers.asset_url("golf-ball-tee-solid.svg")
       }
     end
   end
