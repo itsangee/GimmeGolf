@@ -9,7 +9,7 @@
   height: 400px;
   width: 560px;
   object-fit: cover;
-  border-radius: 30px;
+  border-radius: 12px;
 }
 
 .no-hover-color:hover {
@@ -23,7 +23,7 @@
 .carousel-indicators [data-bs-target] {
   height: 170px;
   width: 300px;
-  border-radius: 30px;
+  border-radius: 12px;
 }
 
 .show-description {
@@ -58,17 +58,21 @@
 
 .description-show {
   border-top: 1px solid #eaf4e4;
-  padding-left: 100px;
-  padding-right: 10pxpx;
+  padding-left: 50px;
+  // padding-right: 10pxpx;
   padding-top: 24px;
-  margin-top: 200px;
+  margin-top: 20px;
   margin-left: 100px;
 
-  width: 80%;
+  // width: 60%;
   font-size: 1em;
   display: flex;
   // justify-content: ;
   // flex-direction: column;
+}
+
+.width-description {
+  width: 60%;
 }
 
 .description-div {
@@ -79,6 +83,7 @@
   padding-top: 20px;
   // margin-top: 100px;
   margin-right: 40px;
+  padding-bottom: 20px;
 }
 
 .nav-user{
@@ -87,7 +92,7 @@
 }
 
 .course-slots-container {
-  flex-direction: column;
+  // flex-direction: column;
 }
 .show-review-div {
   border-top: 1px solid #eaf4e4;
@@ -100,26 +105,31 @@
   border: 1px solid #eaf4e4;
   padding: 20px;
   margin-left: 0px;
-  border-radius: 30px;
+  border-radius: 12px;
   position: sticky;
   top: 100px;
   left: 55%;
   margin-bottom: 20px;
   height: fit-content;
-  width: 300px;
+  width: 375px;
+  // margin-right: 100px;
+  margin-top: 45px;
+  // padding-left: 60px;
+  // padding-right: 60px;
 }
 
 .body-review {
   border: 1px solid #eaf4e4;
-  margin-left: 0px;
+  margin-left: 30px;
   padding: 20px;
   margin-left: 0px;
   // padding-left: 20px;
-  border-radius: 30px;
+  border-radius: 12px;
   margin-top: 20px;
   margin-bottom: 20px;
   // height: 400px;
-  width: 500px;
+  width: 550px;
+  justify-content: center;
 }
 
 .user-show {
@@ -127,7 +137,7 @@
   color: black;
   padding: 12px 15px;
   margin-bottom: 10px;
-  border-radius: 30px;
+  border-radius: 12px;
   background-color: #eaf4e4;
 }
 
@@ -144,12 +154,12 @@
 #new_booking {
   border: 1px solid #eaf4e4;;
   padding: 20px;
-  border-radius: 30px;
+  border-radius: 12px;
   margin-bottom: 20px;
 }
 
 .form-select {
-  border-radius: 30px;
+  border-radius: 12px;
   background-color: #eaf4e4;
   margin-left: 0px;
 }
@@ -165,7 +175,7 @@
 }
 
 .form-control {
-  border-radius: 30px;
+  border-radius: 12px;
   background-color: #eaf4e4;
 }
 .show-card {
@@ -246,8 +256,8 @@
   padding: 12px 15px;
   text-align: center;
   text-decoration: none;
-  font-size: 13px;
-  border-radius: 30px;
+  font-size: 20px;
+  border-radius: 12px;
   top: 8px;
   bottom: 8px;
   right: 8px;
@@ -288,7 +298,7 @@
   font-size: 20px;
   // margin: 20px;
   // justify-content: right;
-  border-radius: 30px;
+  border-radius: 12px;
   top: 8px;
   bottom: 8px;
   right: 8px;
@@ -322,14 +332,14 @@
   margin-left: 10px;
   background-color: #40531b;
   color: white;
-  padding: 15px 32px;
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: flex;
-  font-size: 13px;
+  font-size: 20px;
   justify-content: center;
-  border-radius: 30px;
-  width: 150px;
+  border-radius: 12px;
+  width: 160px;
   margin-bottom: 10px;
 }
 
@@ -357,7 +367,7 @@
     display: flex;
     font-size: 13px;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 150px;
     display: none;
   }
