@@ -59,45 +59,100 @@
 .description-show {
   border-top: 1px solid #eaf4e4;
   padding-left: 100px;
-  padding-right: 100px;
+  padding-right: 10pxpx;
   padding-top: 24px;
   margin-top: 200px;
-  margin-left: 140px;
+  margin-left: 100px;
 
   width: 80%;
   font-size: 1em;
   display: flex;
-  justify-content: space-between;
+  // justify-content: ;
+  // flex-direction: column;
 }
 
 .description-div {
+  border-top: 1px solid #eaf4e4;
   justify-content: flex-start;
-  width: 50%;
+  // width: 50%;
   padding-right: 80px;
   padding-top: 20px;
+  // margin-top: 100px;
+  margin-right: 40px;
+}
+
+.nav-user{
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.course-slots-container {
+  flex-direction: column;
+}
+.show-review-div {
+  border-top: 1px solid #eaf4e4;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
 }
 
 .body-show {
   border: 1px solid #eaf4e4;
-  margin-left: 80px;
   padding: 20px;
+  margin-left: 0px;
   // padding-left: 20px;
   border-radius: 30px;
   position: sticky;
-  top: 20px;
+  top: 100px;
   left: 55%;
-  height: 400px;
+  margin-bottom: 20px;
+  height: fit-content;
+  width: 300px;
 }
 
+.body-review {
+  border: 1px solid #eaf4e4;
+  margin-left: 0px;
+  padding: 20px;
+  margin-left: 0px;
+  // padding-left: 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // height: 400px;
+  width: 500px;
+}
+
+.user-show {
+  border: 1px solid rgb(68, 171, 12);
+  color: #40531b;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  background-color: #eaf4e4;
+}
+
+.button-show-review {
+  color: #eaf4e4;
+  // background-color: #eaf4e4;
+  text-decoration: underline;
+  color: #40531b;
+}
+
+.button-show-review:hover {
+  color: #618B4A;
+}
 #new_booking {
   border: 1px solid #eaf4e4;;
   padding: 20px;
   border-radius: 30px;
+  margin-bottom: 20px;
 }
 
 .form-select {
   border-radius: 30px;
   background-color: #eaf4e4;
+  margin-left: 0px;
 }
 .container-show-page {
   background-color: white;
@@ -105,6 +160,15 @@
   // display: flex;
 }
 
+.form-label {
+  color: black;
+  font-size: small;
+}
+
+.form-control {
+  border-radius: 30px;
+  background-color: #eaf4e4;
+}
 .show-card {
   overflow: hidden;
   height: 400px;
@@ -179,24 +243,27 @@
 }
 
 .button-show {
-  background-color: white;
-  color: #618B4A;
-  border: 1px solid #618B4A;
-  padding: 15px 32px;
+
+  padding: 12px 15px;
   text-align: center;
   text-decoration: none;
-  display: flex;
-  font-size: 16px;
-  // justify-content: right;
-  border-radius: 10px;
+  font-size: 20px;
+  border-radius: 30px;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  border: none;
+
+  color: white;
+  background-color: #40531b;
 }
 
 .button-show:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-  background-color: #40531b;
-  color: #618B4A;
+  color: white;
+  background-color: #618B4A;
 }
 
 // .button-show:focus {
@@ -227,9 +294,11 @@
   bottom: 8px;
   right: 8px;
   border: none;
-  margin-left: 20px;
+  // margin-left: 15px;
   color: white;
-  background-color: #40531b
+  background-color: #40531b;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #slot-button:hover {
