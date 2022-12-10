@@ -1,22 +1,8 @@
-// .card-product {
-//   overflow: hidden;
-//   height: 800px;
-//   width: 1200px;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   display: flex;
-//   margin: auto;
-//   margin-top: 30px;
-//   margin-bottom: 50px;
-// }
-
 #carouselExampleCaptions {
   width: 100%;
   padding-top: 24px;
   padding-left: 90px;
   padding-right: 80px;
-  // padding-top: 24px;
-  // padding-bottom: 48px;
 }
 
 .image-carousel {
@@ -54,6 +40,10 @@
   justify-content: space-around;
 }
 
+.show-row {
+  // display: flex;
+}
+
 .carousel-indicators {
   bottom: -205px;
 }
@@ -69,107 +59,116 @@
 .description-show {
   border-top: 1px solid #eaf4e4;
   padding-left: 100px;
-  padding-right: 100px;
+  padding-right: 10pxpx;
   padding-top: 24px;
   margin-top: 200px;
-  margin-left: 140px;
+  margin-left: 100px;
 
   width: 80%;
   font-size: 1em;
   display: flex;
-  justify-content: space-between;
+  // justify-content: ;
+  // flex-direction: column;
 }
 
 .description-div {
+  border-top: 1px solid #eaf4e4;
   justify-content: flex-start;
-  width: 50%;
+  // width: 50%;
   padding-right: 80px;
   padding-top: 20px;
+  // margin-top: 100px;
+  margin-right: 40px;
+}
+
+.nav-user{
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.course-slots-container {
+  flex-direction: column;
+}
+.show-review-div {
+  border-top: 1px solid #eaf4e4;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
 }
 
 .body-show {
   border: 1px solid #eaf4e4;
-  margin-left: 80px;
   padding: 20px;
+  margin-left: 0px;
   // padding-left: 20px;
   border-radius: 30px;
-
+  position: sticky;
+  top: 100px;
+  left: 55%;
+  margin-bottom: 20px;
+  height: fit-content;
+  width: 300px;
 }
 
+.body-review {
+  border: 1px solid #eaf4e4;
+  margin-left: 0px;
+  padding: 20px;
+  margin-left: 0px;
+  // padding-left: 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // height: 400px;
+  width: 500px;
+}
+
+.user-show {
+  border: 1px solid rgb(68, 171, 12);
+  color: black;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  background-color: #eaf4e4;
+}
+
+.button-show-review {
+  color: #eaf4e4;
+  // background-color: #eaf4e4;
+  text-decoration: underline;
+  color: #40531b;
+}
+
+.button-show-review:hover {
+  color: #618B4A;
+}
 #new_booking {
   border: 1px solid #eaf4e4;;
   padding: 20px;
   border-radius: 30px;
-  // padding-top: ;
-  // padding-bottom: ;
-  // padding-right: ;
-  // padding-left: ;
+  margin-bottom: 20px;
 }
 
 .form-select {
   border-radius: 30px;
   background-color: #eaf4e4;
+  margin-left: 0px;
 }
-// .show-card-description {
-//   justify-content: flex-end;
-// }
-
-// .show-card-info {
-//   display: flex;
-//   justify-content: space-around;
-// }
-
-// .show-container {
-//   // width: 500px;
-//   // height: 300px;
-//   margin: 30px;
-//   background-color: #f4faf8;
-//   position: relative;
-//   top: 50px;
-//   opacity: 0.8;
-//   // border-radius: 20px;
-// }
-
-// .photo-main {
-//   // border: white 2px solid;
-//   border-radius: 1px;
-//   margin: 10px;
-//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-// }
-
-// // #available {
-// //   width: 50%;
-// //   margin-left: 20px;
-// //   text-align: center;
-// // }
-
-// .available-slots {
-//   height: 400px;
-//   width: 350px;
-//   border-radius: 1px;
-//   margin: 10px;
-//   margin-left: 15px;
-//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-//   display: flex;
-//   justify-content: space-around;
-// }
-
-// .book-slot {
-//   border-radius: 1px;
-//   margin: 10px;
-//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-// }
 .container-show-page {
   background-color: white;
   border-top: 1px solid #eaf4e4;
-  // padding-left: 80px;
-  // padding-right: 80px;
-  // padding-top: 24px;
-  // padding-bottom: 48px;
-  // margin: 20px;
-  // margin-right: 20px;
+  // display: flex;
 }
 
+.form-label {
+  color: black;
+  font-size: small;
+}
+
+.form-control {
+  border-radius: 30px;
+  background-color: #eaf4e4;
+}
 .show-card {
   overflow: hidden;
   height: 400px;
@@ -244,24 +243,27 @@
 }
 
 .button-show {
-  background-color: white;
-  color: #618B4A;
-  border: 1px solid #618B4A;
-  padding: 15px 32px;
+
+  padding: 12px 15px;
   text-align: center;
   text-decoration: none;
-  display: flex;
-  font-size: 16px;
-  // justify-content: right;
-  border-radius: 10px;
+  font-size: 13px;
+  border-radius: 30px;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  border: none;
+
+  color: white;
+  background-color: #40531b;
 }
 
 .button-show:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-  background-color: #40531b;
-  color: #618B4A;
+  color: white;
+  background-color: #618B4A;
 }
 
 // .button-show:focus {
@@ -292,9 +294,11 @@
   bottom: 8px;
   right: 8px;
   border: none;
-  margin-left: 20px;
+  // margin-left: 15px;
   color: white;
-  background-color: #40531b
+  background-color: #40531b;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #slot-button:hover {
@@ -317,26 +321,27 @@
 
 #button-back {
   margin-left: 10px;
-  background-color: white;
-  color: #618B4A;
-  border: 1px solid #618B4A;
+  background-color: #40531b;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: flex;
   font-size: 13px;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 30px;
   width: 150px;
-  // margin-left: 575px;
+  margin-bottom: 10px;
 }
 
 #button-back:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-  background-color: #40531b;
+
+  background-color: white;
   color: #618B4A;
+  border: 1px solid #618B4A;
 }
 
 #button-back:focus {
