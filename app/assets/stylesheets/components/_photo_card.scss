@@ -36,6 +36,8 @@ a {
 }
 .scale:hover{
   transform: scale(1.05);
+  margin-left: 12px;
+  margin-right: 12px;
 }
 .card-course-info {
   margin-top:10px;
@@ -92,4 +94,8 @@ a {
 
 .margin-left-rating{
   margin-left: auto;
+}
+.container-show-page{
+  padding-left: 20px;
+  padding-right: 20px;
 }

@@ -179,6 +179,17 @@ course_6.photos.attach(io: course_6a_file, filename: "#{course_6_filenames[1]}",
 course_6.save
 puts "created #{course_6}"
 
+# course_7_file = URI.open(course_7_photo[0])
+# course_7a_file = URI.open(course_7_photo[1])
+
+# course_7 = Course.create(
+#   name: "The Hertsmere",
+#   description: "If you’re looking for golf courses in Hertfordshire and North London, then come and try our choice of top-quality golf facilities all designed to fit into your lifestyle and help you to improve and enjoy your game.",
+#   location:"Medburn Lane, Hertfordshire, WD6 3AA",
+#   price: 80,
+#   holes:18,
+#   par:4
+# )
 
 courses = Course.all
 courses.each do |course|
