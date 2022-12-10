@@ -27,10 +27,52 @@
   text-align: center;
 }
 
+.container {
+  background-color: none;
+}
+
+
+.box-friends {
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: row;
+  // display: flex;
+  // -webkit-box-align: center;
+  // align-items: center;
+  // text-align: center;
+  width: 75%;
+  height: fit-content;
+  margin: auto;
+  // padding: ;x
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+.box-friends img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  padding: 5px;
+}
+
+.box-friends>* {
+  // flex: 1 1 160px;
+}
+
 .style_image {
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
+  width: 100%;
+  border-radius: 0px;
+  // padding: 10px;
+  // box-sizing: border-box;
+  margin: 0 auto;
+  zoom: 1;
+}
+
+.for-testing {
+  background-image: asset_url("friends1.jpg");
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
 }
 
 .show-user {

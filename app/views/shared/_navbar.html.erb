@@ -37,7 +37,7 @@
              <%= link_to "Hi,  #{current_user.first_name}", user_path(current_user), class: 'nav-link' %> </li>
           </li>
           <li class="nav-item">
-            <%= link_to "My Dashboard", dashboard_path, class: "nav-link pe-3" %>
+            <%# <%= link_to "My Dashboard", dashboard_path, class: "nav-link pe-3" %>
           </li>
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
