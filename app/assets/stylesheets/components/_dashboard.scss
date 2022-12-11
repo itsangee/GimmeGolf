@@ -203,8 +203,8 @@
 }
 
 .dashboard-invitations {
-  border: 3px solid $golfgreen;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border: 1px solid $golfgreen;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
   border-radius: 16px;
   background-color: white;
   width: 90%;
@@ -214,18 +214,49 @@
   align-items: center;
 }
 
-.dashboard-invitation-actions {
+.dashboard-invitations:last-child {
+  margin-bottom: 0;
+}
 
+// .dashboard-ignore-invitation {
+//   color: $golfdarkgreen;
+// }
+
+
+
+.dashboard-invitations a {
+  color: $golfdarkgreen;
+}
+
+.dashboard-invitations a:hover {
+  color: $golfgreen;
 }
 
 .dashboard-invitations-container {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  padding-left: 20px;
+  align-items: center;
+  // padding-left: 20px;
+  width: 60%;
+  padding: 10px;
 }
 
 .dashboard-info-panel {
   display: flex;
   justify-content: space-evenly;
+}
+
+.dashboard-nav-tabs {
+  padding: 20px;
+  background-color: #618B4A;
+}
+
+.dashboard-info-panel-photo {
+  min-height: 300px;
+  width: 40%;
+  border: 1px solid black;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.8)), url(/assets/friends6-33ff3c8125d2b67289659f0caac5712710ce0265cf115d76dda175e1d2f539b8.jpg);
+  background-size: cover;
+  background-position-y: 53%;
+  position: relative;
 }

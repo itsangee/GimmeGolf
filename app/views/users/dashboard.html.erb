@@ -1,13 +1,10 @@
 <div class="main-dashboard-container">
 
-
   <div class="d-flex justify-content-center align-items-center bg-white box-shadow">
     <div class="pt-3 pb-3 ms-5">
       <h1 class="text-center me-3">User Dashboard</h1>
       <p class="text-center mt-3"><small><%= @user.email %></small></p>
     </div>
-
-
 
 
     <div class="ms-5">
@@ -90,40 +87,69 @@
   </div>
 
 
+<div class="dashboard-nav-tabs">
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled">Disabled</a>
+    </li>
+  </ul>
+</div>
+
   <div class="box-shadow bg-white">
 
     <div class="dashboard-info-panel">
 
-
-    <div class="dashboard-invitations-container">
-      <h3 class="mb-3">Your invitations:</h3>
-      <% if current_user.count_invites > 0 %>
-        <p><%= current_user.count_invites %> outstanding invitations</p>
-      <% end %>
-      <% if @invitations.any? %>
-        <% @invitations.each do |invitation| %>
-          <div class="dashboard-invitations">
-            <div class="ps-3 pt-3">
-              <p><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %> - <%= "#{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
-              <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.first_name, user_path(invitation.booking.user) %> at <%= invitation.created_at %></small></p>
-            </div>
-            <div class="dashboard-invitation-actions pe-3 d-flex flex-column align-items-center justify-content-center">
-              <div>
-                <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
-                  <%= form.submit "Accept", class: "dashboard-accept-button" %>
-                <% end %>
-              </div>
-              <div>
-                <%= link_to "Ignore", invitation_path(invitation), class: "text-muted", style: "font-size: 0.9rem", data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} %>
-              </div>
-            </div>
-          </div>
+      <div class="dashboard-invitations-container">
+        <% if current_user.count_invites > 0 %>
+          <p><b><%= current_user.count_invites %></b> outstanding invitations</p>
         <% end %>
-      <% else %>
-        <p>No invites currently</p>
-      <% end %>
-    </div>
+        <% if @invitations.any? %>
+          <% @invitations.each do |invitation| %>
+            <div class="dashboard-invitations">
+              <div class="ps-3 pt-3">
+                <p><b><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %></b> - <%= "#{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
+                <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.first_name, user_path(invitation.booking.user) %> on <%= invitation.created_at.strftime("%A, %d %b %Y") %></small></p>
+              </div>
+              <div class="dashboard-invitation-actions pe-3 d-flex flex-column align-items-center justify-content-center">
+                <div>
+                  <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
+                    <%= form.submit "Accept", class: "dashboard-accept-button" %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= link_to "Ignore", invitation_path(invitation), class: "dashboard-ignore-invitation", style: "font-size: 0.9rem;", data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No invites currently... go to our main page to find a game near you!</p>
+        <% end %>
+      </div>
 
+  <div class="dashboard-info-panel-photo">
+  <div style="
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+">Latest Invitations</div>
+  </div>
+
+  </div>
+  </div>
 <div>
 <h3>Your Bookings</h3>
   <div data-controller="show-bookings" class="d-flex flex-column align-items-center justify-content-center dashboard-show-bookings">
@@ -154,13 +180,14 @@
                   <ul>
                     <hr>
                     <li>
-                      <div>
+                      <div class=" ps-2 d-flex align-items-center">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
                         <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
                         <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
                       </div>
                       <div>
                         <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel the booking?"} do %>
-                          <div class="d-flex align-items-center dashboard-booking-delete">
+                          <div class="d-flex align-items-center dashboard-booking-delete pe-3">
                             <p class="mt-2">Cancel</p>
                             <i class="fa-solid fa-2xl fa-square-minus ms-2 mb-2"></i>
                           </div>
@@ -185,7 +212,8 @@
                   <ul>
                     <hr>
                     <li>
-                      <div>
+                      <div class=" ps-2 d-flex align-items-center">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
                         <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
                         <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
                       </div>
@@ -207,16 +235,15 @@
                   <ul>
                     <hr>
                     <li>
-                      <div>
-                        <p>
-                          <%= link_to booking.slot.course.name, course_path(booking.slot.course)%>
-                        </p>
+                      <div class=" ps-2 d-flex align-items-center">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
+                        <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
                         <p><%= "#{booking.date.strftime("%d/%m/%Y")},
                           #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
                       </div>
                       <div>
                         <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel the booking?"} do %>
-                          <div class="d-flex align-items-center dashboard-booking-delete">
+                          <div class="d-flex align-items-center dashboard-booking-delete pe-2">
                             <p class="mt-2">Cancel</p>
                             <i class="fa-solid fa-2xl fa-square-minus ms-2 mb-2"></i>
                           </div>
@@ -234,7 +261,4 @@
         </div>
       </div>
     </div>
-  <%# end of bookings panel %>
-  </div>
-  </div>
 </div>
