@@ -119,14 +119,16 @@
                 <p><b><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %></b> - <%= "#{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
                 <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.first_name, user_path(invitation.booking.user) %> on <%= invitation.created_at.strftime("%A, %d %b %Y") %></small></p>
               </div>
-              <div class="dashboard-invitation-actions pe-3 d-flex flex-column align-items-center justify-content-center">
+              <div class="dashboard-invitation-actions d-flex align-items-center justify-content-center">
                 <div>
                   <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
                     <%= form.submit "Accept", class: "dashboard-accept-button" %>
                   <% end %>
                 </div>
                 <div>
-                  <%= link_to "Ignore", invitation_path(invitation), class: "dashboard-ignore-invitation", style: "font-size: 0.9rem;", data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} %>
+                  <%= link_to invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} do %>
+                    <i class="ms-3 fa-regular fa-x"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -137,39 +139,42 @@
       </div>
 
   <div class="dashboard-info-panel-photo">
-  <div style="
-    position: absolute;
-    color: white;
-    font-size: 3rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-">Latest Invitations</div>
+    <div style="
+      position: absolute;
+      color: white;
+      font-size: 3rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+  ">Latest Invitations</div>
   </div>
 
   </div>
   </div>
 <div>
-<h3>Your Bookings</h3>
-  <div data-controller="show-bookings" class="d-flex flex-column align-items-center justify-content-center dashboard-show-bookings">
+  <div data-controller="show-bookings" class="dashboard-show-bookings">
 
-        <div>
-          <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link active dashboard-cursor " aria-current="page" id="today"
-              data-action="click->show-bookings#showContent">| Today's Bookings |</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link dashboard-cursor " id="past"
-              data-action="click->show-bookings#showContent">| Past Bookings |</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link dashboard-cursor " id="future"
-              data-action="click->show-bookings#showContent">| Future Bookings |</a>
-            </li>
-          </ul>
-        </div>
+    <div class="bookings-container">
+      <div style="display: flex;
+    align-items: stretch;">
+        <ul class="nav d-flex align-items-center justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active dashboard-cursor " aria-current="page" id="today"
+            data-action="click->show-bookings#showContent">| Today's Bookings |</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dashboard-cursor " id="past"
+            data-action="click->show-bookings#showContent">| Past Bookings |</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dashboard-cursor " id="future"
+            data-action="click->show-bookings#showContent">| Future Bookings |</a>
+          </li>
+        </ul>
+      </div>
+
+
 
         <div class="dashboard-bookings">
 
@@ -178,27 +183,28 @@
               <% if @future_bookings.any? %>
                 <% @future_bookings.each do |booking| %>
                   <ul>
-                    <hr>
+                    <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
-                        <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                        <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
+                        <div class="d-flex flex-column">
+                          <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
+                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                        </div>
                       </div>
                       <div>
                         <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel the booking?"} do %>
                           <div class="d-flex align-items-center dashboard-booking-delete pe-3">
-                            <p class="mt-2">Cancel</p>
-                            <i class="fa-solid fa-2xl fa-square-minus ms-2 mb-2"></i>
+                            <i class="fa-regular fa-x ms-2 mb-2"></i>
                           </div>
                         <% end %>
                       </div>
                     </li>
-                    <hr>
+                    <%# <hr> %>
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 text-center pt-3 pb-3">No bookings</p>
+                <p class="mt-3 ms-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings</p>
               <% end %>
             </div>
           </div>
@@ -210,19 +216,21 @@
 
                 <% @past_bookings.each do |booking| %>
                   <ul>
-                    <hr>
+                    <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
-                        <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                        <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
+                        <div class="d-flex flex-column">
+                          <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
+                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                        </div>
                       </div>
                     </li>
-                    <hr>
+                    <%# <hr> %>
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 pt-3 pb-3 text-center">No bookings</p>
+                <p class="mt-3 ms-3 pt-3 pb-3 text-center dashboard-empty-booking">No bookings yet.. head on over and check out our courses</p>
               <% end %>
             </div>
           </div>
@@ -233,32 +241,46 @@
               <% if @todays_bookings.any? %>
                 <% @todays_bookings.each do |booking| %>
                   <ul>
-                    <hr>
+                    <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 150, width: 150,  crop: :fill %>
-                        <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                        <p><%= "#{booking.date.strftime("%d/%m/%Y")},
-                          #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
+                        <div class="d-flex flex-column">
+                          <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
+                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                      </div>
                       </div>
                       <div>
                         <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel the booking?"} do %>
-                          <div class="d-flex align-items-center dashboard-booking-delete pe-2">
-                            <p class="mt-2">Cancel</p>
-                            <i class="fa-solid fa-2xl fa-square-minus ms-2 mb-2"></i>
+                          <div class="d-flex align-items-center dashboard-booking-delete pe-3">
+                            <i class="fa-regular fa-x ms-2 mb-2"></i>
                           </div>
                         <% end %>
                       </div>
                     </li>
-                    <hr>
+                    <%# <hr> %>
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 text-center pt-3 pb-3">No bookings</p>
+                <p class="mt-3 ms-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings</p>
               <% end %>
             </div>
           </div>
         </div>
+    </div>
+
+<div class="dashboard-booking-panel-photo">
+    <div style="
+      position: absolute;
+      color: white;
+      font-size: 3rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+  ">Your Bookings</div>
+  </div>
       </div>
+
     </div>
 </div>

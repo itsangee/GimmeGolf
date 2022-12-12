@@ -85,11 +85,29 @@
 }
 
 .dashboard-show-bookings {
-  background-color: $golfdarkgreen;
+  background-color: #40531B;
   margin: auto;
   border-radius: 5px;
   height: 100%;
-  border-left: 1px solid black;
+  // border-left: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.bookings-container {
+  background-color: #40531B;
+  margin: auto;
+  border-radius: 5px;
+  height: 100%;
+  // border-left: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.dashboard-empty-booking {
+  min-height: 300px;
 }
 
 .dashboard-bookings {
@@ -203,9 +221,9 @@
 }
 
 .dashboard-invitations {
-  border: 1px solid $golfgreen;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
-  border-radius: 16px;
+  // border: 1px solid $golfgreen;
+  // box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  // border-radius: 16px;
   background-color: white;
   width: 90%;
   margin-bottom: 10px;
@@ -238,7 +256,7 @@
   align-items: center;
   // padding-left: 20px;
   width: 60%;
-  padding: 10px;
+  // padding: 10px;
 }
 
 .dashboard-info-panel {
@@ -254,8 +272,18 @@
 .dashboard-info-panel-photo {
   min-height: 300px;
   width: 40%;
-  border: 1px solid black;
+  // border: 1px solid black;
   background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.8)), url(/assets/friends6-33ff3c8125d2b67289659f0caac5712710ce0265cf115d76dda175e1d2f539b8.jpg);
+  background-size: cover;
+  background-position-y: 53%;
+  position: relative;
+}
+
+.dashboard-booking-panel-photo {
+  min-height: 300px;
+  width: 40%;
+  // border: 1px solid black;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.8)), url('friends4.jpeg');
   background-size: cover;
   background-position-y: 53%;
   position: relative;
