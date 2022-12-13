@@ -8,11 +8,10 @@ export default class extends Controller {
   }
 
   showContent(e){
-    e.currentTarget.classList.add("active")
-    // e.currentTarget.classList.remove('nav-link')
-    // console.log(e.currentTarget.textContent);
-    // console.log(e.currentTarget.innerHTML);
-    // console.log(e.currentTarget.classList);
+    document.querySelectorAll('.dashboard-clicked').forEach(function(tab) {
+      tab.classList.remove('dashboard-clicked')
+    })
+    e.currentTarget.classList.add("dashboard-clicked")
     this.bookingsTargets.forEach((booking) => {
       if (booking.classList.contains(e.currentTarget.id)) {
         booking.classList.remove('d-none')

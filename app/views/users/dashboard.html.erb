@@ -87,7 +87,7 @@
   </div>
 
 
-  <div class="box-shadow bg-white">
+  <div class="box-shadow bg-white" style="border-radius: 12px">
 
     <div class="dashboard-info-panel">
 
@@ -106,7 +106,7 @@
                 <p class="dashboard-invitations-info"><b><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %></b> - <%= "#{invitation.booking.date.strftime("%A, %d %b %Y")}, #{invitation.booking.slot.start_time.strftime("%I:%M %p")}" %></p>
                 <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.first_name, user_path(invitation.booking.user) %> on <%= invitation.created_at.strftime("%A, %d %b %Y") %></small></p>
               </div>
-              <div class="dashboard-invitation-actions d-flex align-items-center justify-content-center">
+              <div class="dashboard-invitation-actions">
                 <div>
                   <%= form_with url: accept_booking_path(invitation.booking), method: :post do |form| %>
                     <%= form.submit "Accept", class: "dashboard-accept-button" %>
@@ -114,7 +114,7 @@
                 </div>
                 <div>
                   <%= link_to invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} do %>
-                    <i class="ms-3 fa-regular fa-x dashboard-ignore-icon"></i>
+                    <i class="fa-regular fa-x dashboard-ignore-icon"></i>
                   <% end %>
                 </div>
               </div>
@@ -148,16 +148,16 @@
     align-items: stretch; width: 30%;">
         <ul class="nav d-flex align-items-center justify-content-center">
           <li class="nav-item">
-            <a class="nav-link active dashboard-cursor " aria-current="page" id="today"
-            data-action="click->show-bookings#showContent">| Today's Bookings |</a>
+            <a class="nav-link dashboard-cursor " aria-current="page" id="today"
+            data-action="click->show-bookings#showContent">Today's Bookings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link dashboard-cursor " id="past"
-            data-action="click->show-bookings#showContent">| Past Bookings |</a>
+            data-action="click->show-bookings#showContent">Past Bookings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link dashboard-cursor " id="future"
-            data-action="click->show-bookings#showContent">| Future Bookings |</a>
+            data-action="click->show-bookings#showContent">Future Bookings</a>
           </li>
         </ul>
       </div>
@@ -174,7 +174,7 @@
                     <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 80, width: 80,  crop: :fill %>
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 80, width: 80, crop: :fill %>
                         <div class="dashboard-booking-particulars">
                           <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
                           <small class="text-muted"><%= "#{booking.date.strftime("%A, %d %b %Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></small>
