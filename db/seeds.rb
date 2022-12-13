@@ -68,14 +68,38 @@ course_4_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668714790
 course_4_filenames = ['Great_Waters_at_Reynolds_Lake_Oconee_-_Oct_2019_brgr1z.jpg', 'ahnrz-golf-course-50669717_cwj6n1.jpg']
 
 course_5_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/Kendleshire-Golf-5_gsqpch.jpg',
-                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/millgreen_k4vkdz.jpg']
+                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928195/GimmeGolf/new33_gtdeqh.jpg']
 
-course_5_filenames = ['Kendleshire-Golf-5_gsqpch.jpg', 'millgreen_k4vkdz.jpg']
+course_5_filenames = ['Kendleshire-Golf-5_gsqpch.jpg', 'millgreen_k4vkdz.jpg', 'new33_gtdeqh.jpg']
 
 course_6_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/hole-14-Course-image_gshcym.jpg',
                   'https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/img_bg_1_hyigjy.jpg']
 
 course_6_filenames = ['hole-14-Course-image_gshcym.jpg', 'img_bg_1_hyigjy.jpg']
+
+course_7_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1670928198/GimmeGolf/surrey1_ghpm5y.jpg',
+                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928197/GimmeGolf/surrey3_ra67hl.jpg']
+
+course_7_filenames = ['surrey1_ghpm5y.jpg', 'surrey3_ra67hl']
+
+course_8_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1670928197/GimmeGolf/new1_bzal7z.jpg',
+                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928197/GimmeGolf/surrey4_drxx09.jpg']
+
+course_8_filenames = ['new1_bzal7z.jpg', 'surrey4_drxx09.jpg']
+
+course_9_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1670928197/GimmeGolf/surrey2_i5rhfk.jpg',
+                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928197/GimmeGolf/surrey5_zjtf7x.jpg']
+
+course_9_filenames = ['surrey2_i5rhfk.jpg', 'surrey5_zjtf7x']
+
+course_10_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1670928196/GimmeGolf/surrey_mopcfq.jpg',
+                  'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928196/GimmeGolf/new222_ec9wzh.jpg']
+
+course_10_filenames = ['surrey_mopcfq.jpg', 'new222_ec9wzh.jpg']
+
+course_11_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1670928196/GimmeGolf/new44_dlm0pm.jpg', 'https://res.cloudinary.com/dwsijevfb/image/upload/v1670928195/GimmeGolf/new2_bpxhbb.jpg']
+
+course_11_filenames = ['new44_dlm0pm.jpg', 'new2_bpxhbb.jpg']
 
 
 course_1_file = URI.open(course_1_photo[0])
@@ -180,13 +204,112 @@ course_6.save
 puts "created #{course_6}"
 
 
+course_7_file = URI.open(course_7_photo[0])
+course_7a_file = URI.open(course_7_photo[1])
+
+course_7 = Course.create(
+  name: "Kingswood Golf & Country Club",
+  description: " The course has stood the test of time but has recently had a complete remodelling of its bunkers
+                  to adjust to the longer hitting game of today
+                  which has been viewed as a great success. Due to its high standards of quality in all aspects ,
+                  it is easy to see why Kingswood Golf Club attracts golfers from all over the country. ",
+  location: "Sandy Lane, Tadworth, Surrey, KT206NE",
+  price: 35,
+  holes: 18,
+  par: 72
+)
+
+course_7.photos.attach(io: course_7_file, filename: "#{course_7_filenames[0]}", content_type: 'image/jpg')
+course_7.photos.attach(io: course_7a_file, filename: "#{course_7_filenames[1]}", content_type: 'image/jpg')
+course_7.save
+puts "created #{course_7}"
+
+course_8_file = URI.open(course_8_photo[0])
+course_8a_file = URI.open(course_8_photo[1])
+
+course_8 = Course.create(
+  name: "Epsom Golf Club",
+  description: "The clubhouse, built in 1893, has wood-beamed ceilings which reflect the age and history of the building.
+                There is also a fully licensed bar which makes Epsom's clubhouse
+                the perfect place for that post-round drink.
+                We recommend you use the practice green before your round as the course's
+                greens are a true test for all golfers.",
+  location: "Longdown Lane South, Epsom, Surrey, KT174JR",
+  price: 45,
+  holes: 18,
+  par: 70
+)
+
+course_8.photos.attach(io: course_8_file, filename: "#{course_8_filenames[0]}", content_type: 'image/jpg')
+course_8.photos.attach(io: course_8a_file, filename: "#{course_8_filenames[1]}", content_type: 'image/jpg')
+course_8.save
+puts "created #{course_8}"
+
+course_9_file = URI.open(course_9_photo[0])
+course_9a_file = URI.open(course_9_photo[1])
+
+course_9 = Course.create(
+  name: "Surrey Downs Golf Club",
+  description: "It is particularly attractive in the Summer months, when the rough adds further challenge and beautiful
+                definition to an already pretty layout.
+                A Downland course, with stunning views, wonderful skies and a feeling of calm and openness.",
+  location: "Outwood Lane, Tadworth, Surrey, KT20 6JS",
+  price: 40,
+  holes: 18,
+  par: 71
+)
+
+course_9.photos.attach(io: course_9_file, filename: "#{course_9_filenames[0]}", content_type: 'image/jpg')
+course_9.photos.attach(io: course_9a_file, filename: "#{course_9_filenames[1]}", content_type: 'image/jpg')
+course_9.save
+puts "created #{course_9}"
+
+
+course_10_file = URI.open(course_10_photo[0])
+course_10a_file = URI.open(course_10_photo[1])
+
+course_10 = Course.create(
+  name: "Banstead Downs Golf Club",
+  description: "Banstead Downs Golf Club was originally designed by James Braid and is one of the UK's finest down land courses.
+                Its chalk base allows for excellent drainage helping to ensure the course remains open
+                and playable on fine surfaces all year round.",
+  location: "Burdon Lane, Cheam, South London, Surrey, SM2 7DD",
+  price: 43,
+  holes: 18,
+  par: 71
+)
+
+course_10.photos.attach(io: course_10_file, filename: "#{course_10_filenames[0]}", content_type: 'image/jpg')
+course_10.photos.attach(io: course_10a_file, filename: "#{course_10_filenames[1]}", content_type: 'image/jpg')
+course_10.save
+puts "created #{course_10}"
+
+course_11_file = URI.open(course_11_photo[0])
+course_11a_file = URI.open(course_11_photo[1])
+
+course_11 = Course.create(
+  name: "Guildford Golf Club",
+  description: "Founded in 1886 by Colonel W Bannatyne, Major W Pontifex and Mr E L Hooper,
+                Guildford Golf Club is the oldest Club in Surrey!
+                Originally six holes, the course was extended to eighteen holes in 1901
+                and a new Clubhouse was built on the present site.",
+  location: "Guildford Golf Club, High Path Road, Guildford, Surrey, GU1 2HL",
+  price: 43,
+  holes: 18,
+  par: 69
+)
+
+course_11.photos.attach(io: course_11_file, filename: "#{course_11_filenames[0]}", content_type: 'image/jpg')
+course_11.photos.attach(io: course_11a_file, filename: "#{course_11_filenames[1]}", content_type: 'image/jpg')
+course_11.save
+puts "created #{course_11}"
+
 courses = Course.all
 courses.each do |course|
   Slot.create(course: course, start_time: '09:00:00', end_time: '12:00:00')
   Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
-
 # Booking.create!(user_id: user.id, slot_id: 1, date: Date.today)
 # Booking.create!(user_id: user_2.id, slot_id: 1, date: Date.today)
 # Booking.create!(user_id: user_3.id, slot_id: 1, date: Date.today)
