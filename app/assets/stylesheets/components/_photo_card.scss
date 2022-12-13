@@ -9,6 +9,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap:16px;
   width: 100%;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 
 }
 .course-card-index{
@@ -20,13 +21,16 @@
   padding: 20px;
   border-radius: 20px;
   padding-bottom: 5px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .course-card-index h3{
+  font-family: 'Barlow Semi Condensed', sans-serif;
   align-self: end;
 }
 .course-card-index h2{
-  font-weight: bold;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  // font-weight: bold;
 }
 a {
   text-decoration: none; /* Убираем подчёркивание */
