@@ -3,48 +3,13 @@
       <div class="header-container">
         <h1>GimmeGolf</h1>
         <button id="all" class="button1">
-          <%= link_to "Select your course", courses_path, class: "select-course" %>
+          <%= link_to "See courses", courses_path, class: "select-course" %>
         </button>
       </div>
     </div>
 
-    <div class="description">
-      <h2 id="descrip"><br>
-        To find a community and enjoy playing golf. <br>
-        Book courses. <br>
-        Games with atleast four of your friends, <br>
-        and other individuals with similar interests in golf!
-      </h2>
-    </div>
-
-  <div class="box-friends container text-center">
-
-    <div class="row">
-      <div class="col-4"><%= image_tag("friends1.jpg", :class => "style_image" ) %></div>
-      <div class="col-4"><%= image_tag("friends2.jpg", :class => "style_image" ) %></div>
-      <div class="col-4"><%= image_tag("friends3.jpg", :class => "style_image" ) %></div>
-    </div>
-    <div class="row">
-      <div class="col-4"><%= image_tag("friends4.jpg", :class => "style_image" ) %></div>
-      <div class="col-4"><%= image_tag("friends5.jpg", :class => "style_image" ) %></div>
-      <div class="col-4"><%= image_tag("friends6.jpg", :class => "style_image" ) %></div>
-    </div>
-  </div>
-
-  <%# <h1 class="text-center">Courses</h1>
-  <div class="grid-container-cards">
-    <div class="card-item-container">
-        <% @courses.each do |course| %>
-          <%#= cl_image_tag course.photos[0].key, height: 300, width: 300,  crop: :fill %>
-        <%# <div> %>
-        <%# <p>= course.name</p> %>
-        <%# </div> %>
-        <%# end %>
-    <%# </div> %>
-  <%# </div> %>
-
   <div>
-    <h2 class="how">HOW IT WORKS</h2>
+    <h2 class="how"><u>HOW IT WORKS</u></h2>
     <div class="how-it-works">
       <div class="how-photos">
         <%= image_tag("1.png") %>
@@ -55,6 +20,31 @@
       <div class="how-photos">
       <%= image_tag("3.png") %>
       </div>
+    </div>
+  </div>
+
+    <div class="description">
+      <h2 id="descrip"><br>
+        To find a community and enjoy playing golf. <br>
+        Book courses. <br>
+        Games with atleast four of your friends, <br>
+        and other individuals with similar interests in golf!
+      </h2>
+      <br>
+      <button class="book-main">BOOK NOW</button>
+    </div>
+
+
+  <div class="box-friends container text-center">
+    <div class="row">
+      <div class="col-4"><%= image_tag("friends1.jpg", :class => "style_image" ) %></div>
+      <div class="col-4"><%= image_tag("friends2.jpg", :class => "style_image" ) %></div>
+      <div class="col-4"><%= image_tag("friends3.jpg", :class => "style_image" ) %></div>
+    </div>
+    <div class="row">
+      <div class="col-4"><%= image_tag("friends4.jpg", :class => "style_image" ) %></div>
+      <div class="col-4"><%= image_tag("friends5.jpg", :class => "style_image" ) %></div>
+      <div class="col-4"><%= image_tag("friends6.jpg", :class => "style_image" ) %></div>
     </div>
   </div>
 
@@ -75,7 +65,8 @@
   <div class="sign-up-div">
     <h5>Get involved in the most exciting community for all the golfers!</h5>
     <body>
-    <%# <span><a href="#"></a></span> %>
+      <br>
+      <button class="book-main1">SEE COURSES</button>
     </body>
   </div>
 </div>
