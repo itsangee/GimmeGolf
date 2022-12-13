@@ -1,7 +1,8 @@
 .search-form-control .form-control {
-  height: 3.5rem;
+  height: 3rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
+  margin-top: 15px;
 }
 
 .search-form-control .btn {
@@ -13,6 +14,8 @@
   margin-left: 10px;
   color: #618B4A;
   background-color: #E7E7E7;
+  height: 3rem;
+  margin-top: 15px;
 }
 
 .search-form-control .btn:hover{
