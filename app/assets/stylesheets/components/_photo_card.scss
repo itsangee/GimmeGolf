@@ -22,6 +22,7 @@
   border-radius: 20px;
   padding-bottom: 5px;
   font-family: 'Barlow Semi Condensed', sans-serif;
+  background-size: cover;
 }
 
 .course-card-index h3{
@@ -98,4 +99,9 @@ a {
 
 .margin-left-rating{
   margin-left: auto;
+}
+
+.container-show-page{
+  padding-right: 30px;
+  padding-left: 30px
 }

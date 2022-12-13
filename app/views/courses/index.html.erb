@@ -1,6 +1,6 @@
 <div class="container-show-page">
-  <div class="row">
-    <div class="py-2">
+    <div class="py-2" style="margin: auto;
+    width: 400px">
       <%= form_with url: courses_path, method: :get, class: "d-flex search-form-control form-group" do %>
       <%= text_field_tag :location,
         params[:location],
@@ -10,6 +10,7 @@
       <%= submit_tag "Search", class: "btn btn-flat" %>
       <% end %>
     </div>
+  <div class="row">
 
   <%# <div class="row"> %>
     <%# <% if params[:search].present? %>
