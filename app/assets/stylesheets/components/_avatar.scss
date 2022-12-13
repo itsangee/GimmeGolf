@@ -102,22 +102,31 @@
 .text-white h4{
   font-family: 'Barlow', sans-serif;
   font-size: 30px;
+  color: #40531b;
 }
 .ui-bg-overlay-container, .ui-bg-video-container {
   position: relative;
+  color: #40531b;
 }
 .ui-bg-cover {
   background-color: whitesmoke;
   background-position: center center;
   background-size: cover;
+  margin: 40px;
 }
-.ui-bg-overlay-container .ui-bg-overlay {
+.ui-bg-overlay-container .ui-bg-overlay .h4{
+  border: solid;
+  border-radius: 12px;
+  color: green;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 10px;
+  right: -9px;
+  bottom: 11px;
+  left: -1px;
   display: block;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: #40531b;
 }
 
 .bg-dark {
@@ -125,6 +134,7 @@
 }
 .opacity-50 {
   opacity: .5 !important;
+
 }
 .bg-dark {
   // background-color: rgba(24,28,33,0.9) !important;
@@ -155,6 +165,7 @@
 }
 .opacity-75 {
   opacity: .75 !important;
+  color: #40531b;
 }
 .tabs-alt.nav-tabs .nav-link.active, .tabs-alt.nav-tabs .nav-link.active:hover, .tabs-alt.nav-tabs .nav-link.active:focus, .tabs-alt>.nav-tabs .nav-link.active, .tabs-alt>.nav-tabs .nav-link.active:hover, .tabs-alt>.nav-tabs .nav-link.active:focus {
   -webkit-box-shadow: 0 -2px 0 #40531B inset;
@@ -174,7 +185,18 @@
   border-bottom-color: #fff;
 }
 
-.list h1 {
+.list .list-item h1 {
   font-family: 'Barlow', sans-serif;
   font-weight: bolder;
+  color: #40531b;
+}
+
+#nav-show {
+  border: #40531b solid;
+  border-radius: 12px;
+  top: 10px;
+  right: -9px;
+  bottom: 11px;
+  left: -1px;
+  opacity: 80%;
 }
