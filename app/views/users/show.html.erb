@@ -22,12 +22,12 @@
           </div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center mx-auto">
           <a href="" class="d-inline-block text-white">
             <strong><%=@player.followers.count%></strong>
             <span class="opacity-75">followers</span>
           </a>
-          <a href="javascript:void(0)" class="d-inline-block text-white ml-3">
+          <a href="" class="d-inline-block text-white">
             <strong><%=@player.following.count%></strong>
             <span class="opacity-75">following</span>
           </a>
@@ -55,6 +55,7 @@
     <div class="ui-bg-overlay-container">
       <div class="list" id="courses-list">
         <div class="list-item text-center">
+        <br>
         <h1><%= @player.first_name %> been to...</h1>
           <% @player.bookings.each do |booking| %>
             <p>

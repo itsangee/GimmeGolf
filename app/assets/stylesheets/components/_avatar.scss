@@ -29,19 +29,16 @@
 
 
 .box-friends {
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: row;
-  // display: flex;
-  // -webkit-box-align: center;
-  // align-items: center;
-  // text-align: center;
   width: 75%;
   height: fit-content;
   margin: auto;
-  // padding: ;x
-  // background-color: whitesmoke;
   padding: 10px;
+}
+
+.box-friends h2 {
+  color: #40531b;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 3px;
 }
 
 .box-friends img {
@@ -98,6 +95,13 @@
 
 .text-white {
   color: #40531B !important;
+  font-family: 'Barlow', sans-serif;
+  font-weight: bold;
+}
+
+.text-white h4{
+  font-family: 'Barlow', sans-serif;
+  font-size: 30px;
 }
 .ui-bg-overlay-container, .ui-bg-video-container {
   position: relative;
@@ -168,4 +172,9 @@
 }
 .nav-tabs .nav-link.active {
   border-bottom-color: #fff;
+}
+
+.list h1 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: bolder;
 }
