@@ -49,11 +49,12 @@
 }
 
 .title-show {
-  color: black;
+  color: #40531B;
   padding-left: 100px;
   padding-right: 80px;
   padding-top: 24px;
   // padding-bottom: 48px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .description-show {
@@ -63,12 +64,17 @@
   padding-top: 24px;
   margin-top: 20px;
   margin-left: 100px;
-
+  color: #40531B;
   // width: 60%;
   font-size: 1em;
   display: flex;
   // justify-content: ;
   // flex-direction: column;
+}
+
+.description-show h5 {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  color: #40531B;
 }
 
 .width-description {
@@ -84,6 +90,7 @@
   // margin-top: 100px;
   margin-right: 40px;
   padding-bottom: 20px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .nav-user{
@@ -141,6 +148,28 @@
   background-color: #eaf4e4;
 }
 
+.book-main {
+  border: 1px solid rgb(68, 171, 12);
+  color: #40531b;
+  padding: 3px 50px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background-color: #eaf4e4;
+  font-size: 30px;
+}
+
+.book-main1 {
+  border: 1px solid rgb(68, 171, 12);
+  color: #40531b;
+  padding: 3px 50px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background-color: #eaf4e4;
+  font-size: 20px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 3px;
+}
+
 .button-show-review {
   color: #eaf4e4;
   // background-color: #eaf4e4;
@@ -156,6 +185,7 @@
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .form-select {
