@@ -51,28 +51,70 @@
 }
 
 .dashboard-accept-button {
-  background-color: $golfpalegreen;
-  color: white;
-  padding: 6px 18px;
-  border-radius: 10px;
-}
-
-.dashboard-accept-button:hover {
   background-color: $golfdarkgreen;
   color: white;
   padding: 6px 18px;
   border-radius: 10px;
 }
 
+.dashboard-accept-button:hover {
+  background-color: $golfgreen;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+.dashboard-invitations-info {
+  margin-bottom: 0;
+}
+
 .dashboard-bookings li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 0;
 }
 .dashboard-booking-delete {
   color: rgb(247, 138, 138);
 }
 
+.dashboard-booking-particulars {
+  margin-left: 6px;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-booking-particulars a {
+  color: $golfdarkgreen;
+}
+
+.dashboard-booking-particulars a:hover {
+  color: $golfgreen;
+}
+
+.dashboard-booking-delete i {
+  color: $golfdarkgreen;
+}
+
+.dashboard-booking-delete i:hover {
+  color: $golfgreen;
+  background-color: rgba(208, 205, 205, 0.3);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.dashboard-ignore-icon:hover {
+  background-color: rgba(208, 205, 205, 0.3);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+
+.dashboard-booking-particulars p {
+  margin: 0.25rem 0rem;
+}
 
 
 .dashboard-booking-delete:hover {
@@ -93,6 +135,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .bookings-container {
@@ -103,21 +146,36 @@
   // border-left: 1px solid black;
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 65%;
 }
 
 .dashboard-empty-booking {
-  min-height: 300px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-empty-booking a {
+  color: $golfdarkgreen;
 }
 
 .dashboard-bookings {
   width: 100%;
   background-color: #FFFFFF;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.dashboard-bookings-li:last-child {
+  margin-bottom: 0;
 }
 
 .dashboard-bookings ul {
   list-style: none;
   padding-left: 0;
+  margin-bottom: 0;
 }
 
 .dashboard-link {
@@ -225,8 +283,8 @@
   // box-shadow: 0 0 4px rgba(0,0,0,0.2);
   // border-radius: 16px;
   background-color: white;
-  width: 90%;
-  margin-bottom: 10px;
+  width: 99%;
+  // margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -240,7 +298,11 @@
 //   color: $golfdarkgreen;
 // }
 
-
+.dashboard-invitation-count {
+  margin-bottom: 0px;
+  max-height: 60px;
+  // border: 1px solid black;
+}
 
 .dashboard-invitations a {
   color: $golfdarkgreen;
@@ -250,18 +312,30 @@
   color: $golfgreen;
 }
 
-.dashboard-invitations-container {
+.dashboard-invites {
+  // background-color: coral;
+  // border: 1px coral;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.dashboard-invitations-container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
   // padding-left: 20px;
-  width: 60%;
-  // padding: 10px;
+  width: 65%;
+  // justify-content: space-evenly;
+  padding: 20px 10px;
 }
 
 .dashboard-info-panel {
   display: flex;
   justify-content: space-evenly;
+  min-height: 250px;
 }
 
 .dashboard-nav-tabs {
@@ -270,8 +344,8 @@
 }
 
 .dashboard-info-panel-photo {
-  min-height: 300px;
-  width: 40%;
+  min-height: 250px;
+  width: 35%;
   // border: 1px solid black;
   background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.8)), url(/assets/friends6-33ff3c8125d2b67289659f0caac5712710ce0265cf115d76dda175e1d2f539b8.jpg);
   background-size: cover;
@@ -280,8 +354,8 @@
 }
 
 .dashboard-booking-panel-photo {
-  min-height: 300px;
-  width: 40%;
+  min-height: 250px;
+  width: 35%;
   // border: 1px solid black;
   background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.8)), url('friends4.jpeg');
   background-size: cover;

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @future_bookings = @bookings.order(date: :desc).select { |booking| booking.date > @today}.first(5)
     @todays_bookings = @bookings.order(date: :desc).select { |booking| booking.date == @today}.first(5)
     @past_bookings = @bookings.order(date: :desc).select { |booking| booking.date < @today}.first(5)
-    @invitations = Invitation.where(user: current_user, invite_seen: false).order(created_at: :desc)
+    @invitations = Invitation.where(user: current_user, invite_seen: false).order(created_at: :desc).first(5)
 
   end
 

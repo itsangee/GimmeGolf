@@ -87,36 +87,23 @@
   </div>
 
 
-<div class="dashboard-nav-tabs">
-  <ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled">Disabled</a>
-    </li>
-  </ul>
-</div>
-
   <div class="box-shadow bg-white">
 
     <div class="dashboard-info-panel">
 
       <div class="dashboard-invitations-container">
+
         <% if current_user.count_invites > 0 %>
-          <p><b><%= current_user.count_invites %></b> outstanding invitations</p>
+          <div class="d-flex justify-content-center">
+            <p class="dashboard-invitation-count"><b><%= current_user.count_invites %></b> outstanding invitations</p>
+          </div>
         <% end %>
+        <div class="dashboard-invites">
         <% if @invitations.any? %>
           <% @invitations.each do |invitation| %>
             <div class="dashboard-invitations">
-              <div class="ps-3 pt-3">
-                <p><b><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %></b> - <%= "#{invitation.booking.slot.start_time.strftime("%I:%M %p")}, #{invitation.booking.date.strftime("%d/%m/%Y")}" %></p>
+              <div class="pt-3" style="margin-left: 10px;">
+                <p class="dashboard-invitations-info"><b><%= link_to invitation.booking.slot.course.name, course_path(invitation.booking.slot.course) %></b> - <%= "#{invitation.booking.date.strftime("%A, %d %b %Y")}, #{invitation.booking.slot.start_time.strftime("%I:%M %p")}" %></p>
                 <p><small class="text-muted">Invited by: <%= link_to invitation.booking.user.first_name, user_path(invitation.booking.user) %> on <%= invitation.created_at.strftime("%A, %d %b %Y") %></small></p>
               </div>
               <div class="dashboard-invitation-actions d-flex align-items-center justify-content-center">
@@ -127,7 +114,7 @@
                 </div>
                 <div>
                   <%= link_to invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Ignore this invite?"} do %>
-                    <i class="ms-3 fa-regular fa-x"></i>
+                    <i class="ms-3 fa-regular fa-x dashboard-ignore-icon"></i>
                   <% end %>
                 </div>
               </div>
@@ -136,6 +123,7 @@
         <% else %>
           <p>No invites currently... go to our main page to find a game near you!</p>
         <% end %>
+      </div>
       </div>
 
   <div class="dashboard-info-panel-photo">
@@ -157,7 +145,7 @@
 
     <div class="bookings-container">
       <div style="display: flex;
-    align-items: stretch;">
+    align-items: stretch; width: 30%;">
         <ul class="nav d-flex align-items-center justify-content-center">
           <li class="nav-item">
             <a class="nav-link active dashboard-cursor " aria-current="page" id="today"
@@ -186,10 +174,10 @@
                     <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
-                        <div class="d-flex flex-column">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 80, width: 80,  crop: :fill %>
+                        <div class="dashboard-booking-particulars">
                           <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                          <small class="text-muted"><%= "#{booking.date.strftime("%A, %d %b %Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></small>
                         </div>
                       </div>
                       <div>
@@ -204,7 +192,10 @@
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings</p>
+                <div class="dashboard-empty-booking">
+                  <p class="mt-3 text-center pt-3 pb-3">No bookings.. head on over and check out our courses</p>
+                  <%= link_to "Find a game", courses_path, class: "dashboard-accept-button" %>
+                </div>
               <% end %>
             </div>
           </div>
@@ -219,10 +210,10 @@
                     <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
-                        <div class="d-flex flex-column">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 80, width: 80,  crop: :fill %>
+                        <div class="dashboard-booking-particulars">
                           <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                          <small class="text-muted"><%= "#{booking.date.strftime("%A, %d %b %Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></small>
                         </div>
                       </div>
                     </li>
@@ -230,7 +221,8 @@
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 pt-3 pb-3 text-center dashboard-empty-booking">No bookings yet.. head on over and check out our courses</p>
+                <p class="mt-3 pt-3 pb-3 text-center dashboard-empty-booking">No bookings yet.. head on over and check out our courses</p>
+                <%= link_to "Find a game", courses_path, class: "dashboard-accept-button" %>
               <% end %>
             </div>
           </div>
@@ -244,10 +236,10 @@
                     <%# <hr> %>
                     <li>
                       <div class=" ps-2 d-flex align-items-center">
-                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 100, width: 100,  crop: :fill %>
-                        <div class="d-flex flex-column">
+                        <%= cl_image_tag booking.slot.course.photos[0].key, height: 80, width: 80,  crop: :fill %>
+                        <div class="dashboard-booking-particulars">
                           <p><%= link_to booking.slot.course.name, course_path(booking.slot.course)%></p>
-                          <p><%= "#{booking.date.strftime("%d/%m/%Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></p>
+                          <small class="text-muted"><%= "#{booking.date.strftime("%A, %d %b %Y")}, #{booking.slot.start_time.strftime("%I:%M %p")}" %></small>
                       </div>
                       </div>
                       <div>
@@ -262,7 +254,8 @@
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 ms-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings</p>
+                <p class="mt-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings yet.. head on over and check out our <%= link_to "courses", courses_path%> </p>
+
               <% end %>
             </div>
           </div>
