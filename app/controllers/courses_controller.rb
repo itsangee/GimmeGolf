@@ -11,12 +11,12 @@ class CoursesController < ApplicationController
     # binding.b
   # The `geocoded` scope filters only flats with coordinates
     if params[:location] && params[:location] != ""
-      @courses = Course.near(params[:location], 5, units: :km)
+      @courses = Course.near(params[:location], 30, units: :km)
 
     elsif params[:location] && params[:query]
       booked_date = DateTime.parse(params[:query])
       # location = Location.parse(params[:query])
-      @courses = Course.near(params[:location], 5, units: :km)
+      @courses = Course.near(params[:location], 30, units: :km)
       @courses = @courses.reject do |course|
         var = true
         course.slots.each do |slot|

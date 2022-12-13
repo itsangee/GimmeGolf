@@ -213,7 +213,7 @@ course_7 = Course.create(
                   to adjust to the longer hitting game of today
                   which has been viewed as a great success. Due to its high standards of quality in all aspects ,
                   it is easy to see why Kingswood Golf Club attracts golfers from all over the country. ",
-  location: "Sandy Lane, Tadworth, Surrey, KT206NE",
+  location: "75 Dorking Rd, Chilworth, Guildford GU4 8NP",
   price: 35,
   holes: 18,
   par: 72
@@ -253,7 +253,7 @@ course_9 = Course.create(
   description: "It is particularly attractive in the Summer months, when the rough adds further challenge and beautiful
                 definition to an already pretty layout.
                 A Downland course, with stunning views, wonderful skies and a feeling of calm and openness.",
-  location: "Outwood Lane, Tadworth, Surrey, KT20 6JS",
+  location: "The St, West Clandon, Guildford GU4 7TE",
   price: 40,
   holes: 18,
   par: 71
@@ -273,7 +273,7 @@ course_10 = Course.create(
   description: "Banstead Downs Golf Club was originally designed by James Braid and is one of the UK's finest down land courses.
                 Its chalk base allows for excellent drainage helping to ensure the course remains open
                 and playable on fine surfaces all year round.",
-  location: "Burdon Lane, Cheam, South London, Surrey, SM2 7DD",
+  location: "Hermitage Rd, St John's, Knaphill, Woking GU21 8TX",
   price: 43,
   holes: 18,
   par: 71
@@ -293,7 +293,7 @@ course_11 = Course.create(
                 Guildford Golf Club is the oldest Club in Surrey!
                 Originally six holes, the course was extended to eighteen holes in 1901
                 and a new Clubhouse was built on the present site.",
-  location: "Guildford Golf Club, High Path Road, Guildford, Surrey, GU1 2HL",
+  location: "Old Ln, Cobham KT11 1NG",
   price: 43,
   holes: 18,
   par: 69
