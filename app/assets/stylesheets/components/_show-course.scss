@@ -152,17 +152,23 @@
 
 .book-main {
   border: 1px solid rgb(68, 171, 12);
-  color: #40531b;
+  color: #618B4A;
   padding: 3px 50px;
   margin-bottom: 10px;
   border-radius: 12px;
   background-color: #eaf4e4;
   font-size: 30px;
+  text-decoration: none !important;
+}
+
+.book-main:hover {
+  opacity: 0.6;
+  color: #40531b;
 }
 
 .book-main1 {
   border: 1px solid rgb(68, 171, 12);
-  color: #40531b;
+  color: #618B4A;
   padding: 3px 50px;
   margin-bottom: 10px;
   border-radius: 12px;
@@ -170,6 +176,11 @@
   font-size: 20px;
   font-family: 'Barlow Semi Condensed', sans-serif;
   letter-spacing: 3px;
+}
+
+.book-main1:hover {
+  opacity: 0.6;
+  color: #40531b;
 }
 
 .button-show-review {

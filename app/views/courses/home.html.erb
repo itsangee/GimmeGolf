@@ -8,6 +8,9 @@
       </div>
     </div>
 
+    <div class="scroll-down"></div>
+
+</div>
   <div>
     <h2 class="how"><u>HOW IT WORKS</u></h2>
     <div class="how-it-works">
@@ -25,17 +28,21 @@
 
     <div class="description">
       <h2 id="descrip"><br>
-        To find a community and enjoy playing golf. <br>
+      GimmeGolf is the best way to find a community who enjoy playing golf. <br>
+      Book games of up to 4 people at a course convenient to you. <br>
+       Meet new people, play with friends, have fun! <br>
+        <%# To find a community and enjoy playing golf. <br>
         Book courses. <br>
         Games with atleast four of your friends, <br>
-        and other individuals with similar interests in golf!
+        and other individuals with similar interests in golf! %>
       </h2>
       <br>
-      <button class="book-main">BOOK NOW</button>
+      <%= link_to button_to "BOOK NOW", courses_path, class: "book-main" %>
     </div>
 
 
   <div class="box-friends container text-center">
+    <h2>Follow us <i class="fa-brands fa-instagram"></i></h2>
     <div class="row">
       <div class="col-4"><%= image_tag("friends1.jpg", :class => "style_image" ) %></div>
       <div class="col-4"><%= image_tag("friends2.jpg", :class => "style_image" ) %></div>
@@ -64,7 +71,7 @@
 
   <div class="sign-up-div">
     <h5>Get involved in the most exciting community for all the golfers!</h5>
-    <body>
+    <body class="text-center">
       <br>
       <button class="book-main1">SEE COURSES</button>
     </body>

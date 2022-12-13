@@ -3,103 +3,108 @@
 
 
 <div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: white;">
-    <div class="ui-bg-overlay"></div>
     <div class="container">
-      <div class="text-center py-5">
-        <img alt="" class="ui-w-100 rounded-circle">
-           <% if @player.avatar.key.nil? %>
-                    <%= image_tag "avatar-alt.png", size: "150x150" %>
-                  <% else %>
-                    <%= cl_image_tag @player.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>200, :radius=>"max", :width=>200, :crop=>"fill"},
-                    {:quality=>100, :radius=>0}] %>
-                  <% end %>
-        <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
-          <h4 class="font-weight-bold my-4"><%= @player.first_name%> <%=@player.last_name%></h4>
+      <div class="row">
+        <div class="text-center py-5 col-6">
+          <img alt="" class="ui-w-100 rounded-circle">
+            <% if @player.avatar.key.nil? %>
+                      <%= image_tag "avatar-alt.png", size: "150x150" %>
+                    <% else %>
+                      <%= cl_image_tag @player.avatar.key, :transformation=>[
+                      {:gravity=>"face", :height=>200, :radius=>"max", :width=>200, :crop=>"fill"},
+                      {:quality=>100, :radius=>0}] %>
+                    <% end %>
+          <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+            <h4 class="font-weight-bold my-4 "><%= @player.first_name%> <%=@player.last_name%></h4>
 
-          <div class="opacity-75 mb-4">
-             <%= @player.bio %>
+            <div class="opacity-75 mb-4">
+              <%= @player.bio %>
+            </div>
+          </div>
+
+          <div class="text-center mx-auto">
+            <a href="" class="d-inline-block text-white">
+              <strong><%=@player.followers.count%></strong>
+              <span class="opacity-75">followers</span>
+            </a>
+            <a href="" class="d-inline-block text-white">
+              <strong><%=@player.following.count%></strong>
+              <span class="opacity-75">following</span>
+            </a>
           </div>
         </div>
+        <div class="col-6">
+          <div class="ui-bg-overlay-container">
+            <div class="ui-bg-overlay opacity-25"></div>
+            <ul class="nav nav-tabs tabs-alt justify-content-center border-transparent" id="nav-show">
+              <li class="nav-item">
+                <div class="nav-link text-white py-4 active" id="courses-list-tab" onclick="openTab('courses-list')">Courses</div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link text-white py-4" id="favourites-list-tab" onclick="openTab('favourites-list')">Favourites</div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link text-white py-4" id="followers-list-tab" onclick="openTab('followers-list')">Followers</div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link text-white py-4" id="following-list-tab" onclick="openTab('following-list')">Following</div>
+              </li>
+            </ul>
+          </div>
+          <div class="ui-bg-overlay-container">
+            <div class="list" id="courses-list">
+              <div class="list-item text-center">
+              <br>
+              <h1><%= @player.first_name %> been to...</h1>
+                <% @player.bookings.each do |booking| %>
+                  <p>
 
-        <div class="text-center">
-          <a href="" class="d-inline-block text-white">
-            <strong><%=@player.followers.count%></strong>
-            <span class="opacity-75">followers</span>
-          </a>
-          <a href="javascript:void(0)" class="d-inline-block text-white ml-3">
-            <strong><%=@player.following.count%></strong>
-            <span class="opacity-75">following</span>
-          </a>
+                    <p><%= booking.slot.course.name %> (<%= booking.date %>)</p>
+                    <% booking.slot.course.photos.each do |photo|%>
+                    <%= cl_image_tag photo.key, crop: :thumb, :class => "user-imgs" %>
+                    <% end %>
+                    <hr width="100% center" />
+                  </p>
+                    <% end %>
+              </div>
+              <div class="list-item">
+              <div class="list-item"></div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+            </div>
+
+            <div class="list" id="favourites-list">
+              <div class="list-item"></div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+            </div>
+
+            <div class="list" id="followers-list">
+              <div class="list-item">
+              <% if @player.followers.any? %>
+              <% @player.followers.each do |follower| %>
+                <%= follower.first_name %>
+                <% end %>
+              <% end %></div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+            </div>
+            <div class="list" id="following-list">
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+              <div class="list-item">some stuff</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="ui-bg-overlay-container">
-      <div class="ui-bg-overlay opacity-25"></div>
-      <ul class="nav nav-tabs tabs-alt justify-content-center border-transparent">
-        <li class="nav-item">
-          <div class="nav-link text-white py-4 active" id="courses-list-tab" onclick="openTab('courses-list')">Courses</div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link text-white py-4" id="favourites-list-tab" onclick="openTab('favourites-list')">Favourites</div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link text-white py-4" id="followers-list-tab" onclick="openTab('followers-list')">Followers</div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link text-white py-4" id="following-list-tab" onclick="openTab('following-list')">Following</div>
-        </li>
-      </ul>
-    </div>
-    <div class="ui-bg-overlay-container">
-      <div class="list" id="courses-list">
-        <div class="list-item text-center">
-        <h1><%= @player.first_name %> been to...</h1>
-          <% @player.bookings.each do |booking| %>
-            <p>
-              <%= booking.slot.course.name %> <br>
-              <%=  %>
-              <%= booking.date %> <br>
-              <% booking.slot.course.photos.each do |photo|%>
-              <%= cl_image_tag photo.key, crop: :thumb, :class => "user-imgs" %>
-              <% end %>
-            </p>
-              <% end %>
-        </div>
-        <div class="list-item">
-        <div class="list-item"></div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-      </div>
-
-      <div class="list" id="favourites-list">
-        <div class="list-item"></div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-      </div>
-
-      <div class="list" id="followers-list">
-        <div class="list-item"><% if @player.followers.any? %>
-        <% @player.followers.each do |follower| %>
-          <%= follower.first_name %>
-          <% end %>
-        <% end %></div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-      </div>
-      <div class="list" id="following-list">
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-        <div class="list-item">some stuff</div>
-      </div>
-    </div>
   </div>
 
 <script>
