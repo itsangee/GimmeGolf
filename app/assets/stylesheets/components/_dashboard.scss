@@ -41,7 +41,7 @@
 
 
 .dashboard-cursor:hover {
-  color: lightgrey;
+  color: rgb(221, 220, 220);
 }
 
 .dashboard-modal-button {
@@ -57,6 +57,7 @@
   padding: 6px 18px;
   border-radius: 10px;
   // margin-right: 8px;
+  border-width: 0;
 }
 
 .dashboard-accept-button:hover {
@@ -151,7 +152,7 @@
   background-color: #40531B;
   margin: auto;
   border-radius: 12px;
-  height: 100%;
+  min-height: 250px;
   // border-left: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -262,29 +263,33 @@
 }
 
 .dashboard-popup-heading {
-  background-color: $golfdarkgreen;
+  background-color: $golfgreen;
+  border-radius: 12px;
 }
 
 .dashboard-popup-link {
-  color: lightgrey;
+  color: $golfdarkgreen;
 }
 
 .dashboard-popup-link:hover {
-  color: white;
+  color: $golfgreen;
+}
+
+.modal-body {
+  background-color: white;
 }
 
 .dashboard-unfollow {
-  font-size: 0.6rem;
-  color: black;
-  background-color: lightgray;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-size: 0.7rem;
+  color: white;
+  background-color: $golfdarkgreen;
+  padding: 7px 12px;
+  border-radius: 8px;
 }
 
 .dashboard-unfollow:hover {
+  background-color: $golfgreen;
   color: white;
-  background-color: darkgrey;
-
 }
 
 .dashboard-invitations {
@@ -389,4 +394,35 @@
 .dashboard-clicked {
   border-bottom: 1px solid;
   font-weight: bold;
+  color: rgb(221, 220, 220);
+}
+
+.future {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  // align-items: center;
+}
+
+.future ul {
+  width: 100%;
+}
+
+.today {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.past {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.dashboard-booking-photo {
+  border-radius: 12px;
 }
