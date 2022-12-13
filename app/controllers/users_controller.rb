@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user = current_user
     @bookings = Booking.where(user_id: @user)
     @today = Date.today
-    @future_bookings = @bookings.select { |booking| booking.date > @today}
-    @todays_bookings = @bookings.select { |booking| booking.date == @today}
-    @past_bookings = @bookings.select { |booking| booking.date < @today}
-    @invitations = Invitation.where(user: current_user, invite_seen: false)
+    @future_bookings = @bookings.order(date: :desc).select { |booking| booking.date > @today}.first(5)
+    @todays_bookings = @bookings.order(date: :desc).select { |booking| booking.date == @today}.first(5)
+    @past_bookings = @bookings.order(date: :desc).select { |booking| booking.date < @today}.first(5)
+    @invitations = Invitation.where(user: current_user, invite_seen: false).order(created_at: :desc).first(5)
 
   end
 
