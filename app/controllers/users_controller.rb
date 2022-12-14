@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @bookings = Booking.where(user_id: @player)
     @follow = Follow.new
     @today = Date.today
+    @past_bookings = @player.bookings.order(date: :desc).select { |booking| booking.date < @today }.first(5)
   end
 
   def edit

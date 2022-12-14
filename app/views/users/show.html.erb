@@ -1,8 +1,8 @@
 
-<% render partial: "stats", locals: {user: @player} %>
-<% content_for :meta_title, "#{@player.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @oplayer.description %>
-<% content_for :meta_image, cl_image_path(@player.photo.path) %>
+<%# <% render partial: "stats", locals: {user: @player} %>
+<%# <% content_for :meta_title, "#{@player.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<%# <% content_for :meta_description, @oplayer.description %>
+<%# <% content_for :meta_image, cl_image_path(@player.photo.path) %>
 
 <div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: white;">
   <div class="container">
@@ -24,12 +24,12 @@
           </div>
         </div>
 
-        <div class="text-center mx-auto">
-          <a href="" class="d-inline-block text-white">
+        <div class="user-page-bio-info">
+          <a href="" class="text-white user-follows">
             <strong><%=@player.followers.count%></strong>
             <span class="opacity-75">followers</span>
           </a>
-          <a href="" class="d-inline-block text-white">
+          <a href="" class="text-white user-follows">
             <strong><%=@player.following.count%></strong>
             <span class="opacity-75">following</span>
           </a>
@@ -58,14 +58,13 @@
             <div class="list-item text-center">
               <br>
               <h1><%= @player.first_name %> has been to...</h1>
-              <% @player.bookings.each do |booking| %>
-                <p>
-                  <p><%= booking.slot.course.name %> (<%= booking.date %>)</p>
+
+              <% @past_bookings.each do |booking| %>
+                  <p><%= link_to booking.slot.course.name , course_path, class:"name-show-past" %> <br><%= booking.date.strftime("%A, %d %b %Y") %></p>
                   <% booking.slot.course.photos.each do |photo|%>
                   <%= cl_image_tag photo.key, crop: :thumb, :class => "user-imgs" %>
                   <% end %>
                   <hr width="100% center" />
-                </p>
                   <% end %>
             </div>
           </div>
