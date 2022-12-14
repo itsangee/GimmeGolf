@@ -4,7 +4,7 @@
 <%# <% content_for :meta_description, @oplayer.description %>
 <%# <% content_for :meta_image, cl_image_path(@player.photo.path) %>
 
-<div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: white;">
+<div class="ui-bg-cover ui-bg-overlay-container text-white" style="align-items: baseline;">
   <div class="container">
     <div class="row">
       <div class="text-center py-5 col-6">
@@ -25,16 +25,17 @@
         </div>
 
         <div class="user-page-bio-info">
-          <a href="" class="text-white user-follows">
-            <strong><%=@player.followers.count%></strong>
-            <span class="opacity-75">followers</span>
-          </a>
-          <a href="" class="text-white user-follows">
-            <strong><%=@player.following.count%></strong>
-            <span class="opacity-75">following</span>
-          </a>
+          <div class="user-follow-panel">
+            <div class="user-follows">
+              <p><strong style="margin-right: 4px;"><%=@player.followers.count%></strong><div style="opacity: 0.75;">followers</div></p>
+            </div>
+            <div class=" user-follows">
+              <p><strong style="margin-right: 4px;"><%=@player.following.count%></strong><div style="opacity: 0.75;">following</div></p>
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="col-6">
         <div class="ui-bg-overlay-container">
           <div class="ui-bg-overlay opacity-25"></div>
