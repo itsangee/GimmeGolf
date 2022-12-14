@@ -13,7 +13,7 @@
       display: flex;"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
       </div>
       <div class="mt-2">
-        <h4 class="border booking-border"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%d/%m/%Y") %></h4>
+        <h4 class="border booking-border"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%A, %d %b %Y") %></h4>
         <h4 class="border booking-border"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
       </div>
       <div class="booking-button-container mt-3">
@@ -48,7 +48,7 @@
                       {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
                     {:quality=>100, :radius=>0}] %>
                   <% end %>
-                <p class="ms-2 mt-3"><b><%= link_to followee.first_name, user_path(followee), class: "followee-text" %></b></p>
+                <p class="mt-3"><b><%= link_to followee.first_name, user_path(followee), class: "followee-text" %></b></p>
               </div>
               <div class="me-2">
                 <%= link_to invite_user_path(@booking, user: followee) do %>

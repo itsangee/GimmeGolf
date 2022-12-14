@@ -132,6 +132,7 @@
 
 .dashboard-modal-button:hover {
   background-color: $golfgreen;
+  // font-weight: bold;
   color: white;
 }
 
@@ -440,11 +441,12 @@
 
 .dashboard-heading-banner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 200px;
   width: 100%;
   margin-top: 30px;
+
 }
 
 .modal-stuff {
