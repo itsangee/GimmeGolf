@@ -43,5 +43,22 @@
   justify-content: center;
   width: auto;
   margin: 0;
+}
 
+.user-follows {
+  // border: solid;
+  display: flex;
+  justify-content: center;
+}
+
+.user-follow-panel {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user-follows {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
