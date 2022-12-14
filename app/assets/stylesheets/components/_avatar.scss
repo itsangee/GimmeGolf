@@ -97,6 +97,9 @@
   color: #40531B !important;
   font-family: 'Barlow', sans-serif;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .text-white h4{
@@ -166,6 +169,7 @@
 .opacity-75 {
   opacity: .75 !important;
   color: #40531b;
+
 }
 .tabs-alt.nav-tabs .nav-link.active, .tabs-alt.nav-tabs .nav-link.active:hover, .tabs-alt.nav-tabs .nav-link.active:focus, .tabs-alt>.nav-tabs .nav-link.active, .tabs-alt>.nav-tabs .nav-link.active:hover, .tabs-alt>.nav-tabs .nav-link.active:focus {
   -webkit-box-shadow: 0 -2px 0 #40531B inset;
@@ -199,4 +203,8 @@
   bottom: 11px;
   left: -1px;
   opacity: 80%;
+}
+
+.user-follows {
+  margin: 0;
 }
