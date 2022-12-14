@@ -42,16 +42,18 @@
 
 
 .dashboard-modal-button {
-  background-color: $golfgreen;
+  background-color: $golfdarkgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
+  border-width: 0;
+  margin: 6px 0;
 }
 
 .dashboard-accept-button {
   background-color: $golfdarkgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
   // margin-right: 8px;
   border-width: 0;
@@ -60,7 +62,7 @@
 .dashboard-accept-button:hover {
   background-color: $golfgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
 }
 
@@ -129,7 +131,7 @@
 }
 
 .dashboard-modal-button:hover {
-  background-color: $golfdarkgreen;
+  background-color: $golfgreen;
   color: white;
 }
 
@@ -161,6 +163,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .dashboard-empty-booking a {
@@ -448,5 +451,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 16px;
+  // margin-left: 16px;
+  // margin-right: 8px;
+}
+
+p {
+  font-size: 1.1rem;
 }

@@ -3,7 +3,7 @@
   <div class=" dashboard-heading-banner">
     <div class="">
       <h1 class="">Your Dashboard</h1>
-      <h5 class=""><%= @user.first_name %></h5>
+      <h5 class="" style="margin-left: 4px;"><%= @user.first_name %></h5>
     </div>
 
 
@@ -121,7 +121,10 @@
             </div>
           <% end %>
         <% else %>
-          <p>No invites currently... go to our main page to find a game near you!</p>
+          <p class="text-center">No invites currently... head on over and check out our courses!</p>
+          <%= link_to courses_path do %>
+            <button class="dashboard-accept-button">Courses</button>
+          <% end %>
         <% end %>
       </div>
       </div>
@@ -195,8 +198,10 @@
                 <% end %>
               <% else %>
                 <div class="dashboard-empty-booking">
-                  <p class="mt-3 text-center pt-3 pb-3">No bookings.. head on over and check out our courses</p>
-                  <%= link_to "Find a game", courses_path, class: "dashboard-accept-button" %>
+                  <p class="text-center">No bookings.. head on over and check out our courses!</p>
+                  <%= link_to courses_path do %>
+                    <button class="dashboard-accept-button">Courses</button>
+                  <% end %>
                 </div>
               <% end %>
             </div>
@@ -225,8 +230,12 @@
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 pt-3 pb-3 text-center dashboard-empty-booking">No bookings yet.. head on over and check out our courses</p>
-                <%= link_to "Find a game", courses_path, class: "dashboard-accept-button" %>
+                <div class="dashboard-empty-booking">
+                  <p class="text-center">No previous bookings.. head on over and check out our courses.</p>
+                  <%= link_to courses_path do %>
+                    <button class="dashboard-accept-button">Courses</button>
+                  <% end %>
+                </div>
               <% end %>
             </div>
           </div>
@@ -260,8 +269,12 @@
                   </ul>
                 <% end %>
               <% else %>
-                <p class="mt-3 text-center pt-3 pb-3 dashboard-empty-booking">No bookings yet.. head on over and check out our <%= link_to "courses", courses_path%> </p>
-
+                <div class="dashboard-empty-booking">
+                  <p class="text-center">No bookings yet.. head on over and check out our courses!</p>
+                  <%= link_to courses_path do %>
+                    <button class="dashboard-accept-button">Courses</button>
+                  <% end %>
+                </div>
               <% end %>
             </div>
           </div>
