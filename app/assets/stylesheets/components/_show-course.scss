@@ -75,6 +75,7 @@
 .description-show h5 {
   font-family: 'Barlow Semi Condensed', sans-serif;
   color: black;
+  font-size: 18px;
 }
 
 .width-description {
@@ -166,7 +167,15 @@
   background-color: #eaf4e4;
   font-size: 30px;
 }
+.review-info {
+  line-height: 0.3;
+  font-size: 16;
+  margin-top: 5px;
+}
 
+.avatar {
+  margin-right: 10px;
+}
 .book-main1 {
   border: 1px solid rgb(68, 171, 12);
   color: #40531b;
@@ -387,8 +396,8 @@
   bottom: 8px;
   right: 8px;
 
-  background-color: white;
-  color: #618B4A;
+  background-color: #618B4A;
+  color: white;
   border: 1px solid #618B4A;
 }
 
@@ -428,4 +437,6 @@
 .card-review {
   border: none;
   color: black;
+  border-top: 1px solid #eaf4e4;
+  width: 600px;
 }
