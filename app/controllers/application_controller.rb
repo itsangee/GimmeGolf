@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    host ENV.FETCH("www.gimmgolf.fun", "localhost:3000")
+    { host: ENV["www.gimmgolf.fun"] || "localhost:3000" }
   end
+
 end
