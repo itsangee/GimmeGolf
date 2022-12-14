@@ -40,29 +40,29 @@
 }
 
 
-.dashboard-cursor:hover {
-  color: lightgrey;
-}
 
 .dashboard-modal-button {
-  background-color: $golfgreen;
+  background-color: $golfdarkgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
+  border-width: 0;
+  margin: 6px 0;
 }
 
 .dashboard-accept-button {
   background-color: $golfdarkgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
   // margin-right: 8px;
+  border-width: 0;
 }
 
 .dashboard-accept-button:hover {
   background-color: $golfgreen;
   color: white;
-  padding: 6px 18px;
+  padding: 8px 16px;
   border-radius: 10px;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .dashboard-modal-button:hover {
-  background-color: $golfdarkgreen;
+  background-color: $golfgreen;
   color: white;
 }
 
@@ -143,7 +143,7 @@
   // border-left: 1px solid black;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 60px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -151,7 +151,7 @@
   background-color: #40531B;
   margin: auto;
   border-radius: 12px;
-  height: 100%;
+  min-height: 250px;
   // border-left: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -163,6 +163,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .dashboard-empty-booking a {
@@ -262,29 +263,33 @@
 }
 
 .dashboard-popup-heading {
-  background-color: $golfdarkgreen;
+  background-color: $golfgreen;
+  border-radius: 12px;
 }
 
 .dashboard-popup-link {
-  color: lightgrey;
+  color: $golfdarkgreen;
 }
 
 .dashboard-popup-link:hover {
-  color: white;
+  color: $golfgreen;
+}
+
+.modal-body {
+  background-color: white;
 }
 
 .dashboard-unfollow {
-  font-size: 0.6rem;
-  color: black;
-  background-color: lightgray;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-size: 0.7rem;
+  color: white;
+  background-color: $golfdarkgreen;
+  padding: 7px 12px;
+  border-radius: 8px;
 }
 
 .dashboard-unfollow:hover {
+  background-color: $golfgreen;
   color: white;
-  background-color: darkgrey;
-
 }
 
 .dashboard-invitations {
@@ -387,6 +392,69 @@
 }
 
 .dashboard-clicked {
-  border-bottom: 1px solid;
-  font-weight: bold;
+  // border-bottom: 1px solid;
+  background-color: $golfgreen;
+  // font-weight: bold;
+  // color: rgb(221, 220, 220);
+  border-radius: 12px;
+}
+
+.dashboard-cursor:hover {
+  // color: rgb(221, 220, 220);
+  background-color: rgba(97, 139, 74, 0.4);
+  // opacity: 0.6;
+  // font-weight: bold;
+  color: white;
+  border-radius: 12px;
+}
+
+.future {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  // align-items: center;
+}
+
+.future ul {
+  width: 100%;
+}
+
+.today {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.past {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.dashboard-booking-photo {
+  border-radius: 12px;
+}
+
+.dashboard-heading-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.modal-stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // margin-left: 16px;
+  // margin-right: 8px;
+}
+
+p {
+  font-size: 1.05rem;
 }
