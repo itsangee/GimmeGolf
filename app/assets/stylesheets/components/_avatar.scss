@@ -118,6 +118,7 @@
   margin: auto;
 }
 .ui-bg-overlay-container .ui-bg-overlay .h4{
+  background-color: white;
   border: solid;
   border-radius: 12px;
   color: green;
@@ -207,4 +208,11 @@
 
 .user-follows {
   margin: 0;
+}
+
+.user-bg-color {
+  background-color: #fff;
+  height: 100vh;
+  overflow: scroll;
+  border-top: 1px solid #eaf4e4;
 }
