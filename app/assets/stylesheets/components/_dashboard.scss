@@ -40,9 +40,6 @@
 }
 
 
-.dashboard-cursor:hover {
-  color: rgb(221, 220, 220);
-}
 
 .dashboard-modal-button {
   background-color: $golfgreen;
@@ -392,9 +389,20 @@
 }
 
 .dashboard-clicked {
-  border-bottom: 1px solid;
-  font-weight: bold;
-  color: rgb(221, 220, 220);
+  // border-bottom: 1px solid;
+  background-color: $golfgreen;
+  // font-weight: bold;
+  // color: rgb(221, 220, 220);
+  border-radius: 12px;
+}
+
+.dashboard-cursor:hover {
+  // color: rgb(221, 220, 220);
+  background-color: rgba(97, 139, 74, 0.4);
+  // opacity: 0.6;
+  // font-weight: bold;
+  color: white;
+  border-radius: 12px;
 }
 
 .future {
@@ -425,4 +433,20 @@
 
 .dashboard-booking-photo {
   border-radius: 12px;
+}
+
+.dashboard-heading-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.modal-stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16px;
 }

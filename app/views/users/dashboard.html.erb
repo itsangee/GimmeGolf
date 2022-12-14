@@ -1,14 +1,14 @@
 <div class="main-dashboard-container">
 
-  <div class="d-flex justify-content-center align-items-center bg-white box-shadow">
-    <div class="pt-3 pb-3 ms-5">
-      <h1 class="text-center me-3">User Dashboard</h1>
-      <p class="text-center mt-3"><small><%= @user.email %></small></p>
+  <div class=" dashboard-heading-banner">
+    <div class="">
+      <h1 class="">Your Dashboard</h1>
+      <h5 class=""><%= @user.first_name %></h5>
     </div>
 
 
-    <div class="ms-5">
-      <div class="modal-stuff pt-5 pb-5 ">
+    <div class="">
+      <div class="modal-stuff ">
       <!-- Button trigger modal -->
       <button type="button" class="dashboard-modal-button" data-bs-toggle="modal" data-bs-target="#followersModal">
         Followers: <%= @user.followers.count %>
