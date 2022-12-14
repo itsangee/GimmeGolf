@@ -77,10 +77,10 @@
               <% if booking.date == @today %>
                 <p data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
                 <% if booking.user.avatar.key.nil? %>
-                    <%= image_tag "logo.png", size: "100x100" %>
+                    <%= image_tag "logo.png", size: "70x70" %>
                   <% else %>
                     <%= cl_image_tag booking.user.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>100, :radius=>"max", :width=>100, :crop=>"fill"},
+                    {:gravity=>"face", :height=>70, :radius=>"max", :width=>70, :crop=>"fill"},
                     {:quality=>100, :radius=>0}] %>
                   <% end %>
                 </p>
@@ -107,11 +107,21 @@
         <div id="review" class="card card-review card-body">
           <% @course.reviews.each do |review| %>
           <div class="d-flex justify-content-between">
+          <div class="d-flex">
+
+          <p class="avatar"> <%= cl_image_tag review.user.avatar.key, :transformation=>[
+                    {:gravity=>"face", :height=>40, :radius=>"max", :width=>40, :crop=>"fill"},
+                    {:quality=>100, :radius=>0}] %></p>
+
+            <div class="review-info d-block">
+              <p><strong><%= review.user.first_name %></strong> </p>
+              <p>  <%= review.created_at.strftime("%d-%m-%Y") %> </p>
+            </div>
+            </div>
           <%= "⭐️" * review.ratings %>
-          <p>  <%= review.created_at.strftime("%d-%m-%Y") %> </p>
           </div>
-          <p><strong><%= review.user.email %></strong> </p>
-          <p><%= review.content %></p>
+
+          <p class=""><%= review.content %></p>
           <%# display reviewer %>
           <% end %>
         </div>
