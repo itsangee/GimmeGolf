@@ -44,7 +44,7 @@
                 <div class="nav-link text-white py-4 active" id="courses-list-tab" onclick="openTab('courses-list')">Courses</div>
               </li>
               <li class="nav-item">
-                <div class="nav-link text-white py-4" id="favourites-list-tab" onclick="openTab('favourites-list')">Favourites</div>
+                <%# <div class="nav-link text-white py-4" id="favourites-list-tab" onclick="openTab('favourites-list')"></div> %>
               </li>
               <li class="nav-item">
                 <div class="nav-link text-white py-4" id="followers-list-tab" onclick="openTab('followers-list')">Followers</div>
@@ -78,27 +78,39 @@
             <div class="list-item">some stuff</div>
           </div> %>
 
-          <div class="list" id="followers-list">
-            <div class="list-item">
-              <% if @player.followers.any? %>
-              <% @player.followers.each do |follower| %>
-                <%= follower.first_name %>
-                <% end %>
+        <div class="list" id="followers-list">
+          <div class="list-item text-center">
+            <% if @player.followers.any? %>
+            <% @player.followers.each do |follower| %>
+            <br><hr width="100% center" />
+              <%= follower.first_name %>
               <% end %>
-            </div>
+            <% end %>
+          </div>
+        </div>
+
+      <div class="list" id="following-list">
+        <div class="list-item text-center">
+          <% if @player.following.any? %>
+            <% @player.following.each do |following| %>
+                <br><hr width="100% center" />
+              <%= following.first_name %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
             <%# <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div> %>
-          </div>
 
-          <div class="list" id="following-list">
+          <%# <div class="list" id="following-list">
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
             <div class="list-item">some stuff</div>
-          </div>
+          </div> %>
         </div>
       </div>
     </div>
