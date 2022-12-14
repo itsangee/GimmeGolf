@@ -27,11 +27,9 @@
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
-          <%# <li class="nav-item active"> %>
-            <%# <%= link_to "Home", "#", class: "nav-link" %>
-          <%# </li> %>
+
           <li class="nav-item">
 
              <%= link_to "Hi,  #{current_user.first_name}", user_path(current_user), class: 'nav-link' %> </li>
@@ -39,12 +37,16 @@
           <li class="nav-item">
             <%# <%= link_to "My Dashboard", dashboard_path, class: "nav-link pe-3" %>
           </li>
-          <li class="nav-item dropdown">
-
+          <li class="nav-item dropdown navbar-kill-padding">
             <% if user_signed_in? && current_user.avatar.attached? %>
-              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", :transformation=>[
+                {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
+                {:quality=>100, :radius=>0}], id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+            <% else %>
+              <%= image_tag "logo.png", class: "avatar dropdown-toggle", :transformation=>[
+                {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
+                {:quality=>100, :radius=>0}], id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", edit_user_registration_path, class: "dropdown-item" %>
