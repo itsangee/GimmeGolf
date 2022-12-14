@@ -57,6 +57,18 @@
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
+#play {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.title-show-1 {
+  color: black;
+  padding-left: 100px;
+  padding-right: 80px;
+  padding-top: 24px;
+  font-family: 'Barlow', sans-serif;
+}
+
 .description-show {
   border-top: 1px solid #eaf4e4;
   padding-left: 50px;
@@ -73,7 +85,7 @@
 }
 
 .description-show h5 {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Barlow  Semi Condensed', sans-serif;
   color: black;
   font-size: 18px;
 }
@@ -212,7 +224,7 @@
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .form-select {
@@ -319,7 +331,7 @@
   bottom: 8px;
   right: 8px;
   border: none;
-
+  font-family: 'Barlow Semi Condensed', sans-serif;
   color: white;
   background-color: #40531b;
 }
@@ -447,6 +459,7 @@
 .card-review {
   border: none;
   color: black;
+  font-family: 'Barlow', sans-serif;
   border-top: 1px solid #eaf4e4;
   width: 600px;
 }

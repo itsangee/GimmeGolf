@@ -6,7 +6,7 @@
 
   <div class="show-row mb-5">
     <h2 class= "title-show"><strong><%= @course.name.upcase %></strong></h2>
-    <h5 class= "title-show">
+    <h5 class= "titel-show title-show-1">
       <% if @course.average_rating > 0 %>
       <%= "⭐️" * @course.average_rating %> ·
       <% else %>
@@ -57,7 +57,7 @@
 
       <h5 class="description-div"> <%= @course.description %> </h5>
     <div class='description-div ' data-controller="show-booked-users" >
-      <h5><strong>Click to check the other players:</strong></h5>
+      <h5 id="play">PLAY TODAY WITH:</h5>
       <div class="d-flex flex-column  mt-3">
       <div class="course-slots-container d-flex justify-content-center">
         <p class="">
