@@ -409,25 +409,27 @@
 }
 
 #button-back {
-  margin-left: 10px;
+  // margin-left: 10px;
   background-color: #40531b;
   color: white;
   padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: flex;
+  margin-left: 181px;
   font-size: 20px;
   justify-content: center;
   border-radius: 12px;
-  width: 160px;
+  width: 150px;
   margin-bottom: 10px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 #button-back:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-
+  font-family: 'Barlow Semi Condensed', sans-serif;
   background-color: #618B4A;
   color: white;
   border: 1px solid #618B4A;
@@ -450,6 +452,7 @@
     border-radius: 12px;
     width: 150px;
     display: none;
+    font-family: 'Barlow Semi Condensed', sans-serif;
   }
 
 .carousel-item {

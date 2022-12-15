@@ -124,6 +124,7 @@
           <p class=""><%= review.content %></p>
           <%# display reviewer %>
           <% end %>
+
         </div>
 
 
@@ -139,10 +140,11 @@
           </div>
         </div>
 
-       <%= link_to "See all", courses_path, id: "button-back" %>
+
 
 
     </div>
+
   </div>
   <div class="body-show">
 
@@ -177,10 +179,12 @@
       <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
       <%= f.input :date, as: :date, html5: true, required: true %>
       <%= f.submit "Book now", class: "", id: "slot-button" %>
-    <% end %>
 
+    <% end %>
+  <%= link_to "See all", courses_path, id: "button-back" %>
 
       </div>
+
       </div>
 
   </div>
@@ -201,7 +205,6 @@
     <%# <p>User signed in? <%= user_signed_in? %>
     <%# <p>Current user: <%= current_user.email %>
 
-  </div>
 
 
 
