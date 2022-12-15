@@ -33,7 +33,7 @@ user_3 = User.new(email: "johnnyboy@gmail.com",
                   password: "123456",
                   first_name: "Johnny",
                   last_name: "Boy",
-                  bio: "Golf is my passion and loves to make new friends, wherever possible!")
+                  bio: "I love swinging balls and to make new friends :)")
 user_3.save!
 puts "creating!.."
 
@@ -41,9 +41,27 @@ user_4 = User.new(email: "mustafatahir@hotmail.co.uk",
                   password: "123456",
                   first_name: "Mustafa",
                   last_name: "Tahir",
-                  bio: "Golf is a new hobby that I am trying to improve on!")
+                  bio: "My knees are getting banged up from football so I need to change sports!")
 user_4.save!
 puts "creating!.."
+
+user_5 = User.new(email: "teddy_sheringham@hotmail.co.uk",
+  password: "123456",
+  first_name: "Teddy",
+  last_name: "Sheringham",
+  bio: "I love it!")
+user_5.save!
+puts "creating!.."
+
+user_6 = User.new(email: "niko_bellic@hotmail.co.uk",
+  password: "123456",
+  first_name: "Niko",
+  last_name: "Bellic",
+  bio: "I love this game")
+user_6.save!
+puts "creating!.."
+
+
 
 
 course_1_photo = ['https://res.cloudinary.com/dwsijevfb/image/upload/v1668713898/GimmeGolf/hole-3_s9uoox.jpg',
@@ -310,41 +328,58 @@ courses.each do |course|
   Slot.create(course: course, start_time: '13:00:00', end_time: '16:00:00')
   Slot.create(course: course, start_time: '17:00:00', end_time: '20:00:00')
 end
-# Booking.create!(user_id: user.id, slot_id: 1, date: Date.today)
-# Booking.create!(user_id: user_2.id, slot_id: 1, date: Date.today)
-# Booking.create!(user_id: user_3.id, slot_id: 1, date: Date.today)
-# Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.today)
 
-# Booking.create!(user_id: user.id, slot_id: 2, date: Date.today)
-# Booking.create!(user_id: user_2.id, slot_id: 2, date: Date.today)
-# Booking.create!(user_id: user_3.id, slot_id: 2, date: Date.today)
-# Booking.create!(user_id: user_4.id, slot_id: 2, date: Date.today)
 
-Booking.create!(user_id: user.id, slot_id: 3, date: Date.today)
-Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.today)
-Booking.create!(user_id: user_3.id, slot_id: 3, date: Date.today)
-Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.today)
-
+Booking.create!(user_id: user.id, slot_id: 9, date: Date.parse('2022-08-15'))
 Booking.create!(user_id: user.id, slot_id: 3, date: Date.parse('2022-10-02'))
+Booking.create!(user_id: user.id, slot_id: 3, date: Date.parse('2022-10-11'))
+Booking.create!(user_id: user.id, slot_id: 3, date: Date.parse('2023-01-10'))
 Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-12-30'))
 Booking.create!(user_id: user_2.id, slot_id: 3, date: Date.parse('2022-09-17'))
 Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-10-07'))
 Booking.create!(user_id: user_4.id, slot_id: 3, date: Date.parse('2022-08-12'))
-Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.parse('2022-08-12'))
-
-
+Booking.create!(user_id: user_4.id, slot_id: 1, date: Date.parse('2022-09-12'))
 Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-12-15'))
 Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-11-28'))
+
+# Slots for Leatherhead 9am and 1pm Saturday
+Booking.create!(user_id: user_6.id, slot_id: 2, date: Date.parse('2022-12-17'))
+
+# Slot for 5pm
+
+
 
 Follow.create!(following_id: 1, follower_id: 3)
 Follow.create!(following_id: 2, follower_id: 3)
 Follow.create!(following_id: 4, follower_id: 3)
 Follow.create!(following_id: 3, follower_id: 1)
 Follow.create!(following_id: 2, follower_id: 1)
+Follow.create!(following_id: 4, follower_id: 1)
+Follow.create!(following_id: 1, follower_id: 4)
 Follow.create!(following_id: 4, follower_id: 2)
 Follow.create!(following_id: 3, follower_id: 4)
 Follow.create!(following_id: 1, follower_id: 2)
 
 Invitation.create!(booking_id: 6, user_id: 3, invite_seen: false)
-Invitation.create!(booking_id: 11, user_id: 2, invite_seen: false)
-Invitation.create!(booking_id: 11, user_id: 1, invite_seen: false)
+# Invitation.create!(booking_id: 11, user_id: 2, invite_seen: false)
+Invitation.create!(booking_id: 5, user_id: 1, invite_seen: false)
+
+
+Review.create!(course_id: 5, user_id: 3, content: 'Sick course! I made so many friends there :)', ratings: 5)
+Review.create!(course_id: 5, user_id: 2, content: 'Super course - I went during the summer and it was amazing', ratings: 5)
+Review.create!(course_id: 5, user_id: 5, content: 'Great course, the holes and par are perfect for my level', ratings: 5)
+Review.create!(course_id: 5, user_id: 6, content: 'The lake alone is worth coming here!!', ratings: 5)
+Review.create!(course_id: 1, user_id: 3, content: 'Sick course! I made so many friends there :)', ratings: 5)
+Review.create!(course_id: 2, user_id: 2, content: 'Super course - I went during the summer and it was amazing', ratings: 4)
+Review.create!(course_id: 3, user_id: 5, content: 'Great course, the holes and par are perfect for my level', ratings: 4)
+Review.create!(course_id: 4, user_id: 3, content: 'Sick course! I made so many friends there :)', ratings: 2)
+Review.create!(course_id: 6, user_id: 2, content: 'Super course - I went during the summer and it was amazing', ratings: 4)
+Review.create!(course_id: 7, user_id: 5, content: 'Great course, the holes and par are perfect for my level', ratings: 5)
+Review.create!(course_id: 3, user_id: 1, content: 'Great course, the holes and par are perfect for my level', ratings: 2)
+Review.create!(course_id: 4, user_id: 2, content: 'Sick course! I made so many friends there :)', ratings: 3)
+Review.create!(course_id: 6, user_id: 3, content: 'Super course - I went during the summer and it was amazing', ratings: 1)
+Review.create!(course_id: 7, user_id: 4, content: 'Great course, the holes and par are perfect for my level', ratings: 2)
+Review.create!(course_id: 8, user_id: 4, content: 'Great course, the holes and par are perfect for my level', ratings: 4)
+Review.create!(course_id: 9, user_id: 4, content: 'Great course, the holes and par are perfect for my level', ratings: 3)
+Review.create!(course_id: 10, user_id: 4, content: 'Great course, the holes and par are perfect for my level', ratings: 5)
+Review.create!(course_id: 11, user_id: 4, content: 'Great course, the holes and par are perfect for my level', ratings: 3)
