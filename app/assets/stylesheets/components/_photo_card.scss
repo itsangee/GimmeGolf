@@ -1,7 +1,4 @@
-.container{
-  // background-color: white;
-  // width: 100%;
-}
+
 .cards{
   margin-top: 50px;
   margin-bottom: 50px;
@@ -31,10 +28,9 @@
 }
 .course-card-index h2{
   font-family: 'Barlow Semi Condensed', sans-serif;
-  // font-weight: bold;
 }
 a {
-  text-decoration: none; /* Убираем подчёркивание */
+  text-decoration: none;
  }
 .scale {
   transition: 1s;
@@ -47,7 +43,7 @@ a {
 .card-course-info {
   margin-top:10px;
   margin-left:10px;
-  color: #40531B;
+  color: $golfdarkgreen;
 
 }
 .display-flex{
@@ -63,10 +59,7 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-// .display-flex {
-//   display: block;
-//   text-align: center;
-// }
+
 
 .item{
   flex: 1 1 auto;
@@ -90,9 +83,7 @@ a {
   text-align: center;
 
 }
-.hole{
-  // padding-bottom: 10px;
-}
+
 .padding-right-hole{
   padding-right: 10px;
 }
