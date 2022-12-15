@@ -167,10 +167,10 @@
   background-color: #618B4A;
 }
 
-.user-show:focus {
-  background-color: #40531b;
-  color: white;
-}
+// .user-show:focus {
+//   background-color: #40531b;
+//   color: white;
+// }
 
 .user-show:hover {
   background-color: #40531b;
@@ -398,15 +398,15 @@
   background-color: #618B4A;
 }
 
-#slot-button:focus{
-  background-color: white;
-  color: #618B4A;
-  border: 1px solid #618B4A;
-  margin-left: 10px;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
-}
+// #slot-button:focus{
+//   background-color: #618B4A;
+//   color: white;
+//   border: 1px solid #618B4A;
+//   margin-left: 10px;
+//   top: 8px;
+//   bottom: 8px;
+//   right: 8px;
+// }
 
 #button-back {
   // margin-left: 10px;
@@ -435,25 +435,25 @@
   border: 1px solid #618B4A;
 }
 
-#button-back:focus {
-    background-color: #618B4A;
-    color: white;
-    border: none;
-    margin-left: 10px;
-    top: 8px;
-    bottom: 8px;
-    right: 8px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 13px;
-    justify-content: center;
-    border-radius: 12px;
-    width: 150px;
-    display: none;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-  }
+// #button-back:focus {
+//     background-color: #618B4A;
+//     color: white;
+//     border: none;
+//     margin-left: 10px;
+//     top: 8px;
+//     bottom: 8px;
+//     right: 8px;
+//     padding: 15px 32px;
+//     text-align: center;
+//     text-decoration: none;
+//     display: flex;
+//     font-size: 13px;
+//     justify-content: center;
+//     border-radius: 12px;
+//     width: 150px;
+//     display: none;
+//     font-family: 'Barlow Semi Condensed', sans-serif;
+//   }
 
 .carousel-item {
   transition: transform 0s ease-in-out;
