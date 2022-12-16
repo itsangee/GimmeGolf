@@ -4,17 +4,17 @@
 
 <div class="booking-page-container">
 
-  <h1 class="booking">Booking successful!</h1>
+  <h1 class="booking" style="font-family:Barlow Semi Condensed, sans serif">Booking successful!</h1>
   <div class="booking-container">
 
     <div class="booking-confirmed-details">
       <div class="d-flex justify-content-center align-items-center flex-column">
         <h4 class="mt-2" style="
-      display: flex;"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
+      display: flex; font-family:Barlow Semi Condensed, sans serif"><%= link_to @booking.slot.course.name, course_path(@booking.slot.course), class: "course-name" %></h4>
       </div>
       <div class="mt-2">
-        <h4 class="border booking-border"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%A, %d %b %Y") %></h4>
-        <h4 class="border booking-border"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
+        <h4 class="border booking-border" style="font-family:Barlow, sans serif"><i class="fa-regular fa-calendar-days me-3"></i><%= @booking.date.strftime("%A, %d %b %Y") %></h4>
+        <h4 class="border booking-border" style="font-family:Barlow, sans serif"><i class="fa-solid fa-clock me-3"></i><%= @booking&.slot&.start_time.strftime("%I:%M %p")%></h4>
       </div>
       <div class="booking-button-container mt-3">
         <div>
@@ -35,7 +35,7 @@
     <% if current_user.following.any? %>
     <div class="booking-invite-users">
       <div class="invite-users-ctr">
-      <h2 class="mb-3 mt-3"><b>Why not invite a friend?</b></h2>
+      <h2 class="mb-3 mt-3" style="font-family:Barlow Semi Condensed, sans serif"><b>Why not invite a friend?</b></h2>
         <ul>
         <% current_user.following.each do |followee| %>
           <li class="booking-follower-li">

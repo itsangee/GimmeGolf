@@ -2,8 +2,8 @@
 
   <div class=" dashboard-heading-banner">
     <div>
-      <h1 class="">Your Dashboard</h1>
-      <h5 class="" style="margin-left: 4px;"><%= @user.first_name %></h5>
+      <h1 id="h1-dashboard">Your Dashboard</h1>
+      <h5 class="" style="margin-left: 4px; letter-spacing: 2px;" id="h1-dashboard"> <%= @user.first_name %></h5>
     </div>
 
 
@@ -11,7 +11,7 @@
       <div class="modal-stuff ">
       <!-- Button trigger modal -->
       <button type="button" class="dashboard-modal-button" data-bs-toggle="modal" data-bs-target="#followersModal">
-        Followers: <%= @user.followers.count %>
+       Followers:  <%= @user.followers.count %>
       </button>
 
       <!-- Modal -->
@@ -35,7 +35,7 @@
                   </div>
                 <% end %>
               <% else %>
-                <p class="text-light">No followers currently</p>
+                <p style="font-family:barlow semi condensed sansrif" class="text-light">No followers currently</p>
               <% end %>
             </div>
             <div class="modal-footer">
@@ -123,7 +123,7 @@
         <% else %>
           <p class="text-center">No invites currently... why not check out our courses?</p>
           <%= link_to courses_path do %>
-            <button class="dashboard-accept-button">Courses</button>
+            <button class="dashboard-accept-button" id="h1-dashboard">Courses</button>
           <% end %>
         <% end %>
       </div>
@@ -138,7 +138,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-  ">Latest Invitations</div>
+  "> <h1 id="h1-dashboard">  Latest Invitations</h1> </div>
   </div>
 
   </div>
@@ -200,7 +200,7 @@
                 <div class="dashboard-empty-booking">
                   <p class="text-center">No bookings.. why not check out our courses?</p>
                   <%= link_to courses_path do %>
-                    <button class="dashboard-accept-button">Courses</button>
+                    <button class="dashboard-accept-button" id="h1-dashboard">Courses</button>
                   <% end %>
                 </div>
               <% end %>
@@ -233,7 +233,7 @@
                 <div class="dashboard-empty-booking">
                   <p class="text-center">No previous bookings.. why not check out our courses?</p>
                   <%= link_to courses_path do %>
-                    <button class="dashboard-accept-button">Courses</button>
+                    <button class="dashboard-accept-button" id="h1-dashboard">Courses</button>
                   <% end %>
                 </div>
               <% end %>
@@ -272,7 +272,7 @@
                 <div class="dashboard-empty-booking">
                   <p class="text-center">No bookings yet.. why not check out our courses?</p>
                   <%= link_to courses_path do %>
-                    <button class="dashboard-accept-button">Courses</button>
+                    <button class="dashboard-accept-button" id="h1-dashboard">Courses</button>
                   <% end %>
                 </div>
               <% end %>
