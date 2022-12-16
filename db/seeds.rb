@@ -18,6 +18,7 @@ user = User.new(email: "magdalena@gmail.com",
                 first_name: "Magda",
                 last_name: "Krasicka",
                 bio: "Exploring the world one golf course at a time!")
+user.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/magdalena1.jpg')), filename: 'magdalena1.jpg')
 user.save!
 puts "creating"
 
@@ -26,6 +27,7 @@ user_2 = User.new(email: "angee@gmail.com",
                   first_name: "Angee",
                   last_name: "Otic",
                   bio: "Seeking new adventures and new friends! Join me for a game!")
+user_2.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/angee.jpg')), filename: 'angee.jpg')
 user_2.save!
 puts "created..."
 
@@ -34,6 +36,7 @@ user_3 = User.new(email: "johnnyboy@gmail.com",
                   first_name: "Johnny",
                   last_name: "Boy",
                   bio: "I love swinging balls and to make new friends :)")
+user_3.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/johnny.webp')), filename: 'johnny.webp')
 user_3.save!
 puts "creating!.."
 
@@ -42,6 +45,7 @@ user_4 = User.new(email: "mustafatahir@hotmail.co.uk",
                   first_name: "Mustafa",
                   last_name: "Tahir",
                   bio: "My knees are getting banged up from football so I need to change sports!")
+user_4.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/mustafa.png')), filename: 'mustafa.png')
 user_4.save!
 puts "creating!.."
 
@@ -50,6 +54,7 @@ user_5 = User.new(email: "teddy_sheringham@hotmail.co.uk",
   first_name: "Teddy",
   last_name: "Sheringham",
   bio: "I love it!")
+  user_5.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Teddy_S.jpeg')), filename: 'Teddy_S.jpeg')
 user_5.save!
 puts "creating!.."
 
@@ -58,8 +63,81 @@ user_6 = User.new(email: "niko_bellic@hotmail.co.uk",
   first_name: "Niko",
   last_name: "Bellic",
   bio: "I love this game")
+
+user_6.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/NikoBellic.webp')), filename: 'NikoBellic.webp')
 user_6.save!
 puts "creating!.."
+
+user_7 = User.new(email: "harry_r@hotmail.com",
+  password: "123456",
+  first_name: "Harry",
+  last_name: "R",
+  bio: "Get in son!")
+
+user_7.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Harry_R.jpeg')), filename: 'Harry_R.jpeg')
+user_7.save!
+puts "creating!.."
+
+user_8 = User.new(email: "topcat@hotmail.co.uk",
+  password: "123456",
+  first_name: "Top",
+  last_name: "Cat",
+  bio: "miawoww")
+
+user_8.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/topcat.png')), filename: 'topcat.png')
+user_8.save!
+puts "creating!.."
+
+user_9 = User.new(email: "johnmajor@hotmail.com",
+  password: "123456",
+  first_name: "John",
+  last_name: "Major",
+  bio: "Hello")
+
+user_9.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/johnmajor.jpeg')), filename: 'johnmajor.jpeg')
+user_9.save!
+puts "creating!.."
+
+user_10 = User.new(email: "tomsmith@hotmail.com",
+  password: "123456",
+  first_name: "Tom",
+  last_name: "Smith",
+  bio: "I love this game")
+
+# user_6.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/NikoBellic.webp')), filename: 'NikoBellic.webp')
+user_10.save!
+puts "creating!.."
+
+user_11 = User.new(email: "tiger@hotmail.com",
+  password: "123456",
+  first_name: "Tiger",
+  last_name: "Woods",
+  bio: "Simply the best")
+
+user_11.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/tigerw.webp')), filename: 'tigerw.webp')
+user_11.save!
+puts "creating!.."
+
+user_12 = User.new(email: "r91@hotmail.co.uk",
+  password: "123456",
+  first_name: "Randy",
+  last_name: "Watson",
+  bio: "I love this game")
+
+user_12.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/swim.jpeg')), filename: 'swim.jpeg')
+user_12.save!
+puts "creating!.."
+
+user_13 = User.new(email: "luba@hotmail.co.uk",
+  password: "123456",
+  first_name: "Luba",
+  last_name: "K",
+  bio: "I love this game")
+
+user_13.avatar.attach(io: File.open(File.join(Rails.root, 'app/assets/images/luba.jpg')), filename: 'luba.jpg')
+user_13.save!
+puts "creating!.."
+
 
 
 
@@ -343,9 +421,17 @@ Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-12-15'))
 Booking.create!(user_id: user_3.id, slot_id: 7, date: Date.parse('2022-11-28'))
 
 # Slots for Leatherhead 9am and 1pm Saturday
-Booking.create!(user_id: user_6.id, slot_id: 2, date: Date.parse('2022-12-17'))
+Booking.create!(user_id: user_6.id, slot_id: 13, date: Date.today)
+Booking.create!(user_id: user_7.id, slot_id: 13, date: Date.today)
+Booking.create!(user_id: user_8.id, slot_id: 13, date: Date.today)
+Booking.create!(user_id: user_9.id, slot_id: 13, date: Date.today)
 
-# Slot for 5pm
+Booking.create!(user_id: user_10.id, slot_id: 14, date: Date.today)
+Booking.create!(user_id: user_11.id, slot_id: 14, date: Date.today)
+Booking.create!(user_id: user_12.id, slot_id: 14, date: Date.today)
+Booking.create!(user_id: user_3.id, slot_id: 14, date: Date.today)
+
+
 
 
 
@@ -356,8 +442,10 @@ Follow.create!(following_id: 3, follower_id: 1)
 Follow.create!(following_id: 2, follower_id: 1)
 Follow.create!(following_id: 4, follower_id: 1)
 Follow.create!(following_id: 1, follower_id: 4)
+Follow.create!(following_id: 2, follower_id: 4)
+Follow.create!(following_id: 13, follower_id: 4)
 Follow.create!(following_id: 4, follower_id: 2)
-Follow.create!(following_id: 3, follower_id: 4)
+# Follow.create!(following_id: 3, follower_id: 4)
 Follow.create!(following_id: 1, follower_id: 2)
 
 Invitation.create!(booking_id: 6, user_id: 3, invite_seen: false)
