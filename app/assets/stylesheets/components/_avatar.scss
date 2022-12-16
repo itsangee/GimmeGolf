@@ -104,8 +104,8 @@
 
 .text-white h4{
   font-family: 'Barlow', sans-serif;
-  font-size: 30px;
-  color: #40531b;
+  font-size: 35px;
+  color: black;
 }
 .ui-bg-overlay-container, .ui-bg-video-container {
   position: relative;
@@ -170,11 +170,11 @@
 }
 .opacity-75 {
   opacity: .75 !important;
-  color: #40531b;
+  color: black;
 
 }
 .tabs-alt.nav-tabs .nav-link.active, .tabs-alt.nav-tabs .nav-link.active:hover, .tabs-alt.nav-tabs .nav-link.active:focus, .tabs-alt>.nav-tabs .nav-link.active, .tabs-alt>.nav-tabs .nav-link.active:hover, .tabs-alt>.nav-tabs .nav-link.active:focus {
-  -webkit-box-shadow: 0 -2px 0 #40531B inset;
+  -webkit-box-shadow: 0 -2px 0 black inset;
   box-shadow: 0 -2px 0 #40531B inset;
 }
 
@@ -192,9 +192,9 @@
 }
 
 .list .list-item h1 {
-  font-family: 'Barlow', sans-serif;
-  font-weight: bolder;
-  color: #40531b;
+  font-family: 'Barlow ', sans-serif;
+  // font-weight: bolder;
+  color: black;
   padding: 2px;
 }
 

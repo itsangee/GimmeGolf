@@ -19,9 +19,9 @@
               {:quality=>100, :radius=>0}] %>
           <% end %>
         <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
-          <h4 class="font-weight-bold my-4 "><%= @player.first_name%> <%=@player.last_name%></h4>
+          <h4 class=" my-4" style="font-family: 'Barlow Semi Condensed', sans-serif;"><%= @player.first_name%> <%=@player.last_name%></h4>
 
-          <div class="opacity-75 mb-4">
+          <div class="opacity-75 mb-4" style="font-family: 'Barlow', sans-serif;">
             <%= @player.bio %>
           </div>
         </div>
@@ -60,7 +60,7 @@
           <div class="list" id="courses-list">
             <div class="list-item text-center">
               <br>
-              <h1><%= @player.first_name %> has been to...</h1>
+              <h1 style="font-size: 25px;"><i><%= @player.first_name %> has been to...</i></h1>
 
               <% @past_bookings.each do |booking| %>
                   <p><%= link_to booking.slot.course.name , course_path, class:"name-show-past" %> <br><%= booking.date.strftime("%A, %d %b %Y") %></p>
