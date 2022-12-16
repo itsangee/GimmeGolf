@@ -77,7 +77,7 @@
               <% if booking.date == @today %>
                 <p data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
                 <% if booking.user.avatar.key.nil? %>
-                    <%= image_tag "logo.png", size: "70x70" %>
+                    <%= image_tag "logo2.png", size: "70x70" %>
                   <% else %>
                     <%= cl_image_tag booking.user.avatar.key, :transformation=>[
                     {:gravity=>"face", :height=>70, :radius=>"max", :width=>70, :crop=>"fill"},
