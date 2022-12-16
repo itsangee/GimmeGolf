@@ -78,12 +78,21 @@
             <div class="list-item">some stuff</div>
           </div> %>
 
-        <div class="list" id="followers-list">
-          <div class="list-item text-center">
-            <% if @player.followers.any? %>
-            <% @player.followers.each do |follower| %>
-            <br><hr width="100% center" />
-              <%= follower.first_name %>
+          <div class="list" id="followers-list">
+            <div class="list-item">
+              <% if @player.followers.any? %>
+                <% @player.followers.each do |follower| %>
+                  <div>
+                    <p><%= follower.first_name %></p>
+                    <% if follower.avatar.key.nil? %>
+                      <%= image_tag "logo2.jpg", size: "60x60" %>
+                    <% else %>
+                      <%= cl_image_tag follower.avatar.key, :transformation=>[
+                      {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
+                      {:quality=>100, :radius=>0}] %>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
