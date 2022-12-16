@@ -4,7 +4,7 @@ class Slot < ApplicationRecord
   validates :start_time, :end_time, presence: true
 
   def todays_bookings_count
-    bookings.where(date: Date.today).count
+    self.bookings.where(date: Date.today).count
   end
 
   def available_spaces?(search_date)

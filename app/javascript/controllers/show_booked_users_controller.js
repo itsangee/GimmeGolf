@@ -9,7 +9,11 @@ export default class extends Controller {
 
   showUsers(e){
 
+    document.querySelectorAll('.course-show-cliked').forEach(function(button) {
+      button.classList.remove('course-show-cliked')
+    })
     const slotId = e.currentTarget.id
+    e.currentTarget.classList.add('course-show-cliked')
     this.usersTargets.forEach((item) => {
       if (item.classList.contains(slotId)) {
         // console.log(`we're in the if statement`)

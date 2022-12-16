@@ -58,7 +58,7 @@
       <h5 class="description-div"> <%= @course.description %> </h5>
     <div class='description-div ' data-controller="show-booked-users" >
       <h5 id="play">PLAY TODAY WITH:</h5>
-      <div class="d-flex flex-column  mt-3">
+      <div class="d-flex flex-column align-items-center mt-3">
       <div class="course-slots-container d-flex justify-content-center">
         <p class="">
         <% @slots.each do |slot| %>
@@ -67,27 +67,32 @@
         </div>
         <% end %></p>
       </div>
-      <div>
+      <div style=" margin-top: 20px; width: 60%;">
         <% @slots.each do |slot| %>
-          <%# <% if slot.todays_bookings_count.zero? %>
-            <%# <p>No users have booked this slot yet</p> %>
-          <%# <% if %>
-          <div class="d-flex user-grid justify-content-center">
+          <% if slot.todays_bookings_count.zero? %>
+            <div class="course-show-users-avatars">
+              <div data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
+                <p>No users have booked this slot yet!</p>
+              </div>
+            </div>
+          <% else %>
+          <div class=" course-show-users-avatars">
             <% slot.bookings.each do |booking| %>
               <% if booking.date == @today %>
-                <p data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
-                <% if booking.user.avatar.key.nil? %>
+                <div data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
+                  <% if booking.user.avatar.key.nil? %>
                     <%= image_tag "logo2.png", size: "70x70" %>
                   <% else %>
-                    <%= cl_image_tag booking.user.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>70, :radius=>"max", :width=>70, :crop=>"fill"},
-                    {:quality=>100, :radius=>0}] %>
+                      <%= cl_image_tag booking.user.avatar.key, :transformation=>[
+                          {:gravity=>"face", :height=>70, :radius=>"max", :width=>70, :crop=>"fill"},
+                          {:quality=>100, :radius=>0}] %>
                   <% end %>
-                </p>
+                </div>
               <% end %>
             <% end %>
           </div>
         <% end %>
+      <% end %>
         <%# <% end %>
         </div>
       </div>
@@ -109,12 +114,16 @@
           <div class="d-flex justify-content-between">
             <div class="d-flex">
               <% if review.user.avatar.attached? %>
-              <p class="avatar"> <%= cl_image_tag review.user.avatar.key, :transformation=>[
-                {:gravity=>"face", :height=>40, :radius=>"max", :width=>40, :crop=>"fill"},
-                {:quality=>100, :radius=>0}] %></p>
-                <% else %>
-                <%= image_tag "logo2.png", size: "70x70" %>
-                <% end %>
+                <div class="avatar ">
+                  <%= cl_image_tag review.user.avatar.key, :transformation=>[
+                  {:gravity=>"face", :height=>40, :radius=>"max", :width=>40, :crop=>"fill"},
+                  {:quality=>100, :radius=>0}] %>
+                </div>
+              <% else %>
+                <div>
+                  <%= image_tag "logo2.png", size: "70x70" %>
+                </div>
+              <% end %>
               <div class="review-info d-block">
                 <p id="name"><strong><%= review.user.first_name %></strong> </p>
                 <p>  <%= review.created_at.strftime("%d-%m-%Y") %> </p>
