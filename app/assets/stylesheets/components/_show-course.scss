@@ -20,6 +20,14 @@
   color: black;
 }
 
+.course-show-users-avatars {
+  // width: 60%;
+  // border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .carousel-indicators [data-bs-target] {
   height: 170px;
   width: 300px;
@@ -162,7 +170,7 @@
   border: 1px solid rgb(68, 171, 12);
   color: white;
   padding: 12px 15px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   border-radius: 12px;
   background-color: #618B4A;
 }
@@ -475,4 +483,8 @@
   font-family: 'Barlow', sans-serif;
   border-top: 1px solid #eaf4e4;
   width: 600px;
+}
+
+.course-show-cliked {
+  background-color: rgb(64, 83, 27);
 }
