@@ -119,6 +119,7 @@
   border-radius: 50%;
   padding: 8px;
   transform: translateX(8px);
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 
@@ -147,6 +148,7 @@
   justify-content: space-between;
   margin-top: 60px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .bookings-container {
@@ -158,6 +160,7 @@
   display: flex;
   justify-content: space-between;
   width: 65%;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .dashboard-empty-booking {
@@ -166,10 +169,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: 'Barlow', sans-serif;
 }
 
 .dashboard-empty-booking a {
   color: $golfdarkgreen;
+  font-family: 'Barlow ', sans-serif;
 }
 
 .dashboard-bookings {
@@ -257,11 +262,13 @@
   cursor: pointer;
   text-decoration: none;
   border-bottom: 4px solid transparent;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #555555;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .dashboard-popup-heading {
@@ -271,6 +278,7 @@
 
 .dashboard-popup-link {
   color: $golfdarkgreen;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .dashboard-popup-link:hover {
@@ -304,6 +312,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .dashboard-invitations:last-child {
@@ -336,6 +345,7 @@
   align-items: center;
   height: 100%;
   justify-content: center;
+  font-family: 'Barlow', sans-serif;
 }
 
 .dashboard-invitation-actions {
@@ -438,6 +448,7 @@
 
 .dashboard-booking-photo {
   border-radius: 12px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .dashboard-heading-banner {
@@ -447,6 +458,7 @@
   height: 200px;
   width: 100%;
   margin-top: 30px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 
 }
 
@@ -460,4 +472,13 @@
 
 p {
   font-size: 1.05rem;
+}
+
+#h1-dashboard {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 2px;
+}
+
+.text-center p {
+  font-family: 'Barlow', sans-serif;
 }
