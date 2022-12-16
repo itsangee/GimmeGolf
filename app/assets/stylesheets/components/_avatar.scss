@@ -112,10 +112,11 @@
   color: #40531b;
 }
 .ui-bg-cover {
-  background-color: whitesmoke;
+  background-color: white;
   background-position: center center;
   background-size: cover;
   margin: auto;
+  border-top: 1px solid #eaf4e4;
 }
 .ui-bg-overlay-container .ui-bg-overlay .h4{
   background-color: white;
@@ -194,6 +195,7 @@
   font-family: 'Barlow', sans-serif;
   font-weight: bolder;
   color: #40531b;
+  padding: 2px;
 }
 
 #nav-show {
@@ -212,7 +214,9 @@
 
 .user-bg-color {
   background-color: #fff;
-  height: 100vh;
-  overflow: scroll;
-  border-top: 1px solid #eaf4e4;
+  // height: 100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+  // overflow: scroll;
+  // border-top: 1px solid #eaf4e4;
 }

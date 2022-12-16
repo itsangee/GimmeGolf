@@ -49,12 +49,28 @@
 }
 
 .title-show {
-  color: #40531B;
+  color: black;
   padding-left: 100px;
   padding-right: 80px;
   padding-top: 24px;
   // padding-bottom: 48px;
   font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#play {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#name {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.title-show-1 {
+  color: black;
+  padding-left: 100px;
+  padding-right: 80px;
+  padding-top: 24px;
+  font-family: 'Barlow', sans-serif;
 }
 
 .description-show {
@@ -73,12 +89,14 @@
 }
 
 .description-show h5 {
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  color: #40531B;
+  font-family: 'Barlow  Semi Condensed', sans-serif;
+  color: black;
+  font-size: 18px;
 }
 
 .width-description {
   width: 60%;
+  color: black;
 }
 
 .description-div {
@@ -121,6 +139,7 @@
   width: 375px;
   // margin-right: 100px;
   margin-top: 45px;
+  color: black;
   // padding-left: 60px;
   // padding-right: 60px;
 }
@@ -141,12 +160,23 @@
 
 .user-show {
   border: 1px solid rgb(68, 171, 12);
-  color: black;
+  color: white;
   padding: 12px 15px;
   margin-bottom: 10px;
   border-radius: 12px;
-  background-color: #eaf4e4;
+  background-color: #618B4A;
 }
+
+// .user-show:focus {
+//   background-color: #40531b;
+//   color: white;
+// }
+
+.user-show:hover {
+  background-color: #40531b;
+  color: white;
+}
+
 
 .book-main {
   border: 1px solid rgb(68, 171, 12);
@@ -163,7 +193,15 @@
   opacity: 0.6;
   color: #40531b;
 }
+.review-info {
+  line-height: 0.3;
+  font-size: 16;
+  margin-top: 5px;
+}
 
+.avatar {
+  margin-right: 10px;
+}
 .book-main1 {
   border: 1px solid rgb(68, 171, 12);
   color: #618B4A;
@@ -196,7 +234,7 @@
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .form-select {
@@ -303,7 +341,7 @@
   bottom: 8px;
   right: 8px;
   border: none;
-
+  font-family: 'Barlow Semi Condensed', sans-serif;
   color: white;
   background-color: #40531b;
 }
@@ -360,59 +398,62 @@
   background-color: #618B4A;
 }
 
-#slot-button:focus{
-  background-color: white;
-  color: #618B4A;
-  border: 1px solid #618B4A;
-  margin-left: 10px;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
-}
+// #slot-button:focus{
+//   background-color: #618B4A;
+//   color: white;
+//   border: 1px solid #618B4A;
+//   margin-left: 10px;
+//   top: 8px;
+//   bottom: 8px;
+//   right: 8px;
+// }
 
 #button-back {
-  margin-left: 10px;
+  // margin-left: 10px;
   background-color: #40531b;
   color: white;
   padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: flex;
+  margin-left: 181px;
   font-size: 20px;
   justify-content: center;
   border-radius: 12px;
-  width: 160px;
+  width: 150px;
   margin-bottom: 10px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 #button-back:hover {
   top: 8px;
   bottom: 8px;
   right: 8px;
-
-  background-color: white;
-  color: #618B4A;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background-color: #618B4A;
+  color: white;
   border: 1px solid #618B4A;
 }
 
-#button-back:focus {
-    background-color: #618B4A;
-    color: white;
-    border: none;
-    margin-left: 10px;
-    top: 8px;
-    bottom: 8px;
-    right: 8px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 13px;
-    justify-content: center;
-    border-radius: 12px;
-    width: 150px;
-    display: none;
-  }
+// #button-back:focus {
+//     background-color: #618B4A;
+//     color: white;
+//     border: none;
+//     margin-left: 10px;
+//     top: 8px;
+//     bottom: 8px;
+//     right: 8px;
+//     padding: 15px 32px;
+//     text-align: center;
+//     text-decoration: none;
+//     display: flex;
+//     font-size: 13px;
+//     justify-content: center;
+//     border-radius: 12px;
+//     width: 150px;
+//     display: none;
+//     font-family: 'Barlow Semi Condensed', sans-serif;
+//   }
 
 .carousel-item {
   transition: transform 0s ease-in-out;
@@ -431,4 +472,7 @@
 .card-review {
   border: none;
   color: black;
+  font-family: 'Barlow', sans-serif;
+  border-top: 1px solid #eaf4e4;
+  width: 600px;
 }

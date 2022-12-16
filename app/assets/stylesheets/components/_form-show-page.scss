@@ -6,34 +6,19 @@
 }
 
 .search-form-control .btn {
-  // background-color: #618B4A;
   top: 8px;
   bottom: 8px;
   right: 8px;
-  border: 1px solid #618B4A;
   margin-left: 10px;
-  color: #618B4A;
-  background-color: #E7E7E7;
+  color: white;;
+  background-color: $golfdarkgreen;
   height: 3rem;
   margin-top: 15px;
 }
 
 .search-form-control .btn:hover{
-
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
-
-}
-
-.search-form-control .form-control:focus {
-  border: 1px solid #618B4A;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.search-form-control .btn:focus{
-  background-color: #618B4A;
+  background-color: $golfgreen;
+  color: white;
   top: 8px;
   bottom: 8px;
   right: 8px;

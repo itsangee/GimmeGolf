@@ -6,7 +6,7 @@
 
   <div class="show-row mb-5">
     <h2 class= "title-show"><strong><%= @course.name.upcase %></strong></h2>
-    <h5 class= "title-show">
+    <h5 class= "titel-show title-show-1">
       <% if @course.average_rating > 0 %>
       <%= "⭐️" * @course.average_rating %> ·
       <% else %>
@@ -57,7 +57,7 @@
 
       <h5 class="description-div"> <%= @course.description %> </h5>
     <div class='description-div ' data-controller="show-booked-users" >
-      <h5><strong>Click to check the other players:</strong></h5>
+      <h5 id="play">PLAY TODAY WITH:</h5>
       <div class="d-flex flex-column  mt-3">
       <div class="course-slots-container d-flex justify-content-center">
         <p class="">
@@ -77,10 +77,10 @@
               <% if booking.date == @today %>
                 <p data-show-booked-users-target="users" class="slot-<%= slot.id %> d-none">
                 <% if booking.user.avatar.key.nil? %>
-                    <%= image_tag "logo.png", size: "100x100" %>
+                    <%= image_tag "logo.png", size: "70x70" %>
                   <% else %>
                     <%= cl_image_tag booking.user.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>100, :radius=>"max", :width=>100, :crop=>"fill"},
+                    {:gravity=>"face", :height=>70, :radius=>"max", :width=>70, :crop=>"fill"},
                     {:quality=>100, :radius=>0}] %>
                   <% end %>
                 </p>
@@ -90,7 +90,7 @@
         <% end %>
         <%# <% end %>
         </div>
-        </div>
+      </div>
     </div>
     <div class='description-div'>
 
@@ -107,13 +107,25 @@
         <div id="review" class="card card-review card-body">
           <% @course.reviews.each do |review| %>
           <div class="d-flex justify-content-between">
+            <div class="d-flex">
+              <% if review.user.avatar.attached? %>
+              <p class="avatar"> <%= cl_image_tag review.user.avatar.key, :transformation=>[
+                {:gravity=>"face", :height=>40, :radius=>"max", :width=>40, :crop=>"fill"},
+                {:quality=>100, :radius=>0}] %></p>
+                <% else %>
+                <%= image_tag "logo2.png", size: "70x70" %>
+                <% end %>
+              <div class="review-info d-block">
+                <p id="name"><strong><%= review.user.first_name %></strong> </p>
+                <p>  <%= review.created_at.strftime("%d-%m-%Y") %> </p>
+              </div>
+              </div>
           <%= "⭐️" * review.ratings %>
-          <p>  <%= review.created_at.strftime("%d-%m-%Y") %> </p>
           </div>
-          <p><strong><%= review.user.email %></strong> </p>
-          <p><%= review.content %></p>
+          <p class=""><%= review.content %></p>
           <%# display reviewer %>
           <% end %>
+
         </div>
 
 
@@ -129,16 +141,17 @@
           </div>
         </div>
 
-       <%= link_to "See all", courses_path, id: "button-back" %>
+
 
 
     </div>
+
   </div>
   <div class="body-show">
 
     <div class="modal-body">
       <div class="">
-      <h5><strong>£104</strong><small> per hour</small></h5>
+      <h5><strong>£16</strong><small> per hour</small></h5>
 
     <div class="d-flex justify-content-between">
       <% if @course.average_rating > 0 %>
@@ -167,10 +180,11 @@
       <%# <%= f.select :slot_id, @slots.map { |slot| ["Start time #{slot.start_time.strftime("at %I:%M %p")}", slot.id]} %>
       <%= f.input :date, as: :date, html5: true, required: true %>
       <%= f.submit "Book now", class: "", id: "slot-button" %>
-    <% end %>
-
+      <% end %>
+  <%= link_to "See all", courses_path, id: "button-back" %>
 
       </div>
+
       </div>
 
   </div>
@@ -191,7 +205,6 @@
     <%# <p>User signed in? <%= user_signed_in? %>
     <%# <p>Current user: <%= current_user.email %>
 
-  </div>
 
 
 
