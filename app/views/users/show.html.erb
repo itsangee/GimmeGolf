@@ -1,5 +1,7 @@
 
-<%# <% render partial: "stats", locals: {user: @player} %>
+
+<% render partial: "stats", locals: {user: @player} %>
+
 <%# <% content_for :meta_title, "#{@player.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <%# <% content_for :meta_description, @oplayer.description %>
 <%# <% content_for :meta_image, cl_image_path(@player.photo.path) %>
@@ -10,12 +12,12 @@
       <div class="text-center py-5 col-6">
         <img alt="" class="ui-w-100 rounded-circle">
           <% if @player.avatar.key.nil? %>
-                    <%= image_tag "avatar-alt.png", size: "150x150" %>
-                  <% else %>
-                    <%= cl_image_tag @player.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>200, :radius=>"max", :width=>200, :crop=>"fill"},
-                    {:quality=>100, :radius=>0}] %>
-                  <% end %>
+              <%= image_tag "avatar-alt.png", size: "150x150" %>
+            <% else %>
+              <%= cl_image_tag @player.avatar.key, :transformation=>[
+              {:gravity=>"face", :height=>200, :radius=>"max", :width=>200, :crop=>"fill"},
+              {:quality=>100, :radius=>0}] %>
+          <% end %>
         <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
           <h4 class="font-weight-bold my-4 "><%= @player.first_name%> <%=@player.last_name%></h4>
 
@@ -66,7 +68,7 @@
                   <%= cl_image_tag photo.key, crop: :thumb, :class => "user-imgs" %>
                   <% end %>
                   <hr width="100% center" />
-                  <% end %>
+                <% end %>
             </div>
           </div>
 
@@ -79,14 +81,15 @@
           </div> %>
 
           <div class="list" id="followers-list">
-            <div class="list-item">
+            <div class="list-item text-center">
               <% if @player.followers.any? %>
                 <% @player.followers.each do |follower| %>
                   <div>
+                    <br>
                     <p><%= follower.first_name %></p>
                     <% if follower.avatar.key.nil? %>
-                      <%= image_tag "logo2.jpg", size: "60x60" %>
-                    <% else %>
+                      <%= image_tag "logo2.png", size: "60x60" %>
+                      <% else %>
                       <%= cl_image_tag follower.avatar.key, :transformation=>[
                       {:gravity=>"face", :height=>60, :radius=>"max", :width=>60, :crop=>"fill"},
                       {:quality=>100, :radius=>0}] %>
@@ -94,7 +97,6 @@
                   </div>
                 <% end %>
               <% end %>
-            <% end %>
           </div>
         </div>
 
